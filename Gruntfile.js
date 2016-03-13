@@ -80,7 +80,7 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 options: {
-                    banner: '/*! <%= pkg.name %> <%= pkg.version %> filename.min.css <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n',
+                    banner: '/*! <%= pkg.name %> <%= pkg.version %> style.min.css <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n',
                     style: 'compressed'
                 },
                 files: [{
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
         uglify: {
             admin: {
                 options: {
-                    banner: '/*! <%= pkg.name %> <%= pkg.version %> filename.min.js <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n',
+                    banner: '/*! <%= pkg.name %> <%= pkg.version %> admin.min.js <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n',
                     report: 'gzip'
                 },
                 files: {
@@ -108,27 +108,21 @@ module.exports = function(grunt) {
             },
             plugins: {
                 options: {
-                    banner: '/*! <%= pkg.name %> <%= pkg.version %> filename.js <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n',
+                    banner: '/*! <%= pkg.name %> <%= pkg.version %> plugins.js <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n',
                     beautify: true,
                     compress: false,
                     mangle: false
                 },
                 files: {
                     'assets/js/source/plugins.js' : [
-                        // 'assets/js/vendor/matchmedia.js',
-                        // 'assets/js/vendor/doubletaptogo.js',
-                        // 'assets/js/vendor/picturefill.js',
-                         'assets/js/vendor/js-cookie.js',
-                        'assets/js/vendor/jquery.flexslider.js',
                         'assets/js/vendor/jquery.fitvids.js',
-                        'assets/js/vendor/transformicons.js',
                         'assets/js/source/plugin-control.js'
                     ]
                 }
             },
             main: {
                 options: {
-                    banner: '/*! <%= pkg.name %> <%= pkg.version %> filename.min.js <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n',
+                    banner: '/*! <%= pkg.name %> <%= pkg.version %> init.min.js <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n',
                     report: 'gzip'
                 },
                 files: {
@@ -186,7 +180,7 @@ module.exports = function(grunt) {
                     pngpath: "png",
 
                     // prefix for CSS classnames
-                    cssprefix: ".srbt-icon-",
+                    cssprefix: ".jspdx-icon-",
 
                     //primarily for pngs
                     defaultWidth: "400px",
