@@ -80,7 +80,6 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 options: {
-                    banner: '/*! <%= pkg.name %> <%= pkg.version %> style.min.css <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n',
                     style: 'compressed'
                 },
                 files: [{
@@ -274,9 +273,5 @@ module.exports = function(grunt) {
         'grunticon:myIcons',
         'copy',
         'postcss:dist',
-    ]);
-
-    grunt.registerTask('googlefonts', [
-        'curl:google-fonts-source'
     ]);
 };
