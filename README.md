@@ -1,12 +1,12 @@
 My Starter Theme - Joe Snell
 ============================
 
-This is _s with some added spices and home cookin.
+This is JSPDX Theme with some added spices and home cookin.
 
 More Info
 ---------
 
-* _s
+* JSPDX Theme
 * grunt - plugins / features
 * custom includes / shortcodes / etc
 * modifications
