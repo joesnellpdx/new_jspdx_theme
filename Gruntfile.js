@@ -80,6 +80,7 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 options: {
+                    banner: '/*! <%= pkg.name %> <%= pkg.version %> filename.min.css <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %> */\n',
                     style: 'compressed'
                 },
                 files: [{
@@ -88,7 +89,7 @@ module.exports = function(grunt) {
                     src: [
                         '*.scss'
                     ],
-                    dest: '',
+                    dest: 'assets/css',
                     ext: '.css'
                 }]
             },

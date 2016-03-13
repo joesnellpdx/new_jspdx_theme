@@ -1,14 +1,14 @@
 {
-  "name": "sr_performance_theme",
+  "name": "jspdx_theme",
   "version": "1.0.0",
-  "description": "See staffingrobot.com",
+  "description": "Joe Snell's Theme",
   "main": "index.php",
-  "Theme URI": "http://www.staffingrobot.com",
+  "Theme URI": "https://github.com/joesnellpdx/my_starter_theme",
   "keywords": [
     "wordpress"
   ],
-  "Author": "Staffing Robot",
-  "Author URI": "http://www.staffingrobot.com",
+  "Author": "Joe Snell",
+  "Author URI": "http://www.joesnellpdx.com",
   "license": "GNU General Public License",
   "dependencies": {},
   "devDependencies": {
