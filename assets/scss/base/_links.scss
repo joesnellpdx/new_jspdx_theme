@@ -1,10 +1,16 @@
 /* Links */ 
 a {
-	color: $gray-dark;
+	color: $link__color;
 	text-decoration: none;
 	outline: 0;
-	
-	&:hover, &:focus {
-		color: $gray;
+	@include all-transition(.3s);
+	&:visited {
+		color: $link__visited;
 	}
+	&:hover, &:focus {
+		color: $link__hover;
+		outline: 0;
+		text-decoration: none;
+	}
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }

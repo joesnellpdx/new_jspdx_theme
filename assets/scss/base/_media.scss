@@ -3,12 +3,23 @@
 \*------------------------------------*/
 
 /* Flexible Media */
-img, video, object {
+img, video, object, .wp-caption {
 	max-width: 100%;
 	height: auto;
 }
 
-iframe {
+.jspdx-video,
+.flexslider,
+video,
+img,
+.background-image {
+	@include fade-in;
+}
+
+embed,
+iframe,
+object {
+	max-width: 100%;
 	margin-bottom: $space;
 }
 
@@ -20,4 +31,14 @@ figure {
 }
 figcaption {
 	font-style: italic;
+}
+
+.jspdx-video {
+	border: $border__med solid $white;
+	border-radius: ($border__med * 0.5);
+	margin: $space 0rem;
+	@include box-shadow(sm-med);
+	.srbt-modal & {
+		margin: 0rem;
+	}
 }

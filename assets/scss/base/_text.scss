@@ -4,12 +4,51 @@ p {
 }
 
 /* Blockquote */
-blockquote {
-    font-style:italic;
-    border-left: 1px solid $gray;
-    color: $gray;
+blockquote, q {
+	@extend .cf;
 	padding-left: $pad;
-	margin-bottom: $space;
+	margin: $space-and-half 0rem;
+	> p {
+		position: relative;
+		font-size: 1.4em;
+		&:first-of-type {
+			margin-top: 0px;
+			&:before {
+				content: '\201C';
+				font-size: 1.6em;
+				color: $gray;
+				position: absolute;
+				left: -.5em;
+				top: -.15em;
+			}
+		}
+		&:last-of-type {
+			&:after {
+				content: '\201D';
+				font-size: 40px;
+				color: $gray;
+				line-height: 0;
+				margin-bottom: -.5em;
+				margin-left: .25em;
+				position: relative;
+				bottom: -.2em;
+			}
+		}
+	}
+	cite {
+		display: block;
+		clear: both;
+		float: right;
+		font-style: normal;
+		> span {
+			display: block;
+		}
+	}
+	.cite {
+		&__name {
+			font-weight: bold;
+		}
+	}
 }
 
 /* Horizontal Rule */ 

@@ -24,7 +24,7 @@
         }
     };
 
-    var  isScrolledIntoView(elem) = function() {
+    var  isScrolledIntoView = function(elem) {
         var docViewTop = $(window).scrollTop();
         var docViewBottom = docViewTop + $(window).height();
         var elemTop = $(elem).offset().top;

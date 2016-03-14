@@ -28,3 +28,12 @@
 .comment-text {
 	margin-left: 9em;
 }
+
+.comment-content {
+	a {
+		word-wrap: break-word;
+	}
+}
+.bypostauthor {
+	display: block;
+}

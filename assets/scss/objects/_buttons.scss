@@ -1,6 +1,7 @@
 /*------------------------------------*\
     $BUTTONS
 \*------------------------------------*/
+
 .btn {
 	display: inline-block;
 	background: $gray-dark;
@@ -10,7 +11,7 @@
 	padding: $pad;
 	border: 0;
 	text-align: center;
-	
+	@include all-transition(.3s);
 	&:hover, &:focus {
 		background: $gray;
 		color: $white;
@@ -20,20 +21,26 @@
 		background: $gray-light-2;
 		color: $gray;
 	}
+	&--primary {
+		@extend .btn;
+		background: $link__color;
+		color: $white;
+		&:hover, &:focus {
+			background: $link__hover;
+			color: $white;
+		}
+	}
+	&--small {
+		padding: $pad-half;
+	}
+	&--large {
+		padding: $pad-half;
+		text-transform: uppercase;
+		background: $gray;
+		font-size: 1.4rem;
+		font-weight: normal;
+	}
 }
-
-.btn-small {
-	padding: $pad-half;
-}
-
-.btn-large {
-	padding: $pad-half;
-	text-transform: uppercase;
-	background: $gray;
-	font-size: 1.4rem;
-	font-weight: normal;
-}
-
 
 .text-btn {
 	font-style: italic;

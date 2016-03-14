@@ -18,10 +18,23 @@ $valid : #089e00;
 $warning : #fff664;
 $information : #000db5;
 
+$brand__one : $gray-med;
+$brand__two : $gray-med;
+
+$link__color : blue;
+$link__hover : darken(blue, 10%);
+$link__visited : lighten(blue, 10%);
+
 
 //Typography
 $font : "HelveticaNeue", "Helvetica", "Arial", sans-serif;
-$font-secondary : Georgia, Times, "Times New Roman", serif;
+$font__headings : $font;
+$font__secondary : Georgia, Times, "Times New Roman", serif;
+$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__pre: "Courier 10 Pitch", Courier, monospace;
+$font__line-height-body: 1.4;
+$font__line-height-headers: 1.2;
+$font__line-height-pre: 1.5;
 
 $font-size-small : 0.75em;
 $font-size-small-2 : 0.875em;
@@ -42,12 +55,14 @@ $space-half : $space/2;
 $pad : 1em;
 $pad-and-half : $pad*1.5;
 $pad-double : $pad*2;
+$pad-triple : $pad*3;
 $pad-half : $pad/2;
 $pad-quarter :$pad/4;
 
 //Borders
-$border-med: 3px;
-$border-thick: 7px;
+$border__thin: 1px;
+$border__med: 3px;
+$border__thick: 7px;
 
 
 //Breakpoints

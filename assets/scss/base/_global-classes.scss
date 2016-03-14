@@ -3,33 +3,35 @@
 \*------------------------------------*/
 
 /* Clearfix */
-.cf {
-    *zoom: 1;
-}
-.cf:before, .cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+.cf:before,
+.cf:after {
+	content: "";
+	display: table;
+	.flexbox & {
+		flex-basis: 0;
+		order: 1;
+	}
 }
 
 .cf:after {
-    clear: both;
+	clear: both;
 }
 
 /* Completely remove from the flow and screen readers. */
 .is-hidden {
-    display: none !important;
-    visibility: hidden !important;
+	display: none !important;
+	visibility: hidden !important;
 }
 
 /* Completely remove from the flow but leave available to screen readers. */
 .is-vishidden {
-    position: absolute !important;
-    overflow: hidden;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
 }
 
 /* Floats */
@@ -63,21 +65,21 @@
 
 /* Display Classes */
 .hide-small {
-    @media all and (max-width: $bp-med) {
-        display: none;
-    }
+	@media all and (max-width: $bp-med) {
+		display: none;
+	}
 }
 
 .hide-med {
-    @media all and (min-width: $bp-med) and (max-width: $bp-large) {
-        display: none;
-    }
+	@media all and (min-width: $bp-med) and (max-width: $bp-large) {
+		display: none;
+	}
 }
 
 .hide-large {
-    @media all and (min-width: $bp-large) {
-        display: none;
-    }
+	@media all and (min-width: $bp-large) {
+		display: none;
+	}
 }
 
 //States
@@ -90,15 +92,15 @@
 }
 
 .warning {
-    color: $warning;
+	color: $warning;
 }
 
 .information {
-    color: $information;
+	color: $information;
 }
 
-.font-secondary {
-    font-family: $font-secondary;
+.font__secondary {
+	font-family: $font__secondary;
 }
 
 
