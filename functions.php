@@ -6,6 +6,11 @@
 require get_template_directory() . '/inc/theme-functions.php';
 
 /**
+ * Implement custom functions.
+ */
+require get_template_directory() . '/inc/custom-functions.php';
+
+/**
  * Implement the Custom Header feature.
  */
 //require get_template_directory() . '/inc/custom-header.php';

@@ -1,156 +1,81 @@
-/*!
+/**
+ * File navigation.js.
  *
- *  Copyright (c) David Bushell | http://dbushell.com/
- *
+ * Handles toggling the navigation menu for small screens and enables TAB key
+ * navigation support for dropdown menus.
  */
-(function(window, document, undefined)
-{
+( function() {
+	var container, button, menu, links, subMenus, i, len;
 
-    // helper functions
+	container = document.getElementById( 'site-navigation' );
+	if ( ! container ) {
+		return;
+	}
 
-    var trim = function(str)
-    {
-        return str.trim ? str.trim() : str.replace(/^\s+|\s+$/g,'');
-    };
+	button = container.getElementsByTagName( 'button' )[0];
+	if ( 'undefined' === typeof button ) {
+		return;
+	}
 
-    var hasClass = function(el, cn)
-    {
-        return (' ' + el.className + ' ').indexOf(' ' + cn + ' ') !== -1;
-    };
+	menu = container.getElementsByTagName( 'ul' )[0];
 
-    var addClass = function(el, cn)
-    {
-        if (!hasClass(el, cn)) {
-            el.className = (el.className === '') ? cn : el.className + ' ' + cn;
-        }
-    };
+	// Hide menu toggle button if menu is empty and return early.
+	if ( 'undefined' === typeof menu ) {
+		button.style.display = 'none';
+		return;
+	}
 
-    var removeClass = function(el, cn)
-    {
-        el.className = trim((' ' + el.className + ' ').replace(' ' + cn + ' ', ' '));
-    };
+	menu.setAttribute( 'aria-expanded', 'false' );
+	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
+		menu.className += ' nav-menu';
+	}
 
-    var hasParent = function(el, id)
-    {
-        if (el) {
-            do {
-                if (el.id === id) {
-                    return true;
-                }
-                if (el.nodeType === 9) {
-                    break;
-                }
-            }
-            while((el = el.parentNode));
-        }
-        return false;
-    };
+	button.onclick = function() {
+		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
+			container.className = container.className.replace( ' toggled', '' );
+			button.setAttribute( 'aria-expanded', 'false' );
+			menu.setAttribute( 'aria-expanded', 'false' );
+		} else {
+			container.className += ' toggled';
+			button.setAttribute( 'aria-expanded', 'true' );
+			menu.setAttribute( 'aria-expanded', 'true' );
+		}
+	};
 
-    // normalize vendor prefixes
+	// Get all the link elements within the menu.
+	links    = menu.getElementsByTagName( 'a' );
+	subMenus = menu.getElementsByTagName( 'ul' );
 
-    var doc = document.documentElement;
+	// Set menu items with submenus to aria-haspopup="true".
+	for ( i = 0, len = subMenus.length; i < len; i++ ) {
+		subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
+	}
 
-    var transform_prop = window.Modernizr.prefixed('transform'),
-        transition_prop = window.Modernizr.prefixed('transition'),
-        transition_end = (function() {
-            var props = {
-                'WebkitTransition' : 'webkitTransitionEnd',
-                'MozTransition'    : 'transitionend',
-                'OTransition'      : 'oTransitionEnd otransitionend',
-                'msTransition'     : 'MSTransitionEnd',
-                'transition'       : 'transitionend'
-            };
-            return props.hasOwnProperty(transition_prop) ? props[transition_prop] : false;
-        })();
+	// Each time a menu link is focused or blurred, toggle focus.
+	for ( i = 0, len = links.length; i < len; i++ ) {
+		links[i].addEventListener( 'focus', toggleFocus, true );
+		links[i].addEventListener( 'blur', toggleFocus, true );
+	}
 
-    window.App = (function()
-    {
+	/**
+	 * Sets or removes .focus class on an element.
+	 */
+	function toggleFocus() {
+		var self = this;
 
-        var _init = false, app = { };
+		// Move up through the ancestors of the current link until we hit .nav-menu.
+		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
 
-        var inner = document.getElementById('inner-wrap'),
+			// On li elements toggle the class .focus.
+			if ( 'li' === self.tagName.toLowerCase() ) {
+				if ( -1 !== self.className.indexOf( 'focus' ) ) {
+					self.className = self.className.replace( ' focus', '' );
+				} else {
+					self.className += ' focus';
+				}
+			}
 
-            nav_open = false,
-
-            nav_class = 'js-nav';
-
-
-        app.init = function()
-        {
-            if (_init) {
-                return;
-            }
-            _init = true;
-
-            var closeNavEnd = function(e)
-            {
-                if (e && e.target === inner) {
-                    document.removeEventListener(transition_end, closeNavEnd, false);
-                }
-                nav_open = false;
-            };
-
-            app.closeNav =function()
-            {
-                if (nav_open) {
-                    // close navigation after transition or immediately
-                    var duration = (transition_end && transition_prop) ? parseFloat(window.getComputedStyle(inner, '')[transition_prop + 'Duration']) : 0;
-                    if (duration > 0) {
-                        document.addEventListener(transition_end, closeNavEnd, false);
-                    } else {
-                        closeNavEnd(null);
-                    }
-                }
-                removeClass(doc, nav_class);
-            };
-
-            app.openNav = function()
-            {
-                if (nav_open) {
-                    return;
-                }
-                addClass(doc, nav_class);
-                nav_open = true;
-            };
-
-            app.toggleNav = function(e)
-            {
-                if (nav_open && hasClass(doc, nav_class)) {
-                    app.closeNav();
-                } else {
-                    app.openNav();
-                }
-                if (e) {
-                    e.preventDefault();
-                }
-            };
-
-            // open nav with main "nav" button
-            document.getElementById('nav-open-btn').addEventListener('click', app.toggleNav, false);
-
-            // close nav with main "close" button
-            document.getElementById('nav-close-btn').addEventListener('click', app.toggleNav, false);
-
-            // close nav by touching the partial off-screen content
-            document.addEventListener('click', function(e)
-            {
-                if (nav_open && !hasParent(e.target, 'nav')) {
-                    e.preventDefault();
-                    app.closeNav();
-                }
-            },
-            true);
-
-            addClass(doc, 'js-ready');
-
-        };
-
-        return app;
-
-    })();
-
-    if (window.addEventListener) {
-        window.addEventListener('DOMContentLoaded', window.App.init, false);
-    }
-
-})(window, window.document);
+			self = self.parentElement;
+		}
+	}
+} )();
