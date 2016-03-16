@@ -34,3 +34,13 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Implement custom functions.
+ */
+require get_template_directory() . '/inc/custom-page-content.php';
+
+/**
+ * Implement custom form functions.
+ */
+require get_template_directory() . '/inc/custom-form-functions.php';

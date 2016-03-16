@@ -575,3 +575,30 @@ function get_attachment_id_from_src($url) {
 	$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $prefix . "posts" . " WHERE guid='%s';", $img_source ));
 	return $attachment[0];
 }
+
+/**
+ * CMB2 Metabox Bootstrap Function - Get the bootstrap!
+ */
+if ( file_exists(  __DIR__ . '/cmb2/init.php' ) ) {
+	require_once  __DIR__ . '/cmb2/init.php';
+} elseif ( file_exists(  __DIR__ . '/CMB2/init.php' ) ) {
+	require_once  __DIR__ . '/CMB2/init.php';
+}
+
+/**
+ * Filter Yoast Meta Priority - move below meta boxes
+ */
+add_filter( 'wpseo_metabox_prio', function() { return 'low';});
+
+/**
+ * Image compression to fo with the RICG plugin
+ */
+function custom_theme_setup() {
+	add_theme_support( 'advanced-image-compression' );
+}
+add_action( 'after_setup_theme', 'custom_theme_setup' );
+
+add_filter("gform_submit_button", "form_submit_button", 10, 2);
+function form_submit_button($button, $form){
+	return "<p class='btn-wrap text-center'><button class='gform-submit button btn btn-primary' id='gform_submit_button_{$form["id"]}' type='submit'><span>Submit</span></button></p>";
+}
