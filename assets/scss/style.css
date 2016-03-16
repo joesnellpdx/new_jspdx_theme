@@ -548,8 +548,9 @@ html {
 
 body {
   background: #fff;
-  font: 16px/1.5 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
   -webkit-text-size-adjust: 100%;
   color: #333; }
 
@@ -1108,12 +1109,12 @@ figure.fixedratio {
   background-size: cover; }
 
 .site-title {
-  max-width: 8x;
+  max-width: 8rem;
   display: block;
   overflow: hidden; }
 
 .logo {
-  max-width: 8x;
+  max-width: 8rem;
   width: 100%; }
 
 /*------------------------------------*\
