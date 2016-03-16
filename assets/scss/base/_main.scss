@@ -1,6 +1,10 @@
+html {
+	font-size: 62.5%;
+}
 body {
 	background: $white;
-	font: 100%/1.5 $font;
+	font: 16px/1.5 $font;
+	font-size: 1.4rem;
 	-webkit-text-size-adjust: 100%;
 	color: $gray-dark;
 }

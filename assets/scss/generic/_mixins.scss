@@ -61,3 +61,11 @@ $transition__time : .3s;
 	margin-left: auto;
 	margin-right: auto;
 }
+
+/* PX to REM - based on 16px (100%) at html
+	Usage: @include center-block;
+*/
+@mixin pix-rem($property, $des_px) {
+	$rem : ($des_px / 16) + rem;
+	#{$property}: $rem
+}

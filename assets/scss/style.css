@@ -76,6 +76,9 @@ J:::::::JJJ:::::::J  SSSSSSS     S:::::SPP::::::PP          DDD:::::DDDDD:::::D 
 /* Center Block
 	Usage: @include center-block;
 */
+/* PX to REM - based on 16px (100%) at html
+	Usage: @include center-block;
+*/
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -540,9 +543,13 @@ q:after,
 .font__secondary {
   font-family: Georgia, Times, "Times New Roman", serif; }
 
+html {
+  font-size: 62.5%; }
+
 body {
   background: #fff;
-  font: 100%/1.5 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font: 16px/1.5 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.4rem;
   -webkit-text-size-adjust: 100%;
   color: #333; }
 
@@ -1083,6 +1090,32 @@ a img.aligncenter {
 /*------------------------------------*\
     $PAGE STRUCTURE
 \*------------------------------------*/
+/*------------------------------------*\
+    $HEADER
+\*------------------------------------*/
+.site-branding {
+  position: relative;
+  display: block;
+  padding: 1em; }
+  .site-branding a {
+    display: block;
+    overflow: hidden; }
+
+figure.fixedratio {
+  margin: 0;
+  padding-top: 100%;
+  background-position: center;
+  background-size: cover; }
+
+.site-title {
+  max-width: 8x;
+  display: block;
+  overflow: hidden; }
+
+.logo {
+  max-width: 8x;
+  width: 100%; }
+
 /*------------------------------------*\
     $NAVIGATION
 \*------------------------------------*/

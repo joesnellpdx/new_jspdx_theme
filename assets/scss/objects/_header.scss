@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    $HEADER
+\*------------------------------------*/
+
+.site-branding {
+	position: relative;
+	display: block;
+	padding: $space;
+	a {
+		display: block;
+		overflow: hidden;
+
+	}
+}
+figure.fixedratio {
+	margin: 0;
+	padding-top: $logo-ratio;
+	background-position: center;
+	background-size: cover;
+}
+.site-title {
+	max-width: $logo-width;
+	display: block;
+	overflow: hidden;
+}
+.logo {
+	max-width: $logo-width;
+	width: 100%;
+	//@include pix-rem(max-width, 80);
+}
