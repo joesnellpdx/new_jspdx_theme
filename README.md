@@ -13,7 +13,7 @@ Hi. I'm a starter theme called JSPDX Theme.
 
 == Recommended Plugins ==
 
-* <a href="https://wordpress.org/plugins/cmb2/">CMB2 Metabox PLugin</a>
+* <a href="https://wordpress.org/plugins/cmb2/">CMB2 Metabox Plugin</a>
 * <a href="https://wordpress.org/plugins/ricg-responsive-images/">RICG Responsive Images</a>
 * <a href="https://wordpress.org/plugins/simple-page-ordering/">Simple Page Ordering</a>
 * <a href="http://www.gravityforms.com/">Gravity Forms</a>
