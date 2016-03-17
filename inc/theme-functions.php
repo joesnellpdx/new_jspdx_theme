@@ -170,7 +170,7 @@ function jspdx_theme_scripts() {
 	}
 
 	if ( !is_admin() ) {
-//		wp_enqueue_script('modernizr-custom', get_template_directory_uri() . '/assets/js/vendor/modernizr-custom.min.js', false, '2.7.2' );
+		wp_enqueue_script('modernizr-custom', get_template_directory_uri() . '/assets/js/vendor/modernizr-custom.min.js', false, '2.7.2' );
 		wp_enqueue_script('sr_scripts', get_template_directory_uri() . '/assets/js/init.min.js', array('jquery'), NULL, true );
 	}
 }
