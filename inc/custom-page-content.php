@@ -21,7 +21,7 @@ function hide_page_stuff() {
 }
 add_action('init', 'hide_page_stuff');
 
-function sr_register_primary_section_metabox( ) {
+function jspdx_register_primary_section_metabox( ) {
 
 	// Start with an underscore to hide fields from custom fields list
 	$pd_prefix = '_psect_';
@@ -38,59 +38,22 @@ function sr_register_primary_section_metabox( ) {
 		// 'closed'     => true, // Keep the metabox closed by default
 	));
 
-//	$meta_boxes->add_field( array(
-//		'name'       => __( 'Section Header', 'cmb2' ),
-////		'desc'       => __( 'field description (optional)', 'cmb2' ),
-//		'id'         => $pd_prefix . 'title',
-//		'type'       => 'text',
-//		'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
-//		// 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
-//		// 'escape_cb'       => 'my_custom_escaping',  // custom escaping callback parameter
-//		// 'on_front'        => false, // Optionally designate a field to wp-admin only
-//		// 'repeatable'      => true,
-//	) );
-
 	$meta_boxes->add_field( array(
-		'name' => __( 'Section title', 'cmb2' ),
-		'desc' => 'Page subtitle.',
-		'id'   => $pd_prefix . 'section-subtitle',
-		'type' => 'text',
+		'name'       => __( 'Section Title', 'cmb2' ),
+//		'desc'       => __( 'field description (optional)', 'cmb2' ),
+		'id'         => $pd_prefix . 'title',
+		'type'       => 'text',
+		'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
+		// 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
+		// 'escape_cb'       => 'my_custom_escaping',  // custom escaping callback parameter
+		// 'on_front'        => false, // Optionally designate a field to wp-admin only
+		// 'repeatable'      => true,
 	) );
-
-	$meta_boxes->add_field( array(
-		'name'    => __( 'Custom style', 'cmb2' ),
-		'id'      => $pd_prefix. 'style',
-		'type'    => 'radio',
-		'show_option_none' => true,
-		'options' => array(
-			'wide' => __( 'Wide Content (not fullwidth)', 'cmb2' ),
-			'fullwidth' => __( 'Fullwidth Content', 'cmb2' ),
-		)
-	) );
-//	$meta_boxes->add_field( array(
-//		'name'    => __( 'Image Overlay', 'cmb2' ),
-//		'id'      => $pd_prefix . 'overlay',
-//		'type'    => 'radio',
-//		'desc' => 'background-color-overlay',
-//		'show_option_none' => true,
-//		'options' => array(
-////			'nooverlay' => __( 'No overlay', 'cmb2' ),
-//			'primary' => __( '<span class="opt_paintchip primarybkgd" ></span> Primary Color', 'cmb2' ),
-//			'third' => __( '<span class="opt_paintchip thirdbkgd" ></span> Secondary Color', 'cmb2' ),
-//			'gray' => __( '<span class="opt_paintchip graybkgd" ></span> Gray ', 'cmb2' ),
-//		)
-//	) );
-
-//	$meta_boxes->add_field( array(
-//		'name'    => __( 'Remove section padding (full-width)', 'cmb2' ),
-//		'id'      => $pd_prefix . 'nopadding',
-//		'type'    => 'checkbox'
-//	) );
 
 }
-add_filter( 'cmb2_init', 'sr_register_primary_section_metabox' );
+add_filter( 'cmb2_init', 'jspdx_register_primary_section_metabox' );
 
-function sr_register_repeatable_section_metabox() {
+function jspdx_register_repeatable_section_metabox() {
 
 	// Start with an underscore to hide fields from custom fields list
 	$prefix = '_sr-content-';
@@ -122,13 +85,6 @@ function sr_register_repeatable_section_metabox() {
 	) );
 
 	$cmb_group->add_group_field( $group_field_id, array(
-		'name' => __( 'Section subtitle', 'cmb2' ),
-		'id'   => $prefix . 'section-subtitle',
-		'desc' => 'Section title not required to use subtitle.',
-		'type' => 'text',
-	) );
-
-	$cmb_group->add_group_field( $group_field_id, array(
 		'name'    => __( 'Section Content', 'cmb2' ),
 		'id'      => $prefix . 'wysiwyg',
 		'type'    => 'wysiwyg',
@@ -137,52 +93,20 @@ function sr_register_repeatable_section_metabox() {
 	) );
 
 	$cmb_group->add_group_field( $group_field_id, array(
-		'name'    => __( 'Section Title Background Image', 'cmb2' ),
-		'id'      => $prefix . 'bg',
-		'type'    => 'file',
-	) );
-
-	$cmb_group->add_group_field( $group_field_id, array(
 		'name'    => __( 'Background Color', 'cmb2' ),
 		'id'      => $prefix . 'background-wysiwyg',
 		'type'    => 'radio',
 		'show_option_none' => true,
 		'options' => array(
-			'seventhbkgd' => __( '<span class="opt_paintchip seventhbkgd" ></span> Option One', 'cmb2' ),
-			'eighthbkgd' => __( '<span class="opt_paintchip eighthbkgd" ></span> Option Two', 'cmb2' ),
-			'ninthbkgd' => __( '<span class="opt_paintchip ninthbkgd" ></span> Option Three ', 'cmb2' ),
+			'background--one' => __( '<span class="opt_paintchip background--one" ></span> Background One', 'cmb2' ),
+			'background--two' => __( '<span class="opt_paintchip background--two" ></span> Background Two', 'cmb2' ),
 		)
-	) );
-
-	$cmb_group->add_group_field( $group_field_id, array(
-		'name'    => __( 'Custom style', 'cmb2' ),
-		'id'      => $prefix . 'style',
-		'type'    => 'radio',
-		'show_option_none' => true,
-		'options' => array(
-			'wide' => __( 'Wide Content (not fullwidth)', 'cmb2' ),
-			'fullwidth' => __( 'Fullwidth Content', 'cmb2' ),
-		)
-	) );
-
-	$cmb_group->add_group_field( $group_field_id, array(
-		'name' => __( 'Wistia ID', 'cmb2' ),
-		'id'      => $prefix . 'wistia',
-		'description' => __( 'Wistia ID should look like this: cxn20upvi8.<br>Video thumbnail will replace any background image added above. Wistia video will override youtube url (below).', 'cmb2' ),
-		'type' => 'text',
-	) );
-
-	$cmb_group->add_group_field( $group_field_id, array(
-		'name' => __( 'Youtube URL', 'cmb2' ),
-		'id'      => $prefix . 'youtube',
-		'description' => __( 'URL should look like this: https://youtu.be/XQu8TTBmGhA.<br>Video thumbnail will replace any background image added above.', 'cmb2' ),
-		'type' => 'text_url',
 	) );
 
 }
-add_filter( 'cmb2_init', 'sr_register_repeatable_section_metabox' );
+add_filter( 'cmb2_init', 'jspdx_register_repeatable_section_metabox' );
 
-function sr_register_page_default_metabox( ) {
+function jspdx_register_page_default_metabox( ) {
 
 	// Start with an underscore to hide fields from custom fields list
 	$pd_prefix = '_hero_';
@@ -234,9 +158,9 @@ function sr_register_page_default_metabox( ) {
 
 
 }
-add_filter( 'cmb2_init', 'sr_register_page_default_metabox' );
+add_filter( 'cmb2_init', 'jspdx_register_page_default_metabox' );
 
-function sr_register_fullscreen_metabox( ) {
+function jspdx_register_fullscreen_metabox( ) {
 
 	// Start with an underscore to hide fields from custom fields list
 	$pd_prefix = '_hero_';
@@ -288,7 +212,7 @@ function sr_register_fullscreen_metabox( ) {
 
 
 }
-add_filter( 'cmb2_init', 'sr_register_fullscreen_metabox' );
+add_filter( 'cmb2_init', 'jspdx_register_fullscreen_metabox' );
 
 function content_areas(){
 

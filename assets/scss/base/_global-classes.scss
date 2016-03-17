@@ -103,4 +103,23 @@
 	font-family: $font__secondary;
 }
 
+.color {
+	&--one {
+		color: $brand__one;
+	}
+	&--two {
+		color: $brand__two;
+	}
+}
+
+.background {
+	&--one {
+		background-color: $background__one;
+		color: $white;
+	}
+	&--two {
+		background-color: $background__two;
+		color: $white;
+	}
+}
 

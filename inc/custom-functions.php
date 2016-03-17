@@ -156,91 +156,15 @@ function insert_page_heading(){
 		$the_page_id = $post->ID;
 	}
 
-	$p_title = get_post_meta( $the_page_id, 'pd_title', true );
-	$p_icon = get_post_meta( $the_page_id, 'pd_icon', true );
-	$title_align_left = get_post_meta( $the_page_id, 'pd_align-left', true );
+	$h_title = get_post_meta( $the_page_id, '_hero_title', true );
 
-	if($title_align_left == 1) {
-		$title_class = 'align-left';
+	if(!$h_title){
+		$title = '<h1 class="entry-title title">'. get_the_title($the_page_id) .'</h1>';
 	} else {
-		$title_class = '';
+		$title = '<h1 class="entry-title title">' . $h_title . '</h1>';
 	}
 
-	if(!$p_title){
-		$title = get_the_title($the_page_id);
-	} else {
-		$title = $p_title;
-	}
-
-	if($p_icon){
-		$add_icon .= '<i class="' . $p_icon . '"></i>';
-	}
-
-	if ( is_page('job-detail') ) :
-		// please don't remove from trunk - js
-		$job_title = new Jobbee_Job_Detail_SC();
-		$job_head = $job_title->data['job']->title;
-		$hero .=  '<h1 class="entry-header page-title ' . $title_class . '">' . $job_head . '</h1>';
-
-	elseif ( is_category() ) :
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">Category: ' . $add_icon . single_cat_title
-			("", false) .
-			'</h1>';
-
-	elseif ( is_tag() ) :
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">Tag: ' . $add_icon . single_tag_title("", false) . '</h1>';
-
-	elseif ( is_author("", false) ) :
-		/* Queue the first post, that way we know
-		 * what author we're dealing with (if that is the case).
-		*/
-		the_post();
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">Author: ' . $add_icon . get_the_author() . '</h1>';
-
-		/* Since we called the_post() above, we need to
-		 * rewind the loop back to the beginning that way
-		 * we can run the loop properly, in full.
-		 */
-		rewind_posts();
-
-	elseif ( is_day() ) :
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">Archive: ' . $add_icon . get_the_date() . '</h1>';
-
-	elseif ( is_month() ) :
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">Archive: ' . $add_icon . get_the_date('F Y') . '</h1>';
-
-	elseif ( is_year() ) :
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">Archive: ' . $add_icon . get_the_date( 'Y' ) . '</h1>';
-
-	elseif ( is_search() ) :
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">Search: ' . $add_icon . '<span>' . get_search_query() . '</span></h1>';
-
-	elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">Asides</h1>';
-
-	elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">Images</h1>';
-
-	elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">Videos</h1>';
-
-	elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">Quotes</h1>';
-
-	elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">Links</h1>';
-
-	elseif ( is_tax() ) :
-		$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">' . $add_icon . $term->name . '</h1>';
-
-	elseif( is_post_type_archive()) :
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">Archive: ' . $add_icon . post_type_archive_title("", false) . '</h1>';
-
-	else :
-		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">' . $add_icon . $title . '</h1>';
-
-	endif;
+	$hero .= $title;
 
 	return $hero;
 

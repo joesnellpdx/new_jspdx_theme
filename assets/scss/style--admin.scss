@@ -1,0 +1,28 @@
+/*------------------------------------*\
+    STYLES FOR ADMIN AREA
+\*------------------------------------*/
+
+
+/*------------------------------------*\
+    $GLOBAL ELEMENTS
+\*------------------------------------*/
+@import "generic/variables";
+@import "generic/mixins";
+@import "generic/extends";
+
+
+@import "base/global-classes";
+
+
+
+/*------------------------------------*\
+          STYLE IT UP, YO
+\*------------------------------------*/
+
+.opt_paintchip {
+	display: inline-block;
+	height: 10px;
+	width: 10px;
+}
+
+

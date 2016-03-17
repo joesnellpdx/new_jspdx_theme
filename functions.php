@@ -36,9 +36,14 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
- * Implement custom functions.
+ * Implement page content functions.
  */
 require get_template_directory() . '/inc/custom-page-content.php';
+
+/**
+ * Implement page hero functions.
+ */
+require get_template_directory() . '/inc/custom-page-hero.php';
 
 /**
  * Implement custom form functions.

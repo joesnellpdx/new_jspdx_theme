@@ -176,6 +176,11 @@ function jspdx_theme_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'jspdx_theme_scripts' );
 
+function load_custom_wp_admin_style(){
+	wp_enqueue_style( 'sr-admin-css', get_template_directory_uri() . '/style--admin.css' );
+}
+add_action('admin_enqueue_scripts', 'load_custom_wp_admin_style');
+
 /**
  * Remove actions
  */

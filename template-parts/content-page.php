@@ -10,12 +10,17 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<?php echo page_hero(); ?>
+
+	<div id="section-1" class="entry-content section section--page">
 		<?php
+			$p_title = get_post_meta( get_the_id(), '_psect_title', true );
+
+			if(!empty($p_title)){ ?>
+				<h1 class="title--section"><?php echo $p_title; ?></h1>
+			<?php }
+
 			the_content();
 
 			wp_link_pages( array(
@@ -24,6 +29,8 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
+
+	<?php echo content_areas(); ?>
 
 	<footer class="entry-footer">
 		<?php
