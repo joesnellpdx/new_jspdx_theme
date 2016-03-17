@@ -5,8 +5,8 @@
   "main": "index.php",
   "Theme URI": "https://github.com/joesnellpdx/my_starter_theme",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/joesnellpdx/my_starter_theme"
+    "type": "git",
+    "url": "https://github.com/joesnellpdx/my_starter_theme"
   },
   "keywords": [
     "wordpress"
@@ -16,24 +16,24 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "async": "*",
-    "autoprefixer": "*",
-    "cssnano": "*",
-    "grunt": "*",
+    "async": "^1.5.2",
+    "autoprefixer": "^6.3.3",
+    "cssnano": "^3.5.2",
+    "grunt": "^0.4.5",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-imagemin": "*",
+    "grunt-contrib-imagemin": "^1.0.0",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-curl": "*",
-    "grunt-grunticon": "*",
+    "grunt-curl": "^2.2.0",
+    "grunt-grunticon": "^2.2.2",
     "grunt-postcss": "^0.8.0",
-    "grunt-rsync": "*",
-    "grunt-svgmin": "*",
-    "grunt-wp-i18n": "*",
-    "matchdep": "*",
-    "pixrem": "*"
+    "grunt-rsync": "^1.0.1",
+    "grunt-svgmin": "^3.1.2",
+    "grunt-wp-i18n": "^0.5.4",
+    "matchdep": "^1.0.1",
+    "pixrem": "^3.0.0"
   }
 }
