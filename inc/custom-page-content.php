@@ -136,24 +136,9 @@ function jspdx_register_page_default_metabox( ) {
 	) );
 
 //	$meta_boxes->add_field( array(
-//		'name'    => __( 'Hero Content', 'cmb2' ),
-//		'id'      => $pd_prefix . 'content',
-//		'type'    => 'wysiwyg',
-//		'options' => array( 'textarea_rows' => 5, ),
-//		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
-//	) );
-
-	$meta_boxes->add_field( array(
-		'name'    => __( 'Main Bg Image', 'cmb2' ),
-		'id'      => $pd_prefix . 'bg',
-		'type'    => 'file',
-	) );
-
-//	$meta_boxes->add_field( array(
-//		'name'    => __( 'Replace main image with slider.', 'cmb2' ),
-//		'desc'       => __( 'May only work on home page.', 'cmb2' ),
-//		'id'      => $pd_prefix . 'slider',
-//		'type'    => 'checkbox'
+//		'name'    => __( 'Main Bg Image', 'cmb2' ),
+//		'id'      => $pd_prefix . 'bg',
+//		'type'    => 'file',
 //	) );
 
 
@@ -225,32 +210,16 @@ function content_areas(){
 
 	foreach ( (array) $field_data as $key => $entry ) {
 
-		$sect_title = $sect_subtitle = $sectioncont = $bg_color = $sect_border = $sect_img_id = $youtube_url = $sect_style = $wistia_id = '';
+		$sect_title = $sectioncont = $bg_color =  '';
 
 		if ( isset( $entry['_sr-content-section-title'] ) )
 			$sect_title = esc_html( $entry['_sr-content-section-title'] );
-
-		if ( isset( $entry['_sr-content-section-subtitle'] ) )
-			$sect_subtitle = esc_html( $entry['_sr-content-section-subtitle'] );
 
 		if ( isset( $entry['_sr-content-wysiwyg'] ) )
 			$sectioncont = wpautop( $entry['_sr-content-wysiwyg'] );
 
 		if ( isset( $entry['_sr-content-background-wysiwyg'] ) )
 			$bg_color = esc_html( $entry['_sr-content-background-wysiwyg'] );
-
-		if ( isset( $entry['_sr-content-style'] ) )
-			$sect_style = esc_html( $entry['_sr-content-style'] );
-
-		if ( isset( $entry['_sr-content-bg_id'] ) )
-			$sect_img_id = esc_html( $entry['_sr-content-bg_id'] );
-
-		if ( isset( $entry['_sr-content-youtube'] ) )
-			$youtube_url = esc_html( $entry['_sr-content-youtube'] );
-
-		if ( isset( $entry['_sr-content-wistia'] ) )
-			$wistia_id = esc_html( $entry['_sr-content-wistia'] );
-
 
 		if(!empty($sectioncont)) {
 
@@ -260,76 +229,17 @@ function content_areas(){
 
 			$add_class = '';
 
-			if((!empty($sect_style))) {
-				$add_class = $add_class . ' section--' . $sect_style;
-			}
 			if(!empty($bg_color)){
 				$add_class = $add_class . ' ' . $bg_color;
 			} else {
 				$add_class = $add_class . ' bg-none';
 			}
 
-			echo '<div id="section-' . $sectionid . '" class="section section--page' . $add_class . '">';
+			echo '<section id="section-' . $sectionid . '" class="section section--page' . $add_class . '">';
+			echo '<div class="section__inner lc">';
 			if(!empty($sect_title)){
-				if(!empty($wistia_id)) {
-
-					echo '<div class="section__hero section__hero--wistia-contain">';
-					echo do_shortcode('[wistia id="' . $wistia_id . '" pop="true"]');
-					echo '<div class="section__title-wrap lc--nopad">';
-					echo '<div class="section__title-contain">';
-					echo '<h1 class="section__title ' . $title_class . '">' . $sect_title . '</h1>';
-					echo '</div>';
-					echo '</div>';
-					echo '</div>';
-				} elseif(!empty($youtube_url)) {
-					$video_ID = youtube_id_from_url($youtube_url);
-
-					$video_content = file_get_contents("http://youtube.com/get_video_info?video_id=".$video_ID);
-					parse_str($video_content, $video_info);
-					$video_title =  $video_info['title'];
-
-					echo '<div class="section__hero section__hero--video-contain" data-video-url="' . $youtube_url . '">';
-					echo '<img src="http://img.youtube.com/vi/' . $video_ID . '/hqdefault.jpg" alt="Video: ' . $video_title . '">';
-					echo '<div class="section__title-wrap lc--nopad">';
-					echo '<div class="section__title-contain">';
-					echo '<h1 class="section__title ' . $title_class . '">' . $sect_title . '</h1>';
-					echo '</div>';
-					echo '</div>';
-					global $wp_embed;
-					$video_embed .= $wp_embed->run_shortcode('[embed ]'. $youtube_url . '[/embed]');
-
-					$videohtml .=  '<div class="section__hero-videopop is-vishidden">' . $video_embed . '</div>';
-					echo $videohtml;
-					echo '</div>';
-				} elseif(!empty($sect_img_id)){
-					$img_src      = wp_get_attachment_image_url( $sect_img_id, 'rwd-small' );
-					$img_fallback = wp_get_attachment_image_url( $sect_img_id, 'full' );
-					$srcset_value = wp_get_attachment_image_srcset( $sect_img_id, 'large' );
-					$srcset       = $srcset_value ? ' srcset="' . esc_attr( $srcset_value ) . '"' : '';
-					$alt          = get_post_meta( $sect_img_id, '_wp_attachment_image_alt', true );
-
-					echo '<div class="section__hero section__hero--img-contain img-fit">';
-					echo '<img src="' . $img_src . '" ' . $srcset . ' sizes="100vw" alt="' . $alt . '" data-fallback-img="' . $img_fallback . '">';
-					echo '<div class="section__title-wrap lc--nopad">';
-					echo '<div class="section__title-contain">';
-					echo '<h1 class="section__title ' . $title_class . '">' . $sect_title .
-						'</h1>';
-					echo '</div>';
-					echo '</div>';
-					echo '</div>';
-				} else {
-					echo '<div class="section__hero">';
-					echo '<div class="section__title-wrap lc--nopad">';
-					echo '<div class="section__title-contain">';
-					echo '<h1 class="section__title ' . $title_class . '">' . $sect_title .
-						'</h1>';
-					echo '</div>';
-					echo '</div>';
-					echo '</div>';
-				}
+				echo '<h1 class="title--section ' . $title_class . '">' . $sect_title . '</h1>';
 			}
-
-			echo '<div class="section__inner">';
 
 			$array = array (
 				'<p>[' => '[',
@@ -344,24 +254,12 @@ function content_areas(){
 				array('<img','" />'),
 				$newcontent);
 
-
-			echo '<div class="section__inner-content-contain">';
-			echo '<div class="section__inner-content">';
-
-			if(!empty($sect_subtitle)){
-				echo '<h2 class="subheading">' . $sect_subtitle . '</h2>';
-			}
-
 			echo do_shortcode( $newercontent );
-			echo '</div>';
-			echo '</div>';
 
 			echo '</div>';
-
-			echo '</div>';
+			echo '</section>';
 
 		}
-
 	}
 }
 

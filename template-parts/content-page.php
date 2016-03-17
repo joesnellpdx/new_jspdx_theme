@@ -13,7 +13,8 @@
 
 	<?php echo page_hero(); ?>
 
-	<div id="section-1" class="entry-content section section--page">
+	<section id="section-1" class="entry-content section section--page">
+		<div class="section__inner lc">
 		<?php
 			$p_title = get_post_meta( get_the_id(), '_psect_title', true );
 
@@ -28,7 +29,8 @@
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
+		</div>
+	</section><!-- .entry-content -->
 
 	<?php echo content_areas(); ?>
 
