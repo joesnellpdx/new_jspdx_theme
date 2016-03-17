@@ -79,6 +79,9 @@ J:::::::JJJ:::::::J  SSSSSSS     S:::::SPP::::::PP          DDD:::::DDDDD:::::D 
 /* PX to REM - based on 16px (100%) at html
 	Usage: @include center-block;
 */
+/*------------------------------------*\
+	$EXTENDS
+\*------------------------------------*/
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -564,7 +567,8 @@ body {
   line-height: 1.5;
   font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
   -webkit-text-size-adjust: 100%;
-  color: #333; }
+  color: #333;
+  background: red; }
 
 /* Links */
 a {
