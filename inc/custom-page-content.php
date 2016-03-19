@@ -135,6 +135,14 @@ function jspdx_register_page_default_metabox( ) {
 		// 'repeatable'      => true,
 	) );
 
+	$meta_boxes->add_field( array(
+		'name'       => __( 'Page Subeader:', 'cmb2' ),
+		'desc'       => __( '(optional)', 'cmb2' ),
+		'id'         => $pd_prefix . 'subtitle',
+		'type'       => 'text',
+		'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
+	) );
+
 //	$meta_boxes->add_field( array(
 //		'name'    => __( 'Main Bg Image', 'cmb2' ),
 //		'id'      => $pd_prefix . 'bg',
