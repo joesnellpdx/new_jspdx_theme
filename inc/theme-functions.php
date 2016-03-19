@@ -108,7 +108,8 @@ if ( ! function_exists( 'jspdx_theme_setup' ) ) :
 		 * Add custom fonts
 		 */
 		function add_custom_fonts(){
-//		echo '<link href="http://fonts.googleapis.com/css?family=Raleway:400,700|Open+Sans:300italic,600italic,600,300" rel="stylesheet" type="text/css">';
+		echo '<script src="https://use.typekit.net/xfz2xyu.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>';
 //	echo '<link rel="stylesheet" href="">';
 		}
 		add_action('wp_head', 'add_custom_fonts');

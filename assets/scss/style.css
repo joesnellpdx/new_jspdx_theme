@@ -566,7 +566,8 @@ body {
   background: #fff;
   font-size: 1.6rem;
   line-height: 1.5;
-  font-family: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
+  font-weight: 100;
   -webkit-text-size-adjust: 100%;
   color: #333; }
 
@@ -587,25 +588,25 @@ a {
 /* Headings */
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
 h1, .alpha {
-  font: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font: "proxima-nova", "Helvetica", "Arial", sans-serif;
   line-height: 1.2; }
 
 h2, .beta {
-  font: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font: "proxima-nova", "Helvetica", "Arial", sans-serif;
   line-height: 1.2; }
 
 h3, .gamma {
-  font: "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font: "proxima-nova", "Helvetica", "Arial", sans-serif;
   line-height: 1.2; }
 
 h4, .delta {
-  font: "HelveticaNeue", "Helvetica", "Arial", sans-serif; }
+  font: "proxima-nova", "Helvetica", "Arial", sans-serif; }
 
 h5, .epsilon {
-  font: "HelveticaNeue", "Helvetica", "Arial", sans-serif; }
+  font: "proxima-nova", "Helvetica", "Arial", sans-serif; }
 
 h6, .zeta {
-  font: "HelveticaNeue", "Helvetica", "Arial", sans-serif; }
+  font: "proxima-nova", "Helvetica", "Arial", sans-serif; }
 
 /* Subheadings */
 .subheading {

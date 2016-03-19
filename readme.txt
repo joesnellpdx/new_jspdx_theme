@@ -3,6 +3,7 @@
 A Wordpress Theme theme by Joe Snell
 
 A starter theme called JSPDX Theme.
+"Forked" from my_starter_theme https://github.com/joesnellpdx/my_starter_theme
 
 == Description ==
 
