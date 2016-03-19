@@ -148,6 +148,7 @@ function youtube_id_from_url($url) {
 function insert_page_heading(){
 
 	$hero = '';
+	$title = '';
 
 	global $post, $wp_query;
 	if(is_home()){
@@ -157,11 +158,20 @@ function insert_page_heading(){
 	}
 
 	$h_title = get_post_meta( $the_page_id, '_hero_title', true );
+	$h_subtitle = get_post_meta( $the_page_id, '_hero_subtitle', true );
 
 	if(!$h_title){
-		$title = '<h1 class="entry-title title">'. get_the_title($the_page_id) .'</h1>';
+		$title .= '<h1 class="entry-title title">'. get_the_title($the_page_id);
+		if(!empty($h_subtitle)){
+			$title .= ' <sep>|</sep> ' . $h_subtitle;
+		}
+		$title .= '</h1>';
 	} else {
-		$title = '<h1 class="entry-title title">' . $h_title . '</h1>';
+		$title .= '<h1 class="entry-title title">' . $h_title;
+		if(!empty($h_subtitle)){
+			$title .= ' <sep>|</sep> ' . $h_subtitle;
+		}
+		$title .= '</h1>';
 	}
 
 	$hero .= $title;
