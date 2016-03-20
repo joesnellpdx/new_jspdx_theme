@@ -461,24 +461,26 @@ header, footer, nav, section, article, hgroup, figure {
     $GLOBAL CLASSES
 \*------------------------------------*/
 /* Clearfix */
-.cf:before, blockquote:before, q:before, .l-two-col:before, [role=main]:before,
+.cf:before, blockquote:before, q:before, .l-two-col:before, [role=main]:before, .section:before,
 .cf:after,
 blockquote:after,
 q:after,
 .l-two-col:after,
-[role=main]:after {
+[role=main]:after,
+.section:after {
   content: "";
   display: table; }
-  .flexbox .cf:before, .flexbox blockquote:before, .flexbox q:before, .flexbox .l-two-col:before, .flexbox [role=main]:before, .flexbox
+  .flexbox .cf:before, .flexbox blockquote:before, .flexbox q:before, .flexbox .l-two-col:before, .flexbox [role=main]:before, .flexbox .section:before, .flexbox
   .cf:after, .flexbox
   blockquote:after, .flexbox
   q:after, .flexbox
   .l-two-col:after, .flexbox
-  [role=main]:after {
+  [role=main]:after, .flexbox
+  .section:after {
     flex-basis: 0;
     order: 1; }
 
-.cf:after, blockquote:after, q:after, .l-two-col:after, [role=main]:after {
+.cf:after, blockquote:after, q:after, .l-two-col:after, [role=main]:after, .section:after {
   clear: both; }
 
 /* Completely remove from the flow and screen readers. */
@@ -499,15 +501,15 @@ q:after,
 /* Floats */
 .right {
   float: right;
-  padding: 0 0 1em 1em; }
+  padding: 0 0 1rem 1rem; }
 
 .right-search {
   float: right;
-  padding: 0 0 1em 0; }
+  padding: 0 0 1rem 0; }
 
 .left {
   float: left;
-  padding: 0 1em 1em 0; }
+  padding: 0 1rem 1rem 0; }
 
 /* Text-Align */
 .align-right {
@@ -556,7 +558,7 @@ q:after,
   background-color: #666;
   color: #fff; }
 .background--two {
-  background-color: #333;
+  background-color: #343434;
   color: #fff; }
 
 html {
@@ -567,9 +569,9 @@ body {
   font-size: 1.6rem;
   line-height: 1.5;
   font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
-  font-weight: 100;
+  font-weight: 400;
   -webkit-text-size-adjust: 100%;
-  color: #333; }
+  color: #343434; }
 
 /* Links */
 a {
@@ -588,39 +590,48 @@ a {
 /* Headings */
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
 h1, .alpha {
-  font: "proxima-nova", "Helvetica", "Arial", sans-serif;
-  line-height: 1.2; }
+  font-size: 20px;
+  font-weight: normal;
+  font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
+  line-height: 1.2;
+  margin: 1.6rem 0rem; }
 
 h2, .beta {
-  font: "proxima-nova", "Helvetica", "Arial", sans-serif;
-  line-height: 1.2; }
+  font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
+  line-height: 1.2;
+  margin: 1.6rem 0rem; }
 
 h3, .gamma {
-  font: "proxima-nova", "Helvetica", "Arial", sans-serif;
-  line-height: 1.2; }
+  font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
+  line-height: 1.2;
+  margin: 1.6rem 0rem; }
 
 h4, .delta {
-  font: "proxima-nova", "Helvetica", "Arial", sans-serif; }
+  font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
+  margin: 1.6rem 0rem; }
 
 h5, .epsilon {
-  font: "proxima-nova", "Helvetica", "Arial", sans-serif; }
+  font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
+  margin: 1.6rem 0rem; }
 
 h6, .zeta {
-  font: "proxima-nova", "Helvetica", "Arial", sans-serif; }
+  font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
+  margin: 1.6rem 0rem; }
 
 /* Subheadings */
 .subheading {
   font-family: Georgia, Times, "Times New Roman", serif;
-  font-weight: normal; }
+  font-weight: normal;
+  margin: 1.6rem 0rem; }
 
 /* Text-Related Elements */
 p {
-  margin-bottom: 1em; }
+  margin: 1.6rem 0rem; }
 
 /* Blockquote */
 blockquote, q {
-  padding-left: 1em;
-  margin: 1.5em 0rem; }
+  padding-left: 1rem;
+  margin: 2.4rem 0rem; }
   blockquote > p, q > p {
     position: relative;
     font-size: 1.4em; }
@@ -657,14 +668,14 @@ hr {
   border: 0;
   height: 2px;
   background: #eee;
-  margin: 2em 0; }
+  margin: 3.2rem 0; }
 
 abbr {
   border-bottom: 1px dotted #808080;
   cursor: help; }
 
 ol, ul {
-  margin: 0 0 1em 3em; }
+  margin: 0 0 1.6rem 3rem; }
 
 ul {
   list-style: disc; }
@@ -675,18 +686,18 @@ ol {
 li > ul,
 li > ol {
   margin-bottom: 0;
-  margin-left: 1em; }
+  margin-left: 1.6rem; }
 
 /* Definition Lists */
 dl {
   overflow: hidden;
-  margin: 0 0 1em; }
+  margin: 0 0 1.6rem; }
 
 dt {
   font-weight: bold; }
 
 dd {
-  margin: 0 1em 1em; }
+  margin: 0 1.6rem 1.6rem; }
 
 /*------------------------------------*\
     $MEDIA ELEMENTS
@@ -716,12 +727,12 @@ embed,
 iframe,
 object {
   max-width: 100%;
-  margin-bottom: 1em; }
+  margin-bottom: 1.6rem; }
 
 figure {
-  margin-bottom: 1em; }
+  margin-bottom: 1.6rem; }
   figure img {
-    margin-bottom: 0.5em; }
+    margin-bottom: 0.8rem; }
 
 figcaption {
   font-style: italic; }
@@ -729,7 +740,7 @@ figcaption {
 .jspdx-video {
   border: 3px solid #fff;
   border-radius: 1.5px;
-  margin: 1em 0rem;
+  margin: 1.6rem 0rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
   .srbt-modal .jspdx-video {
     margin: 0rem; }
@@ -748,7 +759,7 @@ fieldset {
 
 label {
   display: block;
-  padding-bottom: 0.5em; }
+  padding-bottom: 0.8rem; }
 
 button, input, select, textarea {
   font-family: inherit;
@@ -758,7 +769,7 @@ button, input, select, textarea {
 input, textarea {
   width: 100%;
   border: 1px solid #808080;
-  padding: 0.5em 0.65rem; }
+  padding: 0.5rem 0.65rem; }
 
 input[type=text], input[type=search], input[type=url], input[type=number], textarea {
   -webkit-appearance: none; }
@@ -777,7 +788,7 @@ input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
 .field-container {
-  margin-bottom: 1em; }
+  margin-bottom: 1.6rem; }
 
 .inline-form fieldset, .inline-form .inline-container {
   position: relative; }
@@ -823,16 +834,16 @@ table {
   border-spacing: 0;
   border: 1px solid #808080;
   width: 100%;
-  margin: 0rem 0rem 1em; }
+  margin: 0rem 0rem 1.6rem; }
 
 th {
   text-align: left;
   border: 1px solid #808080;
-  padding: 0.2em; }
+  padding: 0.2rem; }
 
 td {
   border: 1px solid #808080;
-  padding: 0.2em; }
+  padding: 0.2rem; }
 
 .animate-fade {
   transition: opacity 0.3s ease-out; }
@@ -945,7 +956,7 @@ a img.aligncenter {
 .lc {
   max-width: 72em;
   margin: 0 auto;
-  padding: 0.5em; }
+  padding: 0rem 3.2rem; }
 
 /*------------------------------------*\
     $TEMPLATES
@@ -955,7 +966,7 @@ a img.aligncenter {
   .l-two-col .l-main {
     float: left;
     width: 70%;
-    padding-right: 1em; } }
+    padding-right: 1rem; } }
 @media all and (max-width: 50em) {
   .l-two-col .l-sidebar {
     clear: both; } }
@@ -963,7 +974,7 @@ a img.aligncenter {
   .l-two-col .l-sidebar {
     float: left;
     width: 30%;
-    padding: 0 0 0 1em; } }
+    padding: 0 0 0 1rem; } }
 
 /*------------------------------------*\
     $GRIDS
@@ -971,11 +982,11 @@ a img.aligncenter {
 /* Grid Container */
 .g {
   overflow: hidden;
-  margin: 0 -0.5em; }
+  margin: 0 -0.5rem; }
 
 /* Grid Item */
 .gi {
-  padding: 0.5em; }
+  padding: 0.5rem; }
   .gi img {
     display: block; }
   @media all and (min-width: 46.8em) {
@@ -1111,13 +1122,28 @@ a img.aligncenter {
 /*------------------------------------*\
     $HEADER
 \*------------------------------------*/
+#site-navigation {
+  display: none; }
+
+.site-header {
+  padding: 3.2rem; }
+
 .site-branding {
   position: relative;
   display: block;
-  padding: 1em; }
-  .site-branding a {
+  line-height: 1.2; }
+  .site-branding__logo {
+    position: absolute;
+    width: 3.2rem; }
+  .site-branding__title {
     display: block;
-    overflow: hidden; }
+    padding-left: 3.7rem; }
+  .site-branding a {
+    color: #343434; }
+    .site-branding a:hover, .site-branding a:focus {
+      color: #343434; }
+  .site-branding sep {
+    display: none; }
 
 figure.fixedratio {
   margin: 0;
@@ -1126,9 +1152,13 @@ figure.fixedratio {
   background-size: cover; }
 
 .site-title {
-  max-width: 8rem;
+  font-weight: bold; }
+
+.site-description {
   display: block;
-  overflow: hidden; }
+  clear: both;
+  font-size: 0.875em;
+  line-height: 1; }
 
 .logo {
   max-width: 8rem;
@@ -1187,12 +1217,12 @@ figure.fixedratio {
   text-decoration: underline; }
 .text ul {
   list-style: disc;
-  margin: 0 0 1em 1.2em; }
+  margin: 0 0 1.6rem 1.2em; }
   .text ul ul {
     margin-bottom: 0; }
 .text ol {
   list-style: decimal;
-  margin: 0 0 1em 1.5em; }
+  margin: 0 0 1.6rem 1.5em; }
   .text ol ol {
     margin-bottom: 0; }
 
@@ -1216,11 +1246,11 @@ figure.fixedratio {
 \*------------------------------------*/
 .btn, .btn--primary, button, input[type="submit"] {
   display: inline-block;
-  background: #333;
+  background: #343434;
   color: #fff;
   line-height: 1;
   font-weight: bold;
-  padding: 1em;
+  padding: 1rem;
   border: 0;
   text-align: center;
   transition: all 0.3s ease-out; }
@@ -1237,9 +1267,9 @@ figure.fixedratio {
       background: #0000cc;
       color: #fff; }
   .btn--small {
-    padding: 0.5em; }
+    padding: 0.5rem; }
   .btn--large {
-    padding: 0.5em;
+    padding: 0.5rem;
     text-transform: uppercase;
     background: #808080;
     font-size: 1.4rem;
@@ -1263,7 +1293,7 @@ figure.fixedratio {
   top: 1.5em;
   left: 0;
   width: 18em;
-  padding: 1em;
+  padding: 1rem;
   background: #fff;
   border: 1px solid #808080;
   box-shadow: 0.3em 0.3em 1em 0 rgba(0, 0, 0, 0.2); }
@@ -1280,7 +1310,7 @@ figure.fixedratio {
       width: 30em; } }
 
 .accordion {
-  margin-bottom: 1em; }
+  margin-bottom: 1.6rem; }
 
 .acc-handle {
   background: #131313;
@@ -1289,16 +1319,16 @@ figure.fixedratio {
   font-weight: bold;
   display: block;
   position: relative;
-  padding: 0.5em;
+  padding: 0.5rem;
   border-bottom: 1px solid #ddd; }
   .acc-handle:after {
     content: "+";
     float: right; }
   .acc-handle:hover {
     color: #fff;
-    background: #333; }
+    background: #343434; }
   .acc-handle.active {
-    background: #333; }
+    background: #343434; }
     .acc-handle.active:after {
       content: "-"; }
 
@@ -1315,19 +1345,19 @@ figure.fixedratio {
       border-right: 0; }
   .tabs a {
     display: block;
-    padding: 0.5em;
+    padding: 0.5rem;
     background: #808080; }
     .tabs a:hover, .tabs a:focus {
       background: #ddd; }
     .tabs a.active {
-      background: #333;
+      background: #343434;
       color: #fff; }
 
 .section {
-  margin: 0 0 1em; }
+  margin: 0px; }
 
 .section-title {
-  margin-bottom: 0.5em; }
+  margin-bottom: 0.8rem; }
 
 .article-header h1 {
   font-size: 2.5em; }
@@ -1335,14 +1365,14 @@ figure.fixedratio {
 .byline {
   font-size: 0.875em;
   font-style: italic;
-  margin-bottom: 0.5em; }
+  margin-bottom: 0.8rem; }
 
 .comments li {
-  margin-bottom: 1em; }
+  margin-bottom: 1.6rem; }
 
 .comment-container {
   overflow: hidden;
-  margin-bottom: 1em;
+  margin-bottom: 1.6rem;
   list-style: none; }
 
 .comment-meta {
@@ -1351,7 +1381,7 @@ figure.fixedratio {
   .comment-meta img {
     display: block;
     border: 1px solid #eee;
-    margin-bottom: 0.5em; }
+    margin-bottom: 0.8rem; }
 
 .comment-name {
   font-size: 0.75em; }
@@ -1370,8 +1400,8 @@ figure.fixedratio {
 \*------------------------------------*/
 .alert {
   text-align: center;
-  padding: 1em;
-  margin-bottom: 0.5em;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
   border: 1px solid #808080;
   background: #f9f9f9; }
 

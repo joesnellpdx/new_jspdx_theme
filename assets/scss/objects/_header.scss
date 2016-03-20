@@ -2,14 +2,33 @@
     $HEADER
 \*------------------------------------*/
 
+#site-navigation {
+	display: none;
+}
+.site-header {
+	padding: $space-double;
+}
 .site-branding {
 	position: relative;
 	display: block;
-	padding: $space;
-	a {
+	line-height: 1.2;
+	&__logo {
+		//display: block;
+		position: absolute;
+		width: $space-double;
+	}
+	&__title {
 		display: block;
-		overflow: hidden;
-
+		padding-left: ($space-double) + ($pad-half);
+	}
+	a {
+		color: $font__color;
+		&:hover, &:focus {
+			color: $font__color;
+		}
+	}
+	sep {
+		display: none;
 	}
 }
 figure.fixedratio {
@@ -19,9 +38,16 @@ figure.fixedratio {
 	background-size: cover;
 }
 .site-title {
-	max-width: $logo-width;
+	//max-width: $logo-width;
+	//display: block;
+	//overflow: hidden;
+	font-weight: bold;
+}
+.site-description {
 	display: block;
-	overflow: hidden;
+	clear: both;
+	font-size: $font-size-small-2;
+	line-height: 1;
 }
 .logo {
 	max-width: $logo-width;

@@ -26,13 +26,19 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
-			<span class="site-title">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-							<div class="logo">
-								<figure class="fixedratio jspdx-icon-logo" title="<?php bloginfo( 'name' ); ?>"></figure>
-							</div>
-						</a>
-					</span>
+			<a class="site-branding__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+				<div class="logo">
+					<figure class="fixedratio jspdx-icon-logo" title="<?php bloginfo( 'name' ); ?>"></figure>
+				</div>
+			</a>
+			<a class="site-branding__title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				<span class="site-title"><?php bloginfo( 'name' ); ?></span>
+				<?php $description = get_bloginfo( 'description', 'display' );
+					if ( $description || is_customize_preview() ) : ?>
+						<sep>|</sep> <span class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></span>
+				<?php
+				endif; ?>
+			</a>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">

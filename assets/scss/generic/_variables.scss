@@ -8,7 +8,7 @@ $gray-light : #f9f9f9;
 $gray-light-2 : #eee;
 $gray-light-3 : #ddd;
 $gray-med : #666;
-$gray-dark : #333;
+$gray-dark : #343434;
 $gray-dark-2 : #131313;
 $white : #fff;
 $black : #000;
@@ -45,17 +45,20 @@ $font-size-med : 1em;
 $font-size-med-2: 1.0625em;
 $font-size-large : 1.4375em;
 
+$font__color : $gray-dark;
+
 
 //Layout
 $max-width: 72em;
 
 //Defaults
-$space : 1em;
+$space : 1.6rem;
 $space-and-half : $space*1.5;
 $space-double : $space*2;
 $space-quad : $space*4;
 $space-half : $space/2;
-$pad : 1em;
+
+$pad : 1rem;
 $pad-and-half : $pad*1.5;
 $pad-double : $pad*2;
 $pad-triple : $pad*3;

@@ -65,15 +65,15 @@
 /* Floats */
 .right {
   float: right;
-  padding: 0 0 1em 1em; }
+  padding: 0 0 1rem 1rem; }
 
 .right-search {
   float: right;
-  padding: 0 0 1em 0; }
+  padding: 0 0 1rem 0; }
 
 .left {
   float: left;
-  padding: 0 1em 1em 0; }
+  padding: 0 1rem 1rem 0; }
 
 /* Text-Align */
 .align-right {
@@ -122,7 +122,7 @@
   background-color: #666;
   color: #fff; }
 .background--two {
-  background-color: #333;
+  background-color: #343434;
   color: #fff; }
 
 /*------------------------------------*\
