@@ -46,6 +46,11 @@ require get_template_directory() . '/inc/custom-page-content.php';
 require get_template_directory() . '/inc/custom-page-hero.php';
 
 /**
+ * Implement shortcode functions.
+ */
+require get_template_directory() . '/inc/funct-shortcodes.php';
+
+/**
  * Implement custom form functions.
  */
 require get_template_directory() . '/inc/custom-form-functions.php';

@@ -12,4 +12,3 @@ function page_hero() {
 	return $html;
 }
 
-?>

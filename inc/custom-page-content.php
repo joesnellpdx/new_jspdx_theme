@@ -271,4 +271,3 @@ function content_areas(){
 	}
 }
 
-?>
