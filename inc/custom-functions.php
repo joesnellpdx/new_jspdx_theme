@@ -163,13 +163,13 @@ function insert_page_heading(){
 	if(!$h_title){
 		$title .= '<h1 class="entry-title title">'. get_the_title($the_page_id);
 		if(!empty($h_subtitle)){
-			$title .= ' <sep>|</sep> ' . $h_subtitle;
+			$title .= '<span class="title__subheading">' . $h_subtitle . '</span>';
 		}
 		$title .= '</h1>';
 	} else {
 		$title .= '<h1 class="entry-title title">' . $h_title;
 		if(!empty($h_subtitle)){
-			$title .= ' <sep>|</sep> ' . $h_subtitle;
+			$title .= '<span class="title__subheading">' . $h_subtitle . '</span>';
 		}
 		$title .= '</h1>';
 	}
@@ -535,4 +535,14 @@ add_action( 'after_setup_theme', 'custom_theme_setup' );
 add_filter("gform_submit_button", "form_submit_button", 10, 2);
 function form_submit_button($button, $form){
 	return "<p class='btn-wrap text-center'><button class='gform-submit button btn btn-primary' id='gform_submit_button_{$form["id"]}' type='submit'><span>Submit</span></button></p>";
+}
+
+/**
+ * Sanitize text field in CMB2 Metabox
+ */
+function jspdx_sanitize_text_callback( $value, $field_args, $field ) {
+
+	$value = strip_tags( $value, '<p><a><br><br/><span><strong><small>' );
+
+	return $value;
 }

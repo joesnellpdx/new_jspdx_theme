@@ -461,26 +461,28 @@ header, footer, nav, section, article, hgroup, figure {
     $GLOBAL CLASSES
 \*------------------------------------*/
 /* Clearfix */
-.cf:before, blockquote:before, q:before, .l-two-col:before, [role=main]:before, .section:before,
+.cf:before, blockquote:before, q:before, .lc:before, .l-two-col:before, [role=main]:before, .section:before,
 .cf:after,
 blockquote:after,
 q:after,
+.lc:after,
 .l-two-col:after,
 [role=main]:after,
 .section:after {
   content: "";
   display: table; }
-  .flexbox .cf:before, .flexbox blockquote:before, .flexbox q:before, .flexbox .l-two-col:before, .flexbox [role=main]:before, .flexbox .section:before, .flexbox
+  .flexbox .cf:before, .flexbox blockquote:before, .flexbox q:before, .flexbox .lc:before, .flexbox .l-two-col:before, .flexbox [role=main]:before, .flexbox .section:before, .flexbox
   .cf:after, .flexbox
   blockquote:after, .flexbox
   q:after, .flexbox
+  .lc:after, .flexbox
   .l-two-col:after, .flexbox
   [role=main]:after, .flexbox
   .section:after {
     flex-basis: 0;
     order: 1; }
 
-.cf:after, blockquote:after, q:after, .l-two-col:after, [role=main]:after, .section:after {
+.cf:after, blockquote:after, q:after, .lc:after, .l-two-col:after, [role=main]:after, .section:after {
   clear: both; }
 
 /* Completely remove from the flow and screen readers. */
@@ -550,15 +552,15 @@ q:after,
   font-family: Georgia, Times, "Times New Roman", serif; }
 
 .color--one {
-  color: #666; }
+  color: #ff8800; }
 .color--two {
   color: #f9f9f9; }
 
-.background--one {
-  background-color: #666;
+.background--one, .entry-header {
+  background-color: #ff8800;
   color: #fff; }
 .background--two {
-  background-color: #343434;
+  background-color: #E65100;
   color: #fff; }
 
 html {
@@ -575,26 +577,32 @@ body {
 
 /* Links */
 a {
-  color: blue;
+  color: #ff8800;
   text-decoration: none;
   outline: 0;
   transition: all 0.3s ease-out;
   -webkit-tap-highlight-color: transparent; }
   a:visited {
-    color: #3333ff; }
+    color: #FFCC80; }
   a:hover, a:focus {
-    color: #0000cc;
+    color: #E65100;
     outline: 0;
     text-decoration: none; }
 
 /* Headings */
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
 h1, .alpha {
-  font-size: 20px;
+  font-size: 1.4375em;
   font-weight: normal;
   font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
   line-height: 1.2;
   margin: 1.6rem 0rem; }
+  h1 > span, .alpha > span {
+    display: inline-block; }
+  h1.entry-title, .alpha.entry-title {
+    font-size: 2.2em;
+    font-weight: 100;
+    max-width: 13em; }
 
 h2, .beta {
   font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
@@ -619,10 +627,9 @@ h6, .zeta {
   margin: 1.6rem 0rem; }
 
 /* Subheadings */
-.subheading {
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-weight: normal;
-  margin: 1.6rem 0rem; }
+.title__subheading {
+  display: block;
+  font-size: 0.75em; }
 
 /* Text-Related Elements */
 p {
@@ -675,7 +682,7 @@ abbr {
   cursor: help; }
 
 ol, ul {
-  margin: 0 0 1.6rem 3rem; }
+  margin: 1.6rem 0 1.6rem 3rem; }
 
 ul {
   list-style: disc; }
@@ -795,14 +802,14 @@ input[type="search"]::-webkit-search-decoration {
 .inline-form input[type=submit], .inline-form button, .inline-form .btn, .inline-form .btn--primary, .inline-form button, .inline-form input[type="submit"] {
   font-size: 0.875em;
   padding: 0.65rem 1.3rem;
-  background: blue;
+  background: #ff8800;
   position: absolute;
   top: 0;
   right: 0;
   z-index: 1;
   width: auto; }
   .inline-form input[type=submit]:hover, .inline-form input[type=submit]:focus, .inline-form button:hover, .inline-form button:focus, .inline-form .btn:hover, .inline-form .btn--primary:hover, .inline-form button:hover, .inline-form input[type="submit"]:hover, .inline-form .btn:focus, .inline-form .btn--primary:focus, .inline-form button:focus, .inline-form input[type="submit"]:focus {
-    background: #0000cc;
+    background: #E65100;
     color: #fff; }
 
 /* Validation */
@@ -963,15 +970,15 @@ a img.aligncenter {
 \*------------------------------------*/
 /* Two Column Layout */
 @media all and (min-width: 50em) {
-  .l-two-col .l-main {
+  .l-two-col__main {
     float: left;
     width: 70%;
     padding-right: 1rem; } }
 @media all and (max-width: 50em) {
-  .l-two-col .l-sidebar {
+  .l-two-col__sidebar {
     clear: both; } }
 @media all and (min-width: 50em) {
-  .l-two-col .l-sidebar {
+  .l-two-col__sidebar {
     float: left;
     width: 30%;
     padding: 0 0 0 1rem; } }
@@ -1251,6 +1258,7 @@ figure.fixedratio {
   line-height: 1;
   font-weight: bold;
   padding: 1rem;
+  margin: 0rem;
   border: 0;
   text-align: center;
   transition: all 0.3s ease-out; }
@@ -1261,10 +1269,10 @@ figure.fixedratio {
     background: #eee;
     color: #808080; }
   .btn--primary, button, input[type="submit"] {
-    background: blue;
+    background: #ff8800;
     color: #fff; }
     .btn--primary:hover, button:hover, input[type="submit"]:hover, .btn--primary:focus, button:focus, input[type="submit"]:focus {
-      background: #0000cc;
+      background: #E65100;
       color: #fff; }
   .btn--small {
     padding: 0.5rem; }
@@ -1355,12 +1363,17 @@ figure.fixedratio {
 
 .section {
   margin: 0px; }
-
-.section-title {
-  margin-bottom: 0.8rem; }
+  .section__title {
+    max-width: 16em; }
+  .section__content {
+    max-width: 35em;
+    margin: 0rem; }
 
 .article-header h1 {
   font-size: 2.5em; }
+
+.entry-header {
+  padding: 3.2rem 0rem; }
 
 .byline {
   font-size: 0.875em;
@@ -1505,7 +1518,7 @@ a img.aligncenter {
 
 .img-fit {
   position: relative;
-  background-color: #666; }
+  background-color: #ff8800; }
   .img-fit.compat-object-fit {
     background-size: cover;
     background-position: center center; }

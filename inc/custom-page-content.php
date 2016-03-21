@@ -129,19 +129,19 @@ function jspdx_register_page_default_metabox( ) {
 		'id'         => $pd_prefix . 'title',
 		'type'       => 'text',
 		'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
-		// 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
+		'sanitization_cb' => 'jspdx_sanitize_text_callback', // custom sanitization callback parameter
 		// 'escape_cb'       => 'my_custom_escaping',  // custom escaping callback parameter
 		// 'on_front'        => false, // Optionally designate a field to wp-admin only
 		// 'repeatable'      => true,
 	) );
 
-//	$meta_boxes->add_field( array(
-//		'name'       => __( 'Page Subeader:', 'cmb2' ),
-//		'desc'       => __( '(optional)', 'cmb2' ),
-//		'id'         => $pd_prefix . 'subtitle',
-//		'type'       => 'text',
-//		'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
-//	) );
+	$meta_boxes->add_field( array(
+		'name'       => __( 'Page Subeader:', 'cmb2' ),
+		'desc'       => __( '(optional)', 'cmb2' ),
+		'id'         => $pd_prefix . 'subtitle',
+		'type'       => 'text',
+		'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
+	) );
 
 //	$meta_boxes->add_field( array(
 //		'name'    => __( 'Main Bg Image', 'cmb2' ),
@@ -176,10 +176,6 @@ function jspdx_register_fullscreen_metabox( ) {
 		'id'         => $pd_prefix . 'title',
 		'type'       => 'text',
 		'show_on_cb' => 'cmb2_hide_if_no_cats', // function should return a bool value
-		// 'sanitization_cb' => 'my_custom_sanitization', // custom sanitization callback parameter
-		// 'escape_cb'       => 'my_custom_escaping',  // custom escaping callback parameter
-		// 'on_front'        => false, // Optionally designate a field to wp-admin only
-		// 'repeatable'      => true,
 	) );
 
 	$meta_boxes->add_field( array(
@@ -246,8 +242,10 @@ function content_areas(){
 			echo '<section id="section-' . $sectionid . '" class="section section--page' . $add_class . '">';
 			echo '<div class="section__inner lc">';
 			if(!empty($sect_title)){
-				echo '<h1 class="title--section ' . $title_class . '">' . $sect_title . '</h1>';
+				echo '<h1 class="section__title ' . $title_class . '">' . $sect_title . '</h1>';
 			}
+
+			echo '<div class="section__content">';
 
 			$array = array (
 				'<p>[' => '[',
@@ -264,6 +262,7 @@ function content_areas(){
 
 			echo do_shortcode( $newercontent );
 
+			echo '</div>';
 			echo '</div>';
 			echo '</section>';
 

@@ -4,6 +4,7 @@
 
 /* Layout Container */
 .lc {
+	@extend .cf;
 	max-width: $max-width;	
 	margin: 0 auto;
 	padding: 0rem $space-double;
@@ -17,7 +18,7 @@
 .l-two-col {
 	@extend .cf;
 
-	.l-main {
+	&__main {
 		@media all and (min-width: $bp-large) {
 			float: left;
 			width: 70%;
@@ -25,7 +26,7 @@
 		}
 	}
 	
-	.l-sidebar {
+	&__sidebar {
 		@media all and (max-width: $bp-large) {
 			clear: both;
 		}

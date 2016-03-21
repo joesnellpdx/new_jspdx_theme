@@ -19,10 +19,19 @@
 			$p_title = get_post_meta( get_the_id(), '_psect_title', true );
 
 			if(!empty($p_title)){ ?>
-				<h1 class="title--section"><?php echo $p_title; ?></h1>
+				<h1 class="section__title"><?php echo $p_title; ?></h1>
 			<?php }
+			?>
+
+				<div class="section__content">
+
+			<?php
 
 			the_content();
+
+			?>
+				</div>
+			<?php
 
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'jspdx_theme' ),

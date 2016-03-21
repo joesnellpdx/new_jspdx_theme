@@ -1,8 +1,11 @@
 .section {
 	@extend .cf;
 	margin: 0px;
-}
-
-.section-title {
-	margin-bottom: $space-half;
+	&__title {
+		max-width: 16em;
+	}
+	&__content {
+		max-width: 35em;
+		margin: 0rem;
+	}
 }

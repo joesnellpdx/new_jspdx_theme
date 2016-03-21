@@ -117,7 +117,7 @@ function jspdx_button_shorcode( $atts, $content = null ) {
 	$link_content = do_shortcode($content);
 
 	$out = '';
-	$out .= '<a' .$target. ' class="btn btn--' . $class . ' ' .$size. '" href="' .$link. '">' .$link_content. '</a>';
+	$out .= '<p class="btn-contain"><a' .$target. ' class="btn btn--' . $class . ' ' .$size. '" href="' .$link. '">' .$link_content. '</a></p>';
 
 	return $out;
 }

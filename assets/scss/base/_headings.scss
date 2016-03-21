@@ -1,11 +1,19 @@
 /* Headings */
 /*Further Reading: http:/csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/ */
 h1, .alpha   {
-	font-size: 20px;
+	font-size: $font-size__large;
 	font-weight: normal;
 	font-family: $font__headings;
 	line-height: $font__line-height-headers;
 	margin: $space 0rem;
+	> span {
+		display: inline-block;
+	}
+	&.entry-title {
+		font-size: $font-size__display;
+		font-weight: 100;
+		max-width: 13em;
+	}
 }
 
 h2, .beta    {
@@ -36,8 +44,9 @@ h6, .zeta    {
 }
 
 /* Subheadings */
-.subheading {
-	font-family: $font__secondary;
-	font-weight: normal;
-	margin: $space 0rem;
+.title {
+	&__subheading {
+		display: block;
+		font-size: $font-size__small;
+	}
 }

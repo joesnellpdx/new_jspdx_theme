@@ -5,8 +5,13 @@
 	}
 }
 
+.entry-header {
+	@extend .background--one;
+	padding: $space-double 0rem;
+}
+
 .byline {
-	font-size: $font-size-small-2;
+	font-size: $font-size__small-2;
 	font-style: italic;
 	margin-bottom: $space-half;
 }
