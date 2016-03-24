@@ -1380,6 +1380,9 @@ figure.fixedratio {
 .entry-header {
   padding: 3.2rem 0rem; }
 
+.entry-meta {
+  margin: 1.6rem 0rem; }
+
 .byline {
   font-size: 0.875em;
   font-style: italic;
@@ -1530,7 +1533,8 @@ a img.aligncenter {
     background-position: center center; }
     .img-fit.compat-object-fit img {
       opacity: 0;
-      display: none; }
+      display: none;
+      z-index: -1; }
   .img-fit img {
     width: 100%;
     height: 100%;
