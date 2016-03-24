@@ -31,11 +31,16 @@
         return ((elemTop <= docViewBottom) && (elemTop >= docViewTop));
     };
 
+    var fadeIn = function() {
+        $('body').addClass('js-loaded');
+    };
+
     $(document).ready(function( $ ) {
     });
 
     $(window).load(function( $ ) {
         imgFitFunction();
+        fadeIn();
     });
 
     $(window).resize(function() {

@@ -1286,6 +1286,9 @@ figure.fixedratio {
 .text-btn {
   font-style: italic; }
 
+.block__img-contain {
+  padding-top: 60%; }
+
 .tooltip-container {
   display: inline-block;
   position: relative; }
@@ -1368,6 +1371,8 @@ figure.fixedratio {
   .section__content {
     max-width: 35em;
     margin: 0rem; }
+    .section__content--wide {
+      max-width: none; }
 
 .article-header h1 {
   font-size: 2.5em; }
@@ -1518,7 +1523,8 @@ a img.aligncenter {
 
 .img-fit {
   position: relative;
-  background-color: #ff8800; }
+  background-color: #ff8800;
+  display: block; }
   .img-fit.compat-object-fit {
     background-size: cover;
     background-position: center center; }
@@ -1532,8 +1538,8 @@ a img.aligncenter {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    z-index: -1; }
+    bottom: 0;
+    width: 100%; }
 
 .page-content .wp-smiley,
 .entry-content .wp-smiley,

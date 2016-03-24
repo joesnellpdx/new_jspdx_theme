@@ -103,6 +103,17 @@ function jspdx_register_repeatable_section_metabox() {
 		)
 	) );
 
+	$cmb_group->add_group_field( $group_field_id, array(
+		'name'    => __( 'Custom section style', 'cmb2' ),
+		'id'      => $prefix . 'style',
+		'type'    => 'radio',
+		'show_option_none' => true,
+		'options' => array(
+			'wide' => __( 'Wide Content (not fullwidth)', 'cmb2' ),
+			'fullwidth' => __( 'Fullwidth Content', 'cmb2' ),
+		)
+	) );
+
 }
 add_filter( 'cmb2_init', 'jspdx_register_repeatable_section_metabox' );
 
@@ -214,7 +225,7 @@ function content_areas(){
 
 	foreach ( (array) $field_data as $key => $entry ) {
 
-		$sect_title = $sectioncont = $bg_color =  '';
+		$sect_title = $sectioncont = $bg_color = $sect_style = '';
 
 		if ( isset( $entry['_sr-content-section-title'] ) )
 			$sect_title = esc_html( $entry['_sr-content-section-title'] );
@@ -225,6 +236,9 @@ function content_areas(){
 		if ( isset( $entry['_sr-content-background-wysiwyg'] ) )
 			$bg_color = esc_html( $entry['_sr-content-background-wysiwyg'] );
 
+		if ( isset( $entry['_sr-content-style'] ) )
+			$sect_style = esc_html( $entry['_sr-content-style'] );
+
 		if(!empty($sectioncont)) {
 
 			$count++;
@@ -232,6 +246,11 @@ function content_areas(){
 			$sectionid = $count+1;
 
 			$add_class = '';
+			$cont_class = '';
+
+			if((!empty($sect_style))) {
+				$cont_class = $cont_class . ' section__content--' . $sect_style;
+			}
 
 			if(!empty($bg_color)){
 				$add_class = $add_class . ' ' . $bg_color;
@@ -245,7 +264,7 @@ function content_areas(){
 				echo '<h1 class="section__title ' . $title_class . '">' . $sect_title . '</h1>';
 			}
 
-			echo '<div class="section__content">';
+			echo '<div class="section__content' . $cont_class . '">';
 
 			$array = array (
 				'<p>[' => '[',

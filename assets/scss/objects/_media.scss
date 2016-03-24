@@ -108,12 +108,14 @@ a img.aligncenter {
 .img-fit {
 	position: relative;
 	background-color: $brand__one;
+	display: block;
 	&.compat-object-fit {
 		background-size: cover;
 		background-position: center center;
 		img {
 			opacity: 0;
 			display: none;
+			z-index: -1;
 		}
 	}
 	img {
@@ -124,8 +126,9 @@ a img.aligncenter {
 		position: absolute;
 		top: 0;
 		left: 0;
+		bottom: 0;
 		width: 100%;
-		z-index: -1;
+
 	}
 }
 
