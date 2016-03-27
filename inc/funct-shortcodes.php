@@ -59,9 +59,18 @@ function griditem_shortcode( $atts, $content = null ) {
 
 	extract(shortcode_atts(array(
 		'class' => '',
+		'title' => '',
 	), $atts));
 
-	return '<div class="gi '. $class .'">' . do_shortcode($content) . '</div>';
+	$html = '';
+	$html .= '<div class="gi '. $class .'">';
+	if(!empty($title)){
+		$html .= '<h2 class="title__gi gamma">' . $title . '</h2>';
+	}
+	$html  .= do_shortcode($content);
+	$html .= '</div>';
+
+	return $html;
 }
 add_shortcode('grid_item', 'griditem_shortcode');
 
@@ -87,7 +96,7 @@ add_shortcode('flex_wrap', 'flexcontainer');
 /**
  * Flexbox grid item shortcode
  */
-function flexitem_shortcode( $atts, $content = null ) {
+function flexitem_shortcode( $atts ) {
 
 	extract(shortcode_atts(array(
 		'class' => 'md-half',
@@ -96,6 +105,19 @@ function flexitem_shortcode( $atts, $content = null ) {
 	return '<div class="flex-item flex-item--' . $class . '">' . do_shortcode($content) . '</div>';
 }
 add_shortcode('flex_item', 'flexitem_shortcode');
+
+/**
+ * Meta block shortcode
+ */
+function meta_block_shortcode( $atts, $content ) {
+
+	extract(shortcode_atts(array(
+		'class' => '',
+	), $atts));
+
+	return '<div class="meta-block">' . do_shortcode($content) . '</div>';
+}
+add_shortcode('meta_block', 'meta_block_shortcode');
 
 /**
  * Button shortcode
@@ -266,7 +288,7 @@ function block_shortcode($atts, $content) {
 	}
 	$return_html .= '<div class="' . $style_class . '__content">';
 	if(!empty($title)){
-		$return_html .= '<h3 class="' . $style_class . '__title'.$class.'">'.$title.'</h3>';
+		$return_html .= '<h3 class="title__gi ' . $style_class . '__title'.$class.'">'.$title.'</h3>';
 	}
 
 	$return_html .= do_shortcode($content);
@@ -461,7 +483,7 @@ function recent_posts_function($atts, $content = null){
 			}
 			$html .= '</span>';
 
-			$html .= '<a class="block__link" href="' . get_permalink($post->ID) . '"><h1 class="block__title zeta">' .   $post->post_title.'</h1></a>';
+			$html .= '<a class="block__link" href="' . get_permalink($post->ID) . '"><h1 class="title__block zeta">' .   $post->post_title.'</h1></a>';
 
 			$html .= '<p class="block__footer">';
 			$categories = get_the_category($recent["ID"]);
@@ -820,3 +842,20 @@ function responsive_table_item_shortcode($atts, $content = null) {
 
 add_shortcode('rwd_table', 'responsive_table_shortcode');
 add_shortcode('rwd_table_item', 'responsive_table_item_shortcode');
+
+/**
+* Hide email from Spam Bots using a shortcode.
+ *
+ * @param array  $atts    Shortcode attributes. Not used.
+ * @param string $content The shortcode content. Should be an email address.
+ *
+ * @return string The obfuscated email address.
+ */
+function wpcodex_hide_email_shortcode( $atts , $content = null ) {
+	if ( ! is_email( $content ) ) {
+		return;
+	}
+
+	return '<a href="mailto:' . antispambot( $content ) . '">' . antispambot( $content ) . '</a>';
+}
+add_shortcode( 'email', 'wpcodex_hide_email_shortcode' );

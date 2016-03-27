@@ -43,9 +43,10 @@ $font__line-height-pre: 1.5;
 
 $font-size__small : 0.75em;
 $font-size__small-2 : 0.875em;
-$font-size__med : 1em;
-$font-size__med-2: 1.0625em;
-$font-size__large : 1.4375em;
+$font-size__med : 1em; // 16px at base
+$font-size__med-2: 1.0625em; // 17px at base
+$font-size__med-3: 1.1875em; // 19px at base
+$font-size__large : 1.4375em; // 23px at base
 
 $font-size__display : 2.2em;
 

@@ -3,3 +3,19 @@
 		padding-top: 60%;
 	}
 }
+
+.meta-block {
+	@extend .cf;
+	display: block;
+	margin: -$space 0rem $space;
+	p {
+		margin: 0rem;
+		display: inline-block;
+		&:not(:first-child){
+			&:before {
+				content: '|';
+				margin-right: 0.25em;
+			}
+		}
+	}
+}

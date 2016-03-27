@@ -17,28 +17,33 @@ h1, .alpha   {
 }
 
 h2, .beta    {
+	font-size: $font-size__med-3;
 	font-family: $font__headings;
 	line-height: $font__line-height-headers;
 	margin: $space 0rem;
 }
 
 h3, .gamma   {
+	font-size: $font-size__med-2;
 	font-family: $font__headings;
 	line-height: $font__line-height-headers;
 	margin: $space 0rem;
 }
 
 h4, .delta   {
+	font-size: $font-size__med-3;
 	font-family: $font__headings;
 	margin: $space 0rem;
 }
 
 h5, .epsilon {
+	font-size: $font-size__med-3;
 	font-family: $font__headings;
 	margin: $space 0rem;
 }
 
 h6, .zeta    {
+	font-size: $font-size__med-3;
 	font-family: $font__headings;
 	margin: $space 0rem;
 }
@@ -48,5 +53,8 @@ h6, .zeta    {
 	&__subheading {
 		display: block;
 		font-size: $font-size__small;
+	}
+	&__gi {
+		margin-top: 0rem;
 	}
 }
