@@ -116,6 +116,7 @@ module.exports = function(grunt) {
                 files: {
                     'assets/js/source/plugins.js' : [
                         'assets/js/vendor/jquery.fitvids.js',
+                        'assets/js/vendor/transformicons.js',
                         'assets/js/source/plugin-control.js'
                     ]
                 }

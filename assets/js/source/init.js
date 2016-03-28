@@ -31,11 +31,20 @@
         return ((elemTop <= docViewBottom) && (elemTop >= docViewTop));
     };
 
+    var primaryNavOpen = function(){
+
+        $('#nav-open-btn').on('click touchstart', function(evt) {
+            evt.preventDefault();
+            $('body').toggleClass('nav-open');
+        });
+    };
+
     var fadeIn = function() {
         $('body').addClass('js-loaded');
     };
 
     $(document).ready(function( $ ) {
+        primaryNavOpen();
     });
 
     $(window).load(function( $ ) {

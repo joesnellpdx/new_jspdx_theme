@@ -2,3 +2,131 @@
     $NAVIGATION
 \*------------------------------------*/
 
+/* LARGE SCREEN - DEFAULT for lte ie8 */
+
+.site-branding {
+	width: 30%;
+	float: left;
+}
+.main-navigation {
+	max-width: 70%;
+	float: right;
+}
+.main-nav-trigger {
+	display: none;
+}
+.primary-menu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	.noflexbox & {
+		display: block;
+	}
+}
+.menu-item {
+	flex: 0 1 auto;
+	.noflexbox & {
+		float: left;
+	}
+	a {
+		padding: 0rem $space-half;
+		color: $font--color;
+		line-height: 1.2;
+		&:hover, &:active, &:focus {
+			color: $brand__one;
+		}
+	}
+}
+
+/* SMALL(ER) SCREEN */
+@media screen and (max-width: $nav-break) {
+	.site-branding {
+		width: 100%;
+		float: none;
+	}
+	body:not(:target) {
+		.main-navigation {
+			width: 0px;
+			height: 0px;
+			position: absolute;
+			top: 0;
+			right: 0;
+			&:target {
+				.menu-primary-navigation-container {
+					left: 0%;
+				}
+			}
+		}
+	}
+	.menu-primary-navigation-container {
+		max-width: none;
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: -100%;
+		background: $brand__one;
+		overflow-x: hidden;
+		overflow-y: scroll; /* has to be scroll, not auto */
+		-webkit-overflow-scrolling: touch;
+		transition: left .3s ease-out;
+		.nav-open & {
+			left: 0;
+			.csstransforms3d & {
+				transform: translate3d(0%, 0, 0);
+			}
+		}
+		.csstransforms3d & {
+			left: 0;
+			backface-visibility: hidden;
+			transform: translate3d(-100%, 0, 0);
+			transition: transform .3s ease-out;
+		}
+	}
+	.main-nav-trigger {
+		display: block;
+		float: none;
+		position: absolute;
+		top: $space-double;
+		right: $space-double;
+		z-index: 1000;
+		.tcon {
+			&:hover, &:focus &:active {
+				background: transparent;
+			}
+		}
+
+	}
+	.primary-menu {
+		padding: $space-double 0rem;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		min-height: 100%;
+		min-height: 100vh;
+		.noflexbox & {
+			display: block;
+			text-align: center;
+		}
+	}
+	.menu-item {
+		float: none;
+		display: block;
+		width: 100%;
+		text-align: center;
+		a {
+			padding: $space $space;
+			width: 100%;
+			color: $white;
+			display: block;
+			font-size: $font-size__large;
+			&:hover, &:active, &:focus {
+				color: $brand__one;
+				background: $white;
+			}
+		}
+	}
+}

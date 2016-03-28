@@ -2,10 +2,8 @@
     $HEADER
 \*------------------------------------*/
 
-#site-navigation {
-	display: none;
-}
 .site-header {
+	@extend .cf;
 	padding: $space-double;
 }
 .site-branding {

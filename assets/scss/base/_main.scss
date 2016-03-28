@@ -10,3 +10,17 @@ body {
 	-webkit-text-size-adjust: 100%;
 	color: $gray-dark;
 }
+html,
+body{
+	@media screen and (max-width: $nav-break) {
+		&.nav-open,
+		&.nav-subnav-open {
+			overflow: hidden;
+			height: 100%;
+		}
+	}
+}
+.site-content {
+	@extend .cf;
+	clear: both;
+}

@@ -28,9 +28,14 @@
         $(".entry-content").fitVids();
     };
 
+    var navToggleAnimate = function(){
+        transformicons.add('.tcon');
+    };
+
     // Place any jQuery/helper plugins in here.
     $(document).ready(function( $ ) {
         fitVideo();
+        navToggleAnimate();
     });
 
     $(window).load(function( $ ) {
