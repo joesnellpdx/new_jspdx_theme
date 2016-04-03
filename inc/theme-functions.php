@@ -160,7 +160,7 @@ add_action( 'widgets_init', 'jspdx_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function jspdx_theme_scripts() {
-	wp_enqueue_style( 'srbt_theme-style', get_stylesheet_directory_uri().'/style.css', null, '1.0', 'all' );
+	wp_enqueue_style( 'jspdx_theme-style', get_stylesheet_directory_uri().'/style.css', null, '1.0', 'all' );
 
 //	wp_enqueue_script( 'jspdx_theme-navigation', get_template_directory_uri() . '/assets/js/vendor/navigation.js', array(), '20151215', true );
 //

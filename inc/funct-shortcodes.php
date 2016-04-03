@@ -421,6 +421,75 @@ add_shortcode('rimginbg', 'responsive_image_inline_bg');
 /**
  * Recent posts shortcode
  */
+function posts_view_function($num){
+
+	$html = '';
+	$i = $num;
+
+	$wide_vars = array(1, 4);
+	if(in_array($i, $wide_vars)){
+		$size_class = ' gi-2-3';
+	} else {
+		$size_class = '';
+	}
+
+	$image_id = get_post_thumbnail_id( $post->ID );
+	if ( empty( $image_id ) ) {
+		$image_id = get_post_thumbnail_id( get_option( 'page_on_front' ) );
+	}
+
+	$img_src = wp_get_attachment_image_url( $image_id, 'rwd-small' );
+	$img_fallback = wp_get_attachment_image_url( $image_id, 'large' );
+	$srcset_value = wp_get_attachment_image_srcset( $image_id, 'large' );
+	$srcset = $srcset_value ? ' srcset="' . esc_attr( $srcset_value ) . '"' : '';
+	$alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+//	if(!empty($img_src)) {
+		$html .= '<a href="' . get_permalink($post->ID) . '" class="block block--mini-post block--link gi' . $size_class . '">';
+		$html .= '<span class="block__img-contain img-fit">';
+		$html .= '<img class="block__img" src="' . $img_src . '" ' . $srcset . ' sizes="(min-width: 768px) 500px, 100vw" alt="' . $alt . '" data-fallback-img="' . $img_fallback . '">';
+		$html .= '</span>';
+		$html .= '<div class="block__logo-contain">';
+
+
+		$html .= '<div class="block__logo-wrap--alt">';
+		$html .= '<div class="block__title--alt">' . get_the_title() . '</div>';
+		$html .= '</div>';
+
+		$html .= '</div>';
+
+
+		$html .= '<article id="post-' . $post->ID . '" class="block__content--abs">';
+
+		$html .= '<h1 class="block__title--abs delta">' . get_the_title() . '</h1>';
+		if ( has_excerpt( $post->ID ) ) {
+			$html .= '<p class="block__description">' . jspdx_truncate(get_the_excerpt(), 60, '...') . '</p>';
+		}
+
+		$html .= '<span class="block__button btn btn--primary-white btn--small">Read More</span>';
+
+//				$html .= '<p class="block__footer">';
+//				$categories = get_the_category($recent["ID"]);
+//				if ( ! empty( $categories ) ) {
+//					foreach( $categories as $category ) {
+//						if($category == 'undefined'){
+//							// do nothing
+//						} else {
+//							$html .= '<span><a class="block__footer-link" href="' . get_category_link( $category->term_id ) . '" alt="View all posts in ' . $category->name . '" title="View all posts in ' . $category->name . '" data-post-cat="' . $category->term_id . '">' . $category->name . '</a></span>';
+//						}
+//					}
+//				}
+//				$html .= '</p>';
+		$html .= '</article>';
+
+		$html .= '</a>';
+//	}
+
+	echo $html;
+}
+
+/**
+ * Recent posts shortcode
+ */
 function recent_posts_function($atts, $content = null){
 	extract(shortcode_atts(array(
 		'resource_type'  => '',

@@ -789,7 +789,7 @@ figcaption {
   border-radius: 1.5px;
   margin: 1.6rem 0rem;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
-  .srbt-modal .jspdx-video {
+  .jspdx-modal .jspdx-video {
     margin: 0rem; }
 
 /*------------------------------------*\
@@ -1802,10 +1802,10 @@ a img.aligncenter {
 .section {
   margin: 0px; }
   .section__title {
-    max-width: 16em; }
+    max-width: 26em;
+    position: relative; }
   .section__content {
-    max-width: 35em;
-    margin: 0rem; }
+    max-width: 35em; }
     .section__content--wide {
       max-width: none; }
 

@@ -197,7 +197,7 @@ function jspdx_remove_more_jump_link($link) {
 /**
  * Primary Nav Walker
  */
-class srbt_walker extends Walker_Nav_Menu {
+class jspdx_walker extends Walker_Nav_Menu {
 //	function start_lvl( &$output, $depth = 0, $args = array() ) {
 //		$output .= "\n" . $indent . '<ul class="sub-menu"><li class="sub-menu-close"><a class="sub-menu-close-link" href="#outer-wrap"><i class="sr-icon-close3"></i></a></li>' . "\n";
 //	}
@@ -423,7 +423,7 @@ function truncate ($str, $length=10, $trailing='...') {
 	return $res;
 }
 
-function srbt_truncate($string, $width, $trailing='...') {
+function jspdx_truncate($string, $width, $trailing='...') {
 	$mywords = explode(" ", $string);
 	$finalstring = "";
 	foreach($mywords as $word) {

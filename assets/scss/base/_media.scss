@@ -61,7 +61,7 @@ figcaption {
 	border-radius: ($border__med * 0.5);
 	margin: $space 0rem;
 	@include box-shadow(sm-med);
-	.srbt-modal & {
+	.jspdx-modal & {
 		margin: 0rem;
 	}
 }

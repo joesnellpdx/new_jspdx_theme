@@ -11,7 +11,7 @@
 add_filter( 'gform_field_content', function ( $field_content, $field ) {
 
 	if ( $field->type == 'select' ) {
-		return str_replace( 'ginput_container','ginput_container ginput_container--select srbt-select', $field_content );
+		return str_replace( 'ginput_container','ginput_container ginput_container--select jspdx-select', $field_content );
 	}
 
 	return $field_content;

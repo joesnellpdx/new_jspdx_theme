@@ -15,7 +15,7 @@
 
 	<footer id="colophon" class="site-footer section" role="contentinfo">
 		<div class="site-info section__inner lc">
-			<?php do_action( 'srbt_demo_theme_credits' ); ?>
+			<?php do_action( 'jspdx_demo_theme_credits' ); ?>
 			<p>Copyright &copy; <?php auto_copyright('2012'); ?> <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

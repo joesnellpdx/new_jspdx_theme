@@ -249,7 +249,7 @@ function recent_works_function($atts, $content = null){
 				$html .= '</div>';
 
 
-				$html .= '<div class="block__content--abs">';
+				$html .= '<article id="post-' . $post->ID . '" class="block__content--abs">';
 
 				$html .= '<h1 class="block__title--abs delta">' . $post->post_title . '</h1>';
 				if(!empty($description)){
@@ -270,7 +270,7 @@ function recent_works_function($atts, $content = null){
 //					}
 //				}
 //				$html .= '</p>';
-				$html .= '</div>';
+				$html .= '</article>';
 
 				$html .= '</a>';
 			}
