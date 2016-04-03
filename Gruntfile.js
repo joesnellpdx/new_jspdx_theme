@@ -185,19 +185,22 @@ module.exports = function(grunt) {
 
                     //primarily for pngs
                     defaultWidth: "400px",
-                    defaultHeight: "300px",
+                    defaultHeight: "240px",
 
                     // define vars that can be used in filenames if desirable, like foo.colors-primary-secondary.svg
                     colors: {
                         primary: "red",
-                        secondary: "#666"
+                        secondary: "#666",
+                        white: "#FFF",
+                        black: "000"
                     },
 
-                    dynamicColorOnly: true,
+                    dynamicColorOnly: false,
 
                     cssbasepath: "assets/grunticon/output/",
                     tmpPath: "assets/grunticon/svgs/",
                     tmpDir: "grunticon-tmp-files",
+                    
 
                     //customselectors: {
                     //    "*": [".icon-$1:before", ".icon-$1-what", ".hey-$1"]

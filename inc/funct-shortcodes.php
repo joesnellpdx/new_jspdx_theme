@@ -425,7 +425,7 @@ function recent_posts_function($atts, $content = null){
 	extract(shortcode_atts(array(
 		'resource_type'  => '',
 		'category' => '',
-		'posts_per_page' => 4,
+		'posts_per_page' => 7,
 		'orderby' => 'date'
 	), $atts));
 
@@ -452,17 +452,27 @@ function recent_posts_function($atts, $content = null){
 
 	$the_query = new WP_Query( $args );
 
+	$i = '';
 	$html = '';
 
 	// The Loop
 	if ( $the_query->have_posts() ) {
 		global $post;
 
-		$html .= '<div class="recent-post-wrap g-flex g g-4up" >';
+		$html .= '<div class="recent-post-wrap g-flex g g-3up" >';
 
 		while ( $the_query->have_posts() ) {
 			$the_query->the_post();
 			global $post;
+
+			$i ++;
+			$wide_vars = array(1, 4);
+			if(in_array($i, $wide_vars)){
+				$size_class = ' gi-2-3';
+			} else {
+				$size_class = '';
+			}
+
 
 			$image_id = get_post_thumbnail_id( $post->ID );
 			if ( empty( $image_id ) ) {
@@ -475,13 +485,14 @@ function recent_posts_function($atts, $content = null){
 			$srcset = $srcset_value ? ' srcset="' . esc_attr( $srcset_value ) . '"' : '';
 			$alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
 
-			$html .= '<article class="block block--link gi">';
+			$html .= '<article class="block block--mini-post block--link gi' . $size_class . '">';
 
 			$html .= '<span class="block__img-contain img-fit" href="' . get_permalink($post->ID) . '">';
 			if(!empty($img_src)) {
 				$html .= '<img class="block__img" src="' . $img_src . '" ' . $srcset . ' sizes="(min-width: 768px) 500px, 100vw" alt="' . $alt . '" data-fallback-img="' . $img_fallback . '">';
 			}
 			$html .= '</span>';
+			$html .= '<div class="block__content--abs">';
 
 			$html .= '<a class="block__link" href="' . get_permalink($post->ID) . '"><h1 class="title__block zeta">' .   $post->post_title.'</h1></a>';
 
@@ -497,6 +508,7 @@ function recent_posts_function($atts, $content = null){
 				}
 			}
 			$html .= '</p>';
+			$html .= '</div>';
 
 			$html .= '</article>';
 		}

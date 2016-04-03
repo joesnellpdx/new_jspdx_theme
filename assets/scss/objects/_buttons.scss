@@ -7,11 +7,13 @@
 	background: $gray-dark;
 	color: $white;
 	line-height: 1;
-	font-weight: bold;
-	padding: $pad;
-	margin: 0rem;
+	font-weight: normal;
+	padding: $pad $pad-double;
+	margin: 0px;
 	border: 0;
 	text-align: center;
+	text-transform: uppercase;
+	font-size: $font-size__small-2;
 	@include all-transition(.3s);
 	&:hover, &:focus {
 		background: $gray;
@@ -24,15 +26,46 @@
 	}
 	&--primary {
 		@extend .btn;
-		background: $link__color;
-		color: $white;
+		background: transparent;
+		color: $brand__one;
+		border: $border__reg solid $brand__one;
+		display: inline-block;
+		position: relative;
+		overflow: hidden;
+		&:before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: -100%;
+			top: 0;
+			background: $brand__one;
+			transition: left .2s ease-out;
+			z-index: -100;
+		}
 		&:hover, &:focus {
-			background: $link__hover;
 			color: $white;
+			background: transparent;
+			&:before {
+				left: 0%;
+			}
+		}
+		&-white {
+			@extend .btn--primary;
+			color: $white;
+			border-color: $white;
+			&:before {
+				background: $black;
+				background: rgba(0,0,0,0.3);
+			}
+			&:hover, &:focus {
+				color: $white;
+			}
+
 		}
 	}
 	&--small {
-		padding: $pad-half;
+		font-size: $font-size__small;
 	}
 	&--large {
 		padding: $pad-half;

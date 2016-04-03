@@ -41,6 +41,11 @@ require get_template_directory() . '/inc/jetpack.php';
 require get_template_directory() . '/inc/custom-page-content.php';
 
 /**
+ * Implement post types.
+ */
+require get_template_directory() . '/inc/funct-work.php';
+
+/**
  * Implement page hero functions.
  */
 require get_template_directory() . '/inc/custom-page-hero.php';

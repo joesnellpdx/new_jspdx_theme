@@ -28,7 +28,30 @@ figure {
 	img {
 		margin-bottom: $space-half;
 	}
+	&.fixedratio {
+		margin: 0;
+		padding-top: $logo-ratio;
+		background-position: center;
+		background-size: cover;
+		&--two {
+			margin: 0;
+			padding-top: 60%;
+			background-position: center;
+			background-size: cover;
+		}
+	}
 }
+//figure {
+//	&.fixed-ratio {
+//
+//	}
+//}
+//figure.fixedratio {
+//	margin: 0;
+//	padding-top: $logo-ratio;
+//	background-position: center;
+//	background-size: cover;
+//}
 figcaption {
 	font-style: italic;
 }
