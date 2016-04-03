@@ -612,7 +612,7 @@ h1, .alpha {
   font-weight: normal;
   font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
   line-height: 1.2;
-  margin: 1.6rem 0rem; }
+  margin: 0rem 0rem 1.6rem; }
   h1 > span, .alpha > span {
     display: inline-block; }
   h1.entry-title, .alpha.entry-title {
@@ -624,44 +624,42 @@ h2, .beta {
   font-size: 1.1875em;
   font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
   line-height: 1.2;
-  margin: 1.6rem 0rem; }
+  margin: 0rem 0rem 1.6rem; }
 
 h3, .gamma {
   font-size: 1.0625em;
   font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
   line-height: 1.2;
-  margin: 1.6rem 0rem; }
+  margin: 0rem 0rem 1.6rem; }
 
 h4, .delta {
   font-size: 1.1875em;
   font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
-  margin: 1.6rem 0rem; }
+  margin: 0rem 0rem 1.6rem; }
 
 h5, .epsilon {
   font-size: 1.1875em;
   font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
-  margin: 1.6rem 0rem; }
+  margin: 0rem 0rem 1.6rem; }
 
 h6, .zeta {
   font-size: 1.1875em;
   font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
-  margin: 1.6rem 0rem; }
+  margin: 0rem 0rem 1.6rem; }
 
 /* Subheadings */
 .title__subheading {
   display: block;
   font-size: 0.75em; }
-.title__gi {
-  margin-top: 0rem; }
 
 /* Text-Related Elements */
 p {
-  margin: 1.6rem 0rem; }
+  margin: 0rem 0rem 1.6rem; }
 
 /* Blockquote */
 blockquote, q {
   padding-left: 1rem;
-  margin: 2.4rem 0rem; }
+  margin: 0rem 0rem 1.6rem; }
   blockquote > p, q > p {
     position: relative;
     font-size: 1.4em; }
@@ -705,7 +703,7 @@ abbr {
   cursor: help; }
 
 ol, ul {
-  margin: 1.6rem 0 1.6rem 3rem; }
+  margin: 0rem 0rem 1.6rem 3rem; }
 
 ul {
   list-style: disc; }
@@ -996,7 +994,7 @@ a img.aligncenter {
 .lc {
   max-width: 72em;
   margin: 0 auto;
-  padding: 0rem 3.2rem; }
+  padding: 1.6rem 3.2rem 0rem; }
 
 /*------------------------------------*\
     $TEMPLATES
@@ -1355,6 +1353,11 @@ a img.aligncenter {
 /*------------------------------------*\
     $FOOTER
 \*------------------------------------*/
+.site-footer {
+  font-size: 0.875em;
+  background: #343434;
+  color: #fff; }
+
 .sticky {
   display: block; }
 

@@ -1,13 +1,13 @@
 /* Text-Related Elements */ 
 p {
-	margin: $space 0rem;
+	margin: 0rem 0rem $space;
 }
 
 /* Blockquote */
 blockquote, q {
 	@extend .cf;
 	padding-left: $pad;
-	margin: $space-and-half 0rem;
+	margin: 0rem 0rem $space;
 	> p {
 		position: relative;
 		font-size: 1.4em;

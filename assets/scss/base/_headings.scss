@@ -5,7 +5,7 @@ h1, .alpha   {
 	font-weight: normal;
 	font-family: $font__headings;
 	line-height: $font__line-height-headers;
-	margin: $space 0rem;
+	margin: 0rem 0rem $space;
 	> span {
 		display: inline-block;
 	}
@@ -20,32 +20,32 @@ h2, .beta    {
 	font-size: $font-size__med-3;
 	font-family: $font__headings;
 	line-height: $font__line-height-headers;
-	margin: $space 0rem;
+	margin: 0rem 0rem $space;
 }
 
 h3, .gamma   {
 	font-size: $font-size__med-2;
 	font-family: $font__headings;
 	line-height: $font__line-height-headers;
-	margin: $space 0rem;
+	margin: 0rem 0rem $space;
 }
 
 h4, .delta   {
 	font-size: $font-size__med-3;
 	font-family: $font__headings;
-	margin: $space 0rem;
+	margin: 0rem 0rem $space;
 }
 
 h5, .epsilon {
 	font-size: $font-size__med-3;
 	font-family: $font__headings;
-	margin: $space 0rem;
+	margin: 0rem 0rem $space;
 }
 
 h6, .zeta    {
 	font-size: $font-size__med-3;
 	font-family: $font__headings;
-	margin: $space 0rem;
+	margin: 0rem 0rem $space;
 }
 
 /* Subheadings */
@@ -55,6 +55,6 @@ h6, .zeta    {
 		font-size: $font-size__small;
 	}
 	&__gi {
-		margin-top: 0rem;
+		//margin-top: 0rem;
 	}
 }
