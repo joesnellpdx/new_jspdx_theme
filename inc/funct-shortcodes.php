@@ -273,11 +273,13 @@ function block_shortcode($atts, $content) {
 		$targ = '';
 	}
 
+	$style_class = '';
+
 	if(!empty($link)){
 		$link_class = 'block--link';
 	}
 	if(!empty($style)){
-		$style_class = 'block--' . $style;
+		$style_class = 'block block--' . $style;
 	} else {
 		$style_class = 'block';
 	}
@@ -288,7 +290,7 @@ function block_shortcode($atts, $content) {
 	}
 	$return_html .= '<div class="' . $style_class . '__content">';
 	if(!empty($title)){
-		$return_html .= '<h3 class="title__gi ' . $style_class . '__title'.$class.'">'.$title.'</h3>';
+		$return_html .= '<h3 class="title__gi ' . $style_class . '__title--'.$class.'">'.$title.'</h3>';
 	}
 
 	$return_html .= do_shortcode($content);

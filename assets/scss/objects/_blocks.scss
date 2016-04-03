@@ -137,7 +137,6 @@
 				}
 			}
 		}
-
 		&:hover, &:active, &:focus {
 			color: $white;
 			.block__content--abs {
@@ -150,6 +149,13 @@
 			color: $white;
 		}
 
+	}
+	&--hl {
+		background: #f7f7f7;
+		&__content {
+
+			padding: $pad;
+		}
 	}
 }
 

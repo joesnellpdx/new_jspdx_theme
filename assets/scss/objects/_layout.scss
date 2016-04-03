@@ -121,6 +121,16 @@
 				clear: left;
 			}
 		}
+		/* Grid 2/3 */
+		> .gi-2-3 {
+			float: left;
+			width: 66.666666%;
+		}
+
+		> .gi-1-3 {
+			float: left;
+			width: 33.333333%;
+		}
 	}
 }
 
@@ -261,21 +271,6 @@
 	}
 }
 
-/* Grid 2/3 */
-.gi-2-3 {
-	@media all and (min-width: $bp-med) {
-		float: left;
-		width: 66.666666%;
-	}
-}
-
-.gi-1-3 {
-	@media all and (min-width: $bp-med) {
-		float: left;
-		width: 33.333333%;
-	}
-}
-
 /* Grid 4up block */
 .g-opposites {
 	.gi {
@@ -318,6 +313,12 @@
 				//width: 100%;
 			}
 		}
+		&.g-1up {
+			flex-flow: column wrap;
+			> .gi {
+				flex: initial;
+			}
+		}
 	}
 	@media all and (min-width: $bp-med) {
 		.flexbox & {
@@ -336,22 +337,30 @@
 	}
 	@media all and (min-width: $bp-large) {
 		.flexbox & {
+			&.g-1up {
+				> .gi-2-3 {
+					max-width: calc(66.6666% - 1rem);
+					.block__img-contain {
+						padding-top: 29%;
+					}
+				}
+			}
 			&.g-2up {
 				> .gi {
 					flex: 1 0 60rem;
-					max-width: calc(50% - 2rem);
+					max-width: calc(50% - 1rem);
 				}
 			}
 			&.g-3up {
 				> .gi,
 				> .gi-1-3 {
-					max-width: calc(33.3333% - 2rem);
+					max-width: calc(33.3333% - 1rem);
 					clear: none;
 					float: none;
 					flex: 1 0 50rem;
 				}
 				> .gi-2-3 {
-					max-width: calc(66.6666% - 2rem);
+					max-width: calc(66.6666% - 1rem);
 					.block__img-contain {
 						padding-top: 29%;
 					}
@@ -365,7 +374,7 @@
 			}
 			&.g-4up {
 				> .gi {
-					max-width: calc(25% - 2rem);
+					max-width: calc(25% - 1rem);
 					clear: none;
 					float: none;
 				}

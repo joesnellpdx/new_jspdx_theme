@@ -43,22 +43,24 @@
         $('body').addClass('js-loaded');
     };
 
-    var pageHeroTop = function(){
-        var target = $('#page-hero'),
-            distance = target.offset().top,
-            $window = $(window),
-            activeClass = 'hero-top';
+    var pageHeroTop = function() {
+        var target = $('#page-hero');
+        
+        if (target.length) {
 
-        $window.scroll(function() {
-            if ( $window.scrollTop() >= distance ) {
-                $('body').addClass(activeClass);
-            } else if ($('body').hasClass(activeClass)) {
-                $('body').removeClass(activeClass);
-            }
-        });
+            var distance = target.offset().top,
+                $window = $(window),
+                activeClass = 'hero-top';
+
+            $window.scroll(function () {
+                if ($window.scrollTop() >= distance) {
+                    $('body').addClass(activeClass);
+                } else if ($('body').hasClass(activeClass)) {
+                    $('body').removeClass(activeClass);
+                }
+            });
+        }
     };
-
-
 
     $(document).ready(function( $ ) {
         primaryNavOpen();

@@ -4,20 +4,9 @@
 	&__title {
 		max-width: 26em;
 		position: relative;
-		//margin-left: auto;
-		//margin-right: auto;
-		//&:after {
-		//	content: '';
-		//	height: 2px;
-		//	background: $brand__one;
-		//	width: 60%;
-		//	position: absolute;
-		//	left: 0;
-		//	bottom: -$pad-half;
-		//}
 	}
 	&__content {
-		max-width: 35em;
+		//max-width: 35em;
 		//margin: 0px auto;
 		&--wide {
 			max-width: none;

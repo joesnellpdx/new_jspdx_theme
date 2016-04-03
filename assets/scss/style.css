@@ -811,7 +811,7 @@ label {
 button, input, select, textarea {
   font-family: inherit;
   font-size: 100%;
-  margin: 0 1px 0; }
+  margin: 0px; }
 
 input, textarea {
   width: 100%;
@@ -1067,12 +1067,20 @@ a img.aligncenter {
     .g-3up > .gi:nth-of-type(2n+1) {
       clear: left; } }
 @media all and (min-width: 50em) {
-  .g-3up > .gi {
-    width: 33.3333333%; }
-    .g-3up > .gi:nth-of-type(2n+1) {
-      clear: none; }
-    .g-3up > .gi:nth-of-type(3n+1) {
-      clear: left; } }
+  .g-3up {
+    /* Grid 2/3 */ }
+    .g-3up > .gi {
+      width: 33.3333333%; }
+      .g-3up > .gi:nth-of-type(2n+1) {
+        clear: none; }
+      .g-3up > .gi:nth-of-type(3n+1) {
+        clear: left; }
+    .g-3up > .gi-2-3 {
+      float: left;
+      width: 66.666666%; }
+    .g-3up > .gi-1-3 {
+      float: left;
+      width: 33.333333%; } }
 
 /* Grid 4up */
 @media all and (min-width: 46.8em) {
@@ -1145,17 +1153,6 @@ a img.aligncenter {
     .g-max5 > .gi:nth-of-type(5n+1) {
       clear: left; } }
 
-/* Grid 2/3 */
-@media all and (min-width: 46.8em) {
-  .gi-2-3 {
-    float: left;
-    width: 66.666666%; } }
-
-@media all and (min-width: 46.8em) {
-  .gi-1-3 {
-    float: left;
-    width: 33.333333%; } }
-
 /* Grid 4up block */
 .g-opposites .gi {
   float: left; }
@@ -1180,6 +1177,10 @@ a img.aligncenter {
     flex: 1 0 30rem;
     margin-left: 1rem;
     margin-top: 1rem; }
+  .flexbox .g-flex.g-1up {
+    flex-flow: column wrap; }
+    .flexbox .g-flex.g-1up > .gi {
+      flex: initial; }
 @media all and (min-width: 46.8em) {
   .flexbox .g-flex.g-2up > .gi, .flexbox .g-flex.g-3up > .gi, .flexbox .g-flex.g-4up > .gi {
     width: auto;
@@ -1187,21 +1188,25 @@ a img.aligncenter {
     clear: none;
     float: none; } }
 @media all and (min-width: 50em) {
+  .flexbox .g-flex.g-1up > .gi-2-3 {
+    max-width: calc(66.6666% - 1rem); }
+    .flexbox .g-flex.g-1up > .gi-2-3 .block__img-contain {
+      padding-top: 29%; }
   .flexbox .g-flex.g-2up > .gi {
     flex: 1 0 60rem;
-    max-width: calc(50% - 2rem); }
+    max-width: calc(50% - 1rem); }
   .flexbox .g-flex.g-3up > .gi,
   .flexbox .g-flex.g-3up > .gi-1-3 {
-    max-width: calc(33.3333% - 2rem);
+    max-width: calc(33.3333% - 1rem);
     clear: none;
     float: none;
     flex: 1 0 50rem; }
   .flexbox .g-flex.g-3up > .gi-2-3 {
-    max-width: calc(66.6666% - 2rem); }
+    max-width: calc(66.6666% - 1rem); }
     .flexbox .g-flex.g-3up > .gi-2-3 .block__img-contain {
       padding-top: 29%; }
   .flexbox .g-flex.g-4up > .gi {
-    max-width: calc(25% - 2rem);
+    max-width: calc(25% - 1rem);
     clear: none;
     float: none; } }
 
@@ -1455,17 +1460,16 @@ a img.aligncenter {
 \*------------------------------------*/
 .btn, .btn--primary, button, input[type="submit"], .btn--primary-white {
   display: inline-block;
-  background: #343434;
-  color: #fff;
   line-height: 1;
   font-weight: normal;
   padding: 1rem 2rem;
   margin: 0px;
-  border: 0;
   text-align: center;
   text-transform: uppercase;
   font-size: 0.875em;
-  transition: all 0.3s ease-out; }
+  transition: all 0.3s ease-out;
+  position: relative;
+  overflow: hidden; }
   .btn:hover, .btn--primary:hover, button:hover, input[type="submit"]:hover, .btn--primary-white:hover, .btn:focus, .btn--primary:focus, button:focus, input[type="submit"]:focus, .btn--primary-white:focus {
     background: #808080;
     color: #fff; }
@@ -1476,9 +1480,9 @@ a img.aligncenter {
     background: transparent;
     color: #ff8800;
     border: 2px solid #ff8800;
-    display: inline-block;
-    position: relative;
-    overflow: hidden; }
+    z-index: 10; }
+    .btn--primary:visited, button:visited, input[type="submit"]:visited, .btn--primary-white:visited {
+      color: #ff8800; }
     .btn--primary:before, button:before, input[type="submit"]:before, .btn--primary-white:before {
       content: '';
       position: absolute;
@@ -1488,11 +1492,22 @@ a img.aligncenter {
       top: 0;
       background: #ff8800;
       transition: left .2s ease-out;
-      z-index: -100; }
-    .btn--primary:hover, button:hover, input[type="submit"]:hover, .btn--primary-white:hover, .btn--primary:focus, button:focus, input[type="submit"]:focus, .btn--primary-white:focus {
+      z-index: -1; }
+    .btn--primary:after, button:after, input[type="submit"]:after, .btn--primary-white:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 400%;
+      left: -150%;
+      top: -150%;
+      background: #fff;
+      transition: left 0s ease-in-out 0s;
+      z-index: 1;
+      transform: rotate3d(0, 0, 1, -65deg); }
+    .btn--primary:hover, button:hover, input[type="submit"]:hover, .btn--primary-white:hover, .btn--primary:focus, button:focus, input[type="submit"]:focus, .btn--primary-white:focus, .btn--primary:active, button:active, input[type="submit"]:active, .btn--primary-white:active {
       color: #fff;
       background: transparent; }
-      .btn--primary:hover:before, button:hover:before, input[type="submit"]:hover:before, .btn--primary-white:hover:before, .btn--primary:focus:before, button:focus:before, input[type="submit"]:focus:before, .btn--primary-white:focus:before {
+      .btn--primary:hover:before, button:hover:before, input[type="submit"]:hover:before, .btn--primary-white:hover:before, .btn--primary:focus:before, button:focus:before, input[type="submit"]:focus:before, .btn--primary-white:focus:before, .btn--primary:active:before, button:active:before, input[type="submit"]:active:before, .btn--primary-white:active:before {
         left: 0%; }
     .btn--primary-white {
       color: #fff;
@@ -1713,6 +1728,10 @@ a img.aligncenter {
         transition-delay: .4s; }
     .block--mini-post:hover, .block--mini-post:active, .block--mini-post:focus, .block--mini-post:visited {
       color: #fff; }
+  .block--hl {
+    background: #f7f7f7; }
+    .block--hl__content {
+      padding: 1rem; }
 
 .meta-block {
   display: block;
@@ -1804,10 +1823,8 @@ a img.aligncenter {
   .section__title {
     max-width: 26em;
     position: relative; }
-  .section__content {
-    max-width: 35em; }
-    .section__content--wide {
-      max-width: none; }
+  .section__content--wide {
+    max-width: none; }
 
 .article-header h1 {
   font-size: 2.5em; }
