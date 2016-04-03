@@ -46,3 +46,29 @@
 	width: 100%;
 	//@include pix-rem(max-width, 80);
 }
+.page-hero {
+	border-top: $border__thick solid $brand__one;
+	position: relative;
+	z-index: -1;
+	background: $gray-dark;
+	&__img-contain {
+		&.img-fit {
+			padding-top: 50%;
+		}
+	}
+	@media screen and (min-width: $nav-break) {
+
+
+		.hero-top & {
+			padding-top: 50%;
+			&__img-contain {
+					position: fixed;
+					border-top: $border__thick solid $brand__one;
+					top: 0;
+					left: 0;
+					width: 100%;
+					z-index: -10;
+			}
+		}
+	}
+}

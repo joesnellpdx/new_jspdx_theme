@@ -461,9 +461,10 @@ header, footer, nav, section, article, hgroup, figure {
     $GLOBAL CLASSES
 \*------------------------------------*/
 /* Clearfix */
-.cf:before, .site-content:before, blockquote:before, q:before, .lc:before, .l-two-col:before, .site-header:before, [role=main]:before, .meta-block:before, .section:before,
+.cf:before, .site-content:before, .page-extras:before, blockquote:before, q:before, .lc:before, .l-two-col:before, .site-header:before, [role=main]:before, .meta-block:before, .section:before,
 .cf:after,
 .site-content:after,
+.page-extras:after,
 blockquote:after,
 q:after,
 .lc:after,
@@ -474,9 +475,10 @@ q:after,
 .section:after {
   content: "";
   display: table; }
-  .flexbox .cf:before, .flexbox .site-content:before, .flexbox blockquote:before, .flexbox q:before, .flexbox .lc:before, .flexbox .l-two-col:before, .flexbox .site-header:before, .flexbox [role=main]:before, .flexbox .meta-block:before, .flexbox .section:before, .flexbox
+  .flexbox .cf:before, .flexbox .site-content:before, .flexbox .page-extras:before, .flexbox blockquote:before, .flexbox q:before, .flexbox .lc:before, .flexbox .l-two-col:before, .flexbox .site-header:before, .flexbox [role=main]:before, .flexbox .meta-block:before, .flexbox .section:before, .flexbox
   .cf:after, .flexbox
   .site-content:after, .flexbox
+  .page-extras:after, .flexbox
   blockquote:after, .flexbox
   q:after, .flexbox
   .lc:after, .flexbox
@@ -488,7 +490,7 @@ q:after,
     flex-basis: 0;
     order: 1; }
 
-.cf:after, .site-content:after, blockquote:after, q:after, .lc:after, .l-two-col:after, .site-header:after, [role=main]:after, .meta-block:after, .section:after {
+.cf:after, .site-content:after, .page-extras:after, blockquote:after, q:after, .lc:after, .l-two-col:after, .site-header:after, [role=main]:after, .meta-block:after, .section:after {
   clear: both; }
 
 /* Completely remove from the flow and screen readers. */
@@ -588,8 +590,15 @@ body {
     overflow: hidden;
     height: 100%; } }
 
+.content-wrapper {
+  background: #fff; }
+
 .site-content {
   clear: both; }
+
+.page-extras {
+  clear: both;
+  background: #fff; }
 
 /* Links */
 a {
@@ -1235,6 +1244,24 @@ a img.aligncenter {
   max-width: 8rem;
   width: 100%; }
 
+.page-hero {
+  border-top: 7px solid #ff8800;
+  position: relative;
+  z-index: -1;
+  background: #343434; }
+  .page-hero__img-contain.img-fit {
+    padding-top: 50%; }
+  @media screen and (min-width: 48em) {
+    .hero-top .page-hero {
+      padding-top: 50%; }
+      .hero-top .page-hero__img-contain {
+        position: fixed;
+        border-top: 7px solid #ff8800;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: -10; } }
+
 /*------------------------------------*\
     $NAVIGATION
 \*------------------------------------*/
@@ -1362,7 +1389,7 @@ a img.aligncenter {
   display: block; }
 
 .hentry {
-  margin: 0 0 1.5em; }
+  margin: 0px; }
 
 .byline,
 .updated:not(.published) {

@@ -20,7 +20,15 @@ body{
 		}
 	}
 }
+.content-wrapper {
+	background: $white;
+}
 .site-content {
 	@extend .cf;
 	clear: both;
+}
+.page-extras {
+	@extend .cf;
+	clear: both;
+	background: $white;
 }
