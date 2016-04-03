@@ -23,7 +23,7 @@ function gruntscript_to_head_function(){
 			$html = '';
 			$html .= '<script>';
 			$html .= $gruntscript;
-			$html .= 'grunticon(["' . get_stylesheet_directory_uri() . '/assets/grunticon/output/icons.data.svg.css", "' . get_stylesheet_directory_uri() . '/assets/grunticon/output/icons.data.png.css", "' . get_stylesheet_directory_uri() . '/assets/grunticon/output/icons.fallback.css"]);';
+			$html .= 'grunticon(["' . get_stylesheet_directory_uri() . '/assets/grunticon/output/icons.data.svg.css", "' . get_stylesheet_directory_uri() . '/assets/grunticon/output/icons.data.png.css", "' . get_stylesheet_directory_uri() . '/assets/grunticon/output/icons.fallback.css"], grunticon.svgLoadedCallback);';
 			$html .= '</script>';
 			$html .= '<noscript><link href="' . get_stylesheet_directory_uri() . '/assets/grunticon/output/icons.fallback.css" rel="stylesheet"></noscript>';
 
@@ -161,20 +161,78 @@ function insert_page_heading(){
 	$h_subtitle = get_post_meta( $the_page_id, '_hero_subtitle', true );
 
 	if(!$h_title){
-		$title .= '<h1 class="entry-title title">'. get_the_title($the_page_id);
-		if(!empty($h_subtitle)){
-			$title .= '<span class="title__subheading">' . $h_subtitle . '</span>';
-		}
-		$title .= '</h1>';
+		$title .= get_the_title($the_page_id);
 	} else {
-		$title .= '<h1 class="entry-title title">' . $h_title;
-		if(!empty($h_subtitle)){
-			$title .= '<span class="title__subheading">' . $h_subtitle . '</span>';
-		}
-		$title .= '</h1>';
+		$title .= $h_title;
+
+	}
+	$title_class = '';
+
+	if(!empty($h_subtitle)){
+		$sub_title .= '<span class="title__subheading">' . $h_subtitle . '</span>';
+	} else {
+		$sub_title = '';
 	}
 
-	$hero .= $title;
+	if ( is_category() ) :
+		$hero .= '<h1 class="entry-title title' . $title_class . '">Category: ' . $add_icon . single_cat_title
+			("", false) .
+			'</h1>';
+
+	elseif ( is_tag() ) :
+		$hero .= '<h1 class="entry-title title' . $title_class . '">Tag: ' . $add_icon . single_tag_title("", false) . '</h1>';
+
+	elseif ( is_author("", false) ) :
+		/* Queue the first post, that way we know
+		 * what author we're dealing with (if that is the case).
+		*/
+		the_post();
+		$hero .= '<h1 class="entry-title title' . $title_class . '">Author: ' . $add_icon . get_the_author() . '</h1>';
+
+		/* Since we called the_post() above, we need to
+		 * rewind the loop back to the beginning that way
+		 * we can run the loop properly, in full.
+		 */
+		rewind_posts();
+
+	elseif ( is_day() ) :
+		$hero .= '<h1 class="entry-title title' . $title_class . '">Archive: ' . $add_icon . get_the_date() . '</h1>';
+
+	elseif ( is_month() ) :
+		$hero .= '<h1 class="entry-title title' . $title_class . '">Archive: ' . $add_icon . get_the_date('F Y') . '</h1>';
+
+	elseif ( is_year() ) :
+		$hero .= '<h1 class="entry-title title' . $title_class . '">Archive: ' . $add_icon . get_the_date( 'Y' ) . '</h1>';
+
+	elseif ( is_search() ) :
+		$hero .= '<h1 class="entry-title title' . $title_class . '">Search: ' . $add_icon . get_search_query() . '</h1>';
+
+	elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
+		$hero .= '<h1 class="entry-title title' . $title_class . '">Asides</h1>';
+
+	elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
+		$hero .= '<h1 class="entry-title title' . $title_class . '">Images</h1>';
+
+	elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
+		$hero .= '<h1 class="entry-title title' . $title_class . '">Videos</h1>';
+
+	elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
+		$hero .= '<h1 class="entry-title title' . $title_class . '">Quotes</h1>';
+
+	elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
+		$hero .= '<h1 class="entry-title title' . $title_class . '">Links</h1>';
+
+	elseif ( is_tax() ) :
+		$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+		$hero .= '<h1 class="entry-title title' . $title_class . '">' . $add_icon . $term->name . '</h1>';
+
+	elseif( is_post_type_archive()) :
+		$hero .= '<h1 class="entry-title title' . $title_class . '">Archive: ' . $add_icon . post_type_archive_title("", false) . '</h1>';
+
+	else :
+		$hero .= '<h1 class="entry-title title' . $title_class . '">' . $add_icon . $title . $sub_title . '</h1>';
+
+	endif;
 
 	return $hero;
 

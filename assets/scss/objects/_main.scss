@@ -5,3 +5,18 @@
 	@extend .cf;
 	overflow: hidden;
 }
+.content-wrapper {
+	background: $white;
+}
+.site-content {
+	@extend .cf;
+	clear: both;
+}
+.page-extras {
+	@extend .cf;
+	clear: both;
+	background: $white;
+}
+.posts-navigation{
+	margin-bottom: $space;
+}

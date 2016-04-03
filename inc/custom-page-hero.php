@@ -4,17 +4,23 @@ function page_hero() {
 
 	$html = '';
 	global $post, $wp_query;
+	$the_page_id = '';
 
-	if(is_home()){
+	if(is_home()) {
 		$the_page_id = $wp_query->queried_object->ID;
+		$thumb_id = get_post_thumbnail_id( $the_page_id );
+	} elseif(is_archive() || is_search()) {
+		$the_page_id = '';
+		$thumb_id = '';
 	} else {
 		$the_page_id = $post->ID;
+		$thumb_id = get_post_thumbnail_id( $the_page_id );
 	}
 
-	if ( has_post_thumbnail($the_page_id) ) {
+	if (!empty($thumb_id)) {
 
 
-		$image_id = get_post_thumbnail_id( $the_page_id );
+		$image_id = $thumb_id;
 		$img_src = wp_get_attachment_image_url( $image_id, 'rwd-small' );
 		$img_fallback = wp_get_attachment_image_url( $image_id, 'large' );
 		$srcset_value = wp_get_attachment_image_srcset( $image_id, 'large' );

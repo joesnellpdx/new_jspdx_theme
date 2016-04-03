@@ -461,36 +461,36 @@ header, footer, nav, section, article, hgroup, figure {
     $GLOBAL CLASSES
 \*------------------------------------*/
 /* Clearfix */
-.cf:before, .site-content:before, .page-extras:before, blockquote:before, q:before, .lc:before, .l-two-col:before, .site-header:before, [role=main]:before, .meta-block:before, .section:before,
+.cf:before, blockquote:before, q:before, .lc:before, .l-two-col:before, .site-header:before, [role=main]:before, .site-content:before, .page-extras:before, .meta-block:before, .section:before,
 .cf:after,
-.site-content:after,
-.page-extras:after,
 blockquote:after,
 q:after,
 .lc:after,
 .l-two-col:after,
 .site-header:after,
 [role=main]:after,
+.site-content:after,
+.page-extras:after,
 .meta-block:after,
 .section:after {
   content: "";
   display: table; }
-  .flexbox .cf:before, .flexbox .site-content:before, .flexbox .page-extras:before, .flexbox blockquote:before, .flexbox q:before, .flexbox .lc:before, .flexbox .l-two-col:before, .flexbox .site-header:before, .flexbox [role=main]:before, .flexbox .meta-block:before, .flexbox .section:before, .flexbox
+  .flexbox .cf:before, .flexbox blockquote:before, .flexbox q:before, .flexbox .lc:before, .flexbox .l-two-col:before, .flexbox .site-header:before, .flexbox [role=main]:before, .flexbox .site-content:before, .flexbox .page-extras:before, .flexbox .meta-block:before, .flexbox .section:before, .flexbox
   .cf:after, .flexbox
-  .site-content:after, .flexbox
-  .page-extras:after, .flexbox
   blockquote:after, .flexbox
   q:after, .flexbox
   .lc:after, .flexbox
   .l-two-col:after, .flexbox
   .site-header:after, .flexbox
   [role=main]:after, .flexbox
+  .site-content:after, .flexbox
+  .page-extras:after, .flexbox
   .meta-block:after, .flexbox
   .section:after {
     flex-basis: 0;
     order: 1; }
 
-.cf:after, .site-content:after, .page-extras:after, blockquote:after, q:after, .lc:after, .l-two-col:after, .site-header:after, [role=main]:after, .meta-block:after, .section:after {
+.cf:after, blockquote:after, q:after, .lc:after, .l-two-col:after, .site-header:after, [role=main]:after, .site-content:after, .page-extras:after, .meta-block:after, .section:after {
   clear: both; }
 
 /* Completely remove from the flow and screen readers. */
@@ -590,16 +590,6 @@ body {
     overflow: hidden;
     height: 100%; } }
 
-.content-wrapper {
-  background: #fff; }
-
-.site-content {
-  clear: both; }
-
-.page-extras {
-  clear: both;
-  background: #fff; }
-
 /* Links */
 a {
   color: #ff8800;
@@ -608,7 +598,7 @@ a {
   transition: all 0.3s ease-out;
   -webkit-tap-highlight-color: transparent; }
   a:visited {
-    color: #FFCC80; }
+    color: #ff8800; }
   a:hover, a:focus {
     color: #E65100;
     outline: 0;
@@ -1166,7 +1156,8 @@ a img.aligncenter {
   flex-flow: row wrap;
   margin: 0px;
   margin-left: -1rem;
-  margin-top: -1rem; }
+  margin-top: -1rem;
+  margin-bottom: 1.6rem; }
   .flexbox .g-flex > .gi {
     width: 100%;
     float: none;
@@ -1382,6 +1373,19 @@ a img.aligncenter {
 [role=main] {
   overflow: hidden; }
 
+.content-wrapper {
+  background: #fff; }
+
+.site-content {
+  clear: both; }
+
+.page-extras {
+  clear: both;
+  background: #fff; }
+
+.posts-navigation {
+  margin-bottom: 1.6rem; }
+
 /*------------------------------------*\
     $FOOTER
 \*------------------------------------*/
@@ -1454,6 +1458,28 @@ a img.aligncenter {
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+[class^="jspdx-icon-font"] {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  overflow: hidden; }
+  [class^="jspdx-icon-font"] svg {
+    width: 100%;
+    height: 100%; }
+  [class^="jspdx-icon-font"] path.primary {
+    fill: #343434;
+    transition: all 0.3s ease-out; }
+  a:hover [class^="jspdx-icon-font"] path.primary, a:active [class^="jspdx-icon-font"] path.primary, a:focus [class^="jspdx-icon-font"] path.primary {
+    fill: #ff8800; }
+  .icon-link [class^="jspdx-icon-font"] {
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: .5em; }
+    .icon-link [class^="jspdx-icon-font"] path.primary {
+      fill: #ff8800; }
+  .icon-link:hover [class^="jspdx-icon-font"] path.primary, .icon-link:active [class^="jspdx-icon-font"] path.primary, .icon-link:focus [class^="jspdx-icon-font"] path.primary {
+    fill: #E65100; }
 
 /*------------------------------------*\
     $BUTTONS
@@ -1732,6 +1758,10 @@ a img.aligncenter {
     background: #f7f7f7; }
     .block--hl__content {
       padding: 1rem; }
+  .block--line-min p {
+    margin: 0px; }
+  .block--line-min__title {
+    margin-bottom: 0px; }
 
 .meta-block {
   display: block;

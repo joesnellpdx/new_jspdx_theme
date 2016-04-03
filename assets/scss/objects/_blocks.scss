@@ -157,6 +157,14 @@
 			padding: $pad;
 		}
 	}
+	&--line-min {
+		p {
+			margin: 0px;
+		}
+		&__title {
+			margin-bottom: 0px;
+		}
+	}
 }
 
 .meta-block {

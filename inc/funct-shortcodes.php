@@ -290,7 +290,7 @@ function block_shortcode($atts, $content) {
 	}
 	$return_html .= '<div class="' . $style_class . '__content">';
 	if(!empty($title)){
-		$return_html .= '<h3 class="title__gi ' . $style_class . '__title--'.$class.'">'.$title.'</h3>';
+		$return_html .= '<h3 class="title__gi ' . $style_class . '__title '.$class.'">'.$title.'</h3>';
 	}
 
 	$return_html .= do_shortcode($content);
@@ -644,11 +644,30 @@ function insert_icon_shortcode($atts, $content) {
 	), $atts));
 
 	$icon = '';
-	$icon .= '<i class="' . $class . '">' . do_shortcode($content) . '</i>';
+	$icon .= '<div class="' . $class . '" data-grunticon-embed style="background-image:none;">' . do_shortcode($content) . '</div>';
 
 	return $icon;
 }
 add_shortcode('icon', 'insert_icon_shortcode');
+
+function icon_link_shortcode($atts, $content) {
+	extract(shortcode_atts(array(
+		'class' 	=> '',
+		'link'	=> '',
+		'target' => '',
+		'class'	=> '',
+
+	), $atts));
+
+
+	$target = ($target == 'blank') ? ' target="_blank"' : '';
+
+	$icon = '';
+	$icon .= '<a class="icon-link" href="' . $link . '"' . $target . '><div class="' . $class . '" data-grunticon-embed style="background-image:none;"></div><span class="is-vishidden">' . do_shortcode($content) . '</span></a>';
+
+	return $icon;
+}
+add_shortcode('icon_link', 'icon_link_shortcode');
 
 /**
  * JSPDX video shortcode

@@ -27,35 +27,42 @@ get_header(); ?>
 
 						<?php if ( have_posts() ) : ?>
 
-						<div class="post-wrap g-flex g g-3up" >
+							<div class="post-wrap g-flex g g-3up" >
 
-						<?php
-						/* Start the Loop */
-						$i = '';
-						while ( have_posts() ) : the_post();
-							$i ++;
-							$wide_vars = array(1, 4);
-							if(in_array($i, $wide_vars)){
-								$size_class = ' gi-2-3';
-							} else {
-								$size_class = '';
-							}
-							posts_view_function($i);
+								<?php
+								/* Start the Loop */
+								$i = '';
+								while ( have_posts() ) : the_post();
+									$i ++;
+									$wide_vars = array(1, 4);
+									if(in_array($i, $wide_vars)){
+										$size_class = ' gi-2-3';
+									} else {
+										$size_class = '';
+									}
+									posts_view_function($i);
 
 
-						endwhile; ?>
-
+								endwhile; ?>
 						</div>
+
 					</div>
-				</section>
+				</div>
+			</section>
 
-					<?php the_posts_navigation();
+			<div class="page-extras lc">
 
+				<?php the_posts_navigation( array(
+					'prev_text' => __( 'Older', 'textdomain' ),
+					'next_text' => __( 'Newer', 'textdomain' ),
+				) );
+	
 				else :
-
+	
 					get_template_part( 'template-parts/content', 'none' );
-
+	
 				endif; ?>
+
 			</div>
 
 		</main><!-- #main -->

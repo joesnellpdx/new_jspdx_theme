@@ -189,10 +189,11 @@ module.exports = function(grunt) {
 
                     // define vars that can be used in filenames if desirable, like foo.colors-primary-secondary.svg
                     colors: {
-                        primary: "red",
+                        primary: "#ff8800",
                         secondary: "#666",
                         white: "#FFF",
-                        black: "000"
+                        black: "000",
+                        font: "#343434"
                     },
 
                     dynamicColorOnly: false,
