@@ -9,6 +9,8 @@ body {
 	font-weight: 400;
 	-webkit-text-size-adjust: 100%;
 	color: $gray-dark;
+	min-height: 100vh;
+	padding-bottom: $footer-height;
 }
 html,
 body{

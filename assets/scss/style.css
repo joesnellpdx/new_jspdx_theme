@@ -581,7 +581,9 @@ body {
   font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   -webkit-text-size-adjust: 100%;
-  color: #343434; }
+  color: #343434;
+  min-height: 100vh;
+  padding-bottom: 5.4rem; }
 
 @media screen and (max-width: 48em) {
   html.nav-open, html.nav-subnav-open,
@@ -862,6 +864,34 @@ input[type="search"]::-webkit-search-decoration {
   border: 0;
   border-left: 1px solid #808080;
   color: #808080; }
+
+.searchform {
+  position: relative;
+  margin: 1.6rem auto;
+  max-width: 24em; }
+
+.searchsubmit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 36px;
+  width: 36px;
+  background: #ff8800;
+  padding: 6px; }
+  .searchsubmit:before, .searchsubmit:after {
+    display: none; }
+  .searchsubmit > svg,
+  .searchsubmit > img {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 4px;
+    left: 4px; }
+  .searchsubmit > svg path.primary {
+    fill: #fff; }
+  .searchsubmit:hover, .searchsubmit:active, .searchsubmit:focus {
+    background: #E65100;
+    border-color: #E65100; }
 
 /*------------------------------------*\
     $Table
@@ -1392,7 +1422,12 @@ a img.aligncenter {
 .site-footer {
   font-size: 0.875em;
   background: #343434;
-  color: #fff; }
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1; }
 
 .sticky {
   display: block; }
@@ -1464,7 +1499,8 @@ a img.aligncenter {
   height: 1em;
   display: inline-block;
   overflow: hidden; }
-  [class^="jspdx-icon-font"] svg {
+  [class^="jspdx-icon-font"] > svg,
+  [class^="jspdx-icon-font"] > img {
     width: 100%;
     height: 100%; }
   [class^="jspdx-icon-font"] path.primary {

@@ -6,4 +6,9 @@
 	font-size: $font-size__small-2;
 	background: $gray-dark;
 	color: $white;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
 }

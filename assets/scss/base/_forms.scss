@@ -106,3 +106,42 @@ input[type="search"]::-webkit-search-decoration {
 	border-left: 1px solid $gray;
 	color: $gray;
 }
+
+.searchform {
+	position: relative;
+	margin: $space auto;
+	max-width: 24em;
+}
+
+.searchsubmit {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 36px;
+	width: 36px;
+	background: $brand__one;
+	padding: 6px;
+	&:before,
+	&:after {
+		display: none;
+	}
+	> svg,
+	> img {
+		position: absolute;
+		//width: 100%;
+		//height: 100%;
+		width: 24px;
+		height: 24px;
+		top: 4px;
+		left: 4px;
+	}
+	> svg {
+		path.primary {
+			fill: $white;
+		}
+	}
+	&:hover, &:active, &:focus {
+		background: $link__hover;
+		border-color: $link__hover;
+	}
+}
