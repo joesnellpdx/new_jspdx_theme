@@ -5,6 +5,21 @@
  * @package JSPDX Theme
  */
 
+function work_redirect_post() {
+	$queried_post_type = get_query_var('post_type');
+	if ( is_single() && 'work' ==  $queried_post_type ) {
+		global $post;
+		$direct = get_post_meta( get_the_ID(), '_work_direct', true );
+
+		if(!empty($direct) && $direct == 'on'){
+			$link = get_post_meta( get_the_ID(), '_work_url', true );
+			wp_redirect( $link, 301 );
+			exit;
+		}
+	}
+}
+add_action( 'template_redirect', 'work_redirect_post' );
+
 // Register Custom Post Type
 function work_post_type() {
 

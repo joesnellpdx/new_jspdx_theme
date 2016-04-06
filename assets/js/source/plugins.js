@@ -1,4 +1,4 @@
-/*! jspdx_theme 1.0.0 plugins.js 2016-04-03 1:14:30 PM */
+/*! jspdx_theme 1.0.0 plugins.js 2016-04-04 9:24:00 PM */
 (function($) {
     "use strict";
     $.fn.fitVids = function(options) {
