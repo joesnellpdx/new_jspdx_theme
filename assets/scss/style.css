@@ -575,15 +575,15 @@ html {
   font-size: 62.5%; }
 
 body {
-  background: #fff;
-  font-size: 1.6rem;
-  line-height: 1.5;
   font-family: "proxima-nova", "Helvetica", "Arial", sans-serif;
+  font-size: 1.6rem;
   font-weight: 400;
-  -webkit-text-size-adjust: 100%;
-  color: #343434;
+  line-height: 1.5;
   min-height: 100vh;
-  padding-bottom: 5.4rem; }
+  padding-bottom: 5.4rem;
+  color: #343434;
+  background: #fff;
+  -webkit-text-size-adjust: 100%; }
 
 @media screen and (max-width: 48em) {
   html.nav-open, html.nav-subnav-open,

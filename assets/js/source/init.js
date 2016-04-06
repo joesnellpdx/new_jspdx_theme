@@ -62,9 +62,58 @@
         }
     };
 
+    var scrollToAnchor = function(){
+
+        var header_height = $('#nav').outerHeight();
+
+        $('a[href*=#]:not([href=#])').click(function() {
+            if($(this).is('.home-modal-btns__trigger')){
+                // do nothing
+            } else {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top - header_height
+                        }, 1000);
+                        return false;
+                    }
+                }
+            }
+        });
+
+        if (window.location.hash.length){
+
+            var target = window.location.hash; //Puts hash in variable, and removes the # character
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+
+            var ele = document.getElementById("theid");
+
+            if(ele) {
+
+                function scrollToTarget() {
+                    $('html,body').animate({
+                        scrollTop: $(target).offset().top - header_height
+                    }, 1000);
+                }
+
+                if (target.length) {
+                    if (target.match("^#gf")) {
+                        setTimeout(scrollToTarget, 1000)
+                    } else {
+                        scrollToTarget();
+                    }
+                    return false;
+                }
+            }
+        }
+    };
+
     $(document).ready(function( $ ) {
         primaryNavOpen();
         pageHeroTop();
+        scrollToAnchor();
     });
 
     $(window).load(function( $ ) {
