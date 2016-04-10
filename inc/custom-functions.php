@@ -604,3 +604,47 @@ function jspdx_sanitize_text_callback( $value, $field_args, $field ) {
 
 	return $value;
 }
+
+/**
+ * Post type ajax view function
+ */
+function post_type_ajax_view_function(){
+	global $wp_query, $post, $post_id;
+	$html ='';
+
+	if ( ( is_post_type_archive('work') || (isset($_REQUEST['postType'] ) && ($_REQUEST['postType'] == 'work')))  ){
+		$html .= jspdx_work_view();
+	}
+//	elseif(( is_home() || (isset($_REQUEST['postType'] ) && ($_REQUEST['postType'] == 'post-default')))){
+//
+//		$html .= jspdx_blog_view();
+//	}
+
+	return $html;
+}
+
+/**
+ * Get post type ajax view
+ */
+function jspdx_get_post_type_ajax_view()
+{
+	wp_send_json(array('html' => post_type_ajax_view_function()));
+}
+add_action('wp_ajax_jspdx_get_post_type_ajax_view', 'jspdx_get_post_type_ajax_view');
+add_action('wp_ajax_nopriv_jspdx_get_post_type_ajax_view', 'jspdx_get_post_type_ajax_view');
+
+/**
+ * Footer loader function
+ */
+if (!function_exists('jspdx_footer_loader')) {
+	function jspdx_footer_loader() {
+
+		$html = '';
+		$html .= '<div id="jspdx-loader" class="jspdx-loader">';
+		$html .= '<div id="jspdx-loader__inner" class="jspdx-loader__inner">Loading...</div>';
+		$html .= '</div>';
+
+		echo $html;
+	}
+	add_action('wp_footer', 'jspdx_footer_loader');
+}

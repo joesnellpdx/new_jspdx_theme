@@ -56,7 +56,7 @@ function work_post_type() {
 		'labels'                => $labels,
 		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'trackbacks', 'revisions', 'custom-fields', 'page-attributes', ),
 		'taxonomies'            => array( 'work-category' ),
-		'hierarchical'          => false,
+		'hierarchical'          => true,
 		'public'                => true,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
@@ -65,7 +65,7 @@ function work_post_type() {
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
-		'has_archive'           => false,
+		'has_archive'           => true,
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
@@ -302,13 +302,8 @@ add_shortcode('recent_works', 'recent_works_function');
 /**
  * Primary works shortcode
  */
-function page_works_function($atts, $content = null){
-	extract(shortcode_atts(array(
-		'resource_type'  => '',
-		'category' => '',
-		'posts_per_page' => 10,
-		'orderby' => 'date'
-	), $atts));
+function jspdx_work_view(){
+
 
 	global $wp_query, $post, $post_id;
 
@@ -320,41 +315,29 @@ function page_works_function($atts, $content = null){
 		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 	}
 
-	if(!empty($category)) {
+//	if(!empty($category)) {
+//		$args = array(
+//			'posts_per_page' => 10,
+//			'paged'          => $paged,
+//			'ignore_sticky_posts' => true,
+//			'post_type' => 'work',
+//			'orderby'           => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
+//			'category_name' => $category,
+//		);
+//	} else {
 		$args = array(
-			'posts_per_page' => $posts_per_page,
-			'ignore_sticky_posts' => true,
-			'post_type' => 'work',
-			'orderby'           => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
-			'order'   => 'DESC',
-			'numberposts' => $posts_per_page,
-			'category_name' => $category,
+			'post_type'      => 'work',
+			'posts_per_page' => 1,
+			'paged'          => $paged,
 		);
-	} else {
-		$args = array(
-			'posts_per_page' => $posts_per_page,
-			'ignore_sticky_posts' => true,
-			'post_type' => 'work',
-			'orderby'           => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
-			'order'   => 'DESC',
-			'numberposts' => $posts_per_page,
-		);
-	}
+//	}
+
+	$i = '';
 
 	$the_query = new WP_Query( $args );
 
-	$i = '';
-	$html = '';
-
-	// The Loop
-	if ( $the_query->have_posts() ) {
-		global $post;
-
-		$html .= '<div class="recent-post-wrap g-flex g g-3up" >';
-
-		while ( $the_query->have_posts() ) {
-			$the_query->the_post();
-			global $post;
+	if ( $the_query->have_posts() ) :
+		while ( $the_query->have_posts() ) : $the_query->the_post();
 
 			$i ++;
 			$wide_vars = array(1, 4);
@@ -398,7 +381,7 @@ function page_works_function($atts, $content = null){
 				$html .= '</span>';
 				$html .= '<div class="block__logo-contain">';
 
-				if(!empty($icon)) {
+				if (!empty($icon)) {
 					$html .= '<div class="block__logo-wrap">';
 					$html .= '<figure class="block__logo fixedratio--two ' . $icon . ' title="' . $post->post_title . '"></figure>';
 					$html .= '</div>';
@@ -414,7 +397,7 @@ function page_works_function($atts, $content = null){
 				$html .= '<article id="post-' . $post->ID . '" class="block__content--abs">';
 
 				$html .= '<h1 class="block__title--abs delta">' . $post->post_title . '</h1>';
-				if(!empty($description)){
+				if (!empty($description)) {
 					$html .= '<p class="block__description">' . $description . '</p>';
 				}
 
@@ -436,12 +419,25 @@ function page_works_function($atts, $content = null){
 
 				$html .= '</a>';
 			}
-		}
 
-		$html .= '</div>';
-	}
+		endwhile;
+		$html .= '<nav class="post-navigation cf">';
+		if ( get_previous_posts_link() ) :
+			$html .= '<div class="nav-previous">' . get_previous_posts_link( "Newer posts<i class=\"sr-icon-arrow-right4\"></i>" ) . '</div>';
+		endif;
+
+		if ( $the_query->max_num_pages > 1 ) :
+
+			$nextpage = intval( $paged ) + 1;
+
+			$html .= '<div class="nav-next" data-next-page="' . $nextpage . '">' . get_next_posts_link( "<i class=\"sr-icon-arrow-left4\"></i>Older posts", $the_query->max_num_pages ) . '</div>';
+		endif;
+
+		$html .= '</nav>';
+
+	endif;
 	wp_reset_postdata();
 
 	return $html;
 }
-add_shortcode('page_works', 'page_works_function');
+//add_shortcode('page_works', 'page_works_function');

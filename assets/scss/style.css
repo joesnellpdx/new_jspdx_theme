@@ -1906,6 +1906,62 @@ a img.aligncenter {
   font-style: italic;
   margin-bottom: 0.8rem; }
 
+.paging-navigation,
+.post-navigation {
+  margin: 1rem 0 2rem;
+  padding: 0rem 2rem;
+  display: block;
+  width: 100%;
+  clear: both; }
+
+.nav-previous,
+.nav-next {
+  text-transform: uppercase;
+  display: inline-block;
+  width: 45%; }
+
+.nav-next {
+  position: relative;
+  padding-left: 1em;
+  float: left; }
+  .nav-next i {
+    position: absolute;
+    top: .45em;
+    left: 0;
+    font-size: 0.875em; }
+
+.nav-previous {
+  position: relative;
+  padding-right: 1em;
+  float: right;
+  text-align: right; }
+  .nav-previous i {
+    position: absolute;
+    right: 0;
+    top: .45em;
+    font-size: 0.875em; }
+
+.blog-contain > .block {
+  opacity: 0;
+  filter: saturate(0.02) contrast(0.3); }
+  .blog-contain > .block.loaded {
+    opacity: 1;
+    filter: saturate(1) contrast(1); }
+.js .blog-contain {
+  position: relative; }
+  .js .blog-contain .post-navigation {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    visibility: hidden;
+    opacity: 0;
+    bottom: 0;
+    left: 0; }
+
 .comments li {
   margin-bottom: 1.6rem; }
 
@@ -2111,5 +2167,39 @@ a img.aligncenter {
 
 .gallery-caption {
   display: block; }
+
+.jspdx-loader {
+  display: none; }
+  .jspdx-loader__inner {
+    width: 5em;
+    height: 5em; }
+  .csstransforms3d.csstransitions .jspdx-loader__inner {
+    margin: 60px auto;
+    font-size: 10px;
+    position: relative;
+    text-indent: -9999em;
+    border-top: 0.6em solid rgba(255, 255, 255, 0.2);
+    border-right: 0.6em solid rgba(255, 255, 255, 0.2);
+    border-bottom: 0.6em solid rgba(255, 255, 255, 0.2);
+    border-left: 0.6em solid #ff8800;
+    transform: translateZ(0);
+    animation: load8 1.1s infinite linear; }
+  .csstransforms3d.csstransitions .jspdx-loader__inner, .csstransforms3d.csstransitions .jspdx-loader__inner:after {
+    border-radius: 50%;
+    width: 5em;
+    height: 5em; }
+  .jspdx-loader--loading {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000; }
+
+@keyframes load8 {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
 
 /*# sourceMappingURL=style.css.map */
