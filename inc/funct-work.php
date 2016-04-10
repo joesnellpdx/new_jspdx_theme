@@ -291,7 +291,7 @@ function recent_works_function($atts, $content = null){
 			}
 		}
 
-		$count_posts = wp_count_posts('job-openings');
+		$count_posts = wp_count_posts('work');
 		$published_posts = $count_posts->publish;
 
 		if($i < $published_posts){
