@@ -298,3 +298,140 @@ function recent_works_function($atts, $content = null){
 	return $html;
 }
 add_shortcode('recent_works', 'recent_works_function');
+
+/**
+ * Primary works shortcode
+ */
+function primary_works_function($atts, $content = null){
+	extract(shortcode_atts(array(
+		'resource_type'  => '',
+		'category' => '',
+		'posts_per_page' => 10,
+		'orderby' => 'date'
+	), $atts));
+
+	if(!empty($category)) {
+		$args = array(
+			'posts_per_page' => $posts_per_page,
+			'ignore_sticky_posts' => true,
+			'post_type' => 'work',
+			'orderby' => $orderby,
+			'order'   => 'DESC',
+			'numberposts' => $posts_per_page,
+			'category_name' => $category,
+		);
+	} else {
+		$args = array(
+			'posts_per_page' => $posts_per_page,
+			'ignore_sticky_posts' => true,
+			'post_type' => 'work',
+			'orderby' => $orderby,
+			'order'   => 'DESC',
+			'numberposts' => $posts_per_page,
+		);
+	}
+
+	$the_query = new WP_Query( $args );
+
+	$i = '';
+	$html = '';
+
+	// The Loop
+	if ( $the_query->have_posts() ) {
+		global $post;
+
+		$html .= '<div class="recent-post-wrap g-flex g g-3up" >';
+
+		while ( $the_query->have_posts() ) {
+			$the_query->the_post();
+			global $post;
+
+			$i ++;
+			$wide_vars = array(1, 4);
+			if(in_array($i, $wide_vars)){
+				$size_class = ' gi-2-3';
+			} else {
+				$size_class = '';
+			}
+
+
+			$image_id = get_post_thumbnail_id( $post->ID );
+			if ( empty( $image_id ) ) {
+				$image_id = get_post_thumbnail_id( get_option( 'page_on_front' ) );
+			}
+
+			$description = get_post_meta( get_the_ID(), '_work_description', true );
+			$icon = get_post_meta( get_the_ID(), '_work_icon', true );
+			$direct = get_post_meta( get_the_ID(), '_work_direct', true );
+			$link = get_post_meta( get_the_ID(), '_work_url', true );
+
+			$img_src = wp_get_attachment_image_url( $image_id, 'rwd-small' );
+			$img_fallback = wp_get_attachment_image_url( $image_id, 'large' );
+			$srcset_value = wp_get_attachment_image_srcset( $image_id, 'large' );
+			$srcset = $srcset_value ? ' srcset="' . esc_attr( $srcset_value ) . '"' : '';
+			$alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+
+			if($direct == 'on'){
+				$post_link = $link;
+				$button_text = 'View Website';
+				$target = ' target="_blank"';
+			} else {
+				$post_link = get_permalink($post->ID);
+				$button_text = 'View Project';
+				$target = '';
+			}
+
+			if(!empty($img_src)) {
+				$html .= '<a href="' . $post_link . '" class="block block--mini-post block--link gi' . $size_class . '"' . $target . '>';
+				$html .= '<span class="block__img-contain img-fit">';
+				$html .= '<img class="block__img" src="' . $img_src . '" ' . $srcset . ' sizes="(min-width: 768px) 500px, 100vw" alt="' . $alt . '" data-fallback-img="' . $img_fallback . '">';
+				$html .= '</span>';
+				$html .= '<div class="block__logo-contain">';
+
+				if(!empty($icon)) {
+					$html .= '<div class="block__logo-wrap">';
+					$html .= '<figure class="block__logo fixedratio--two ' . $icon . ' title="' . $post->post_title . '"></figure>';
+					$html .= '</div>';
+				} else {
+					$html .= '<div class="block__logo-wrap--alt">';
+					$html .= '<div class="block__title--alt">' . $post->post_title . '</div>';
+					$html .= '</div>';
+				}
+
+				$html .= '</div>';
+
+
+				$html .= '<article id="post-' . $post->ID . '" class="block__content--abs">';
+
+				$html .= '<h1 class="block__title--abs delta">' . $post->post_title . '</h1>';
+				if(!empty($description)){
+					$html .= '<p class="block__description">' . $description . '</p>';
+				}
+
+				$html .= '<span class="block__button btn btn--primary-white btn--small">' . $button_text . '</span>';
+
+//				$html .= '<p class="block__footer">';
+//				$categories = get_the_category($recent["ID"]);
+//				if ( ! empty( $categories ) ) {
+//					foreach( $categories as $category ) {
+//						if($category == 'undefined'){
+//							// do nothing
+//						} else {
+//							$html .= '<span><a class="block__footer-link" href="' . get_category_link( $category->term_id ) . '" alt="View all posts in ' . $category->name . '" title="View all posts in ' . $category->name . '" data-post-cat="' . $category->term_id . '">' . $category->name . '</a></span>';
+//						}
+//					}
+//				}
+//				$html .= '</p>';
+				$html .= '</article>';
+
+				$html .= '</a>';
+			}
+		}
+
+		$html .= '</div>';
+	}
+	wp_reset_postdata();
+
+	return $html;
+}
+add_shortcode('primary_works', 'primary_works_function');
