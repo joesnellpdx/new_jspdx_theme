@@ -46,6 +46,14 @@
 
 .jspdx-icon-logo { background-image: url('png/logo.png'); background-repeat: no-repeat; }
 
+.jspdx-icon-sga-font { background-image: url('png/sga-font.png'); background-repeat: no-repeat; }
+
+.jspdx-icon-sga-primary { background-image: url('png/sga-primary.png'); background-repeat: no-repeat; }
+
+.jspdx-icon-sga-white { background-image: url('png/sga-white.png'); background-repeat: no-repeat; }
+
+.jspdx-icon-sga { background-image: url('png/sga.png'); background-repeat: no-repeat; }
+
 .jspdx-icon-valley-font { background-image: url('png/valley-font.png'); background-repeat: no-repeat; }
 
 .jspdx-icon-valley-primary { background-image: url('png/valley-primary.png'); background-repeat: no-repeat; }
