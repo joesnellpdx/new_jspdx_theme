@@ -336,7 +336,7 @@ function jspdx_work_view(){
 //	} else {
 		$args = array(
 			'post_type'      => 'work',
-			'posts_per_page' => 1,
+			'posts_per_page' => 10,
 			'paged'          => $paged,
 		);
 //	}
