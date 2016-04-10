@@ -294,13 +294,12 @@ function recent_works_function($atts, $content = null){
 		$count_posts = wp_count_posts('work');
 		$published_posts = $count_posts->publish;
 
+		$html .= '</div>';
 		if($i < $published_posts){
 			$html .= '<a class="btn btn--primary" href="/work/">View More Work</a>';
 		} else {
 			// do nothing
 		}
-
-		$html .= '</div>';
 	}
 	wp_reset_postdata();
 
