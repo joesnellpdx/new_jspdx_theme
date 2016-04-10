@@ -302,13 +302,23 @@ add_shortcode('recent_works', 'recent_works_function');
 /**
  * Primary works shortcode
  */
-function primary_works_function($atts, $content = null){
+function page_works_function($atts, $content = null){
 	extract(shortcode_atts(array(
 		'resource_type'  => '',
 		'category' => '',
 		'posts_per_page' => 10,
 		'orderby' => 'date'
 	), $atts));
+
+	global $wp_query, $post, $post_id;
+
+	$post_page = $_REQUEST['nextpage'];
+
+	if ( ! empty( $post_page ) && ! ( $post_page == 'null' ) ) {
+		$paged = $_REQUEST['nextpage'];
+	} else {
+		$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+	}
 
 	if(!empty($category)) {
 		$args = array(
@@ -434,4 +444,4 @@ function primary_works_function($atts, $content = null){
 
 	return $html;
 }
-add_shortcode('primary_works', 'primary_works_function');
+add_shortcode('page_works', 'page_works_function');
