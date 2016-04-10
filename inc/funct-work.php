@@ -315,7 +315,7 @@ function primary_works_function($atts, $content = null){
 			'posts_per_page' => $posts_per_page,
 			'ignore_sticky_posts' => true,
 			'post_type' => 'work',
-			'orderby' => $orderby,
+			'orderby'           => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
 			'order'   => 'DESC',
 			'numberposts' => $posts_per_page,
 			'category_name' => $category,
@@ -325,7 +325,7 @@ function primary_works_function($atts, $content = null){
 			'posts_per_page' => $posts_per_page,
 			'ignore_sticky_posts' => true,
 			'post_type' => 'work',
-			'orderby' => $orderby,
+			'orderby'           => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
 			'order'   => 'DESC',
 			'numberposts' => $posts_per_page,
 		);
