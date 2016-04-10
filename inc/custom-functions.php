@@ -227,7 +227,7 @@ function insert_page_heading(){
 		$hero .= '<h1 class="entry-title title' . $title_class . '">' . $add_icon . $term->name . '</h1>';
 
 	elseif( is_post_type_archive()) :
-		$hero .= '<h1 class="entry-title title' . $title_class . '">Archive: ' . $add_icon . post_type_archive_title("", false) . '</h1>';
+		$hero .= '<h1 class="entry-header page-title ' . $title_class . '">' . $add_icon . post_type_archive_title("", false) . '</h1>';
 
 	else :
 		$hero .= '<h1 class="entry-title title' . $title_class . '">' . $add_icon . $title . $sub_title . '</h1>';
