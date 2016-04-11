@@ -294,18 +294,20 @@
 		margin-top: -$pad;
 		margin-bottom: $space;
 		> .gi {
-			width: 100%;
+			width: calc(100% - 1rem);
 			float: none;
 			clear: none;
 			display: flex;
 			flex-direction: column;
+			flex-flow: column nowrap;
 			padding: 0px;
 			//flex-grow: 1;
 			//flex-shrink: 1;
 			//flex-basis: 0;
-			flex: 1 0 30rem;
+			//flex: 1 0 30rem;
 			margin-left: $pad;
 			margin-top: $pad;
+			flex: 1 1 calc(100% - 1rem);
 		}
 		.block {
 			&__inner {
@@ -331,6 +333,7 @@
 					max-width: calc(50% - 1rem);
 					clear: none;
 					float: none;
+					flex: 1 1 calc(50% - 1rem);
 				}
 			}
 
@@ -348,8 +351,9 @@
 			}
 			&.g-2up {
 				> .gi {
-					flex: 1 0 60rem;
+					//flex: 1 0 60rem;
 					max-width: calc(50% - 1rem);
+					flex: 1 1 calc(50% - 1rem);
 				}
 			}
 			&.g-3up {
@@ -358,10 +362,12 @@
 					max-width: calc(33.3333% - 1rem);
 					clear: none;
 					float: none;
-					flex: 1 0 50rem;
+					//flex: 1 0 50rem;
+					flex: 1 1 calc(33.3333% - 1rem);
 				}
 				> .gi-2-3 {
 					max-width: calc(66.6666% - 1rem);
+					flex: 1 1 calc(66.6666% - 1rem);
 					.block__img-contain {
 						padding-top: 29%;
 					}
@@ -376,6 +382,7 @@
 			&.g-4up {
 				> .gi {
 					max-width: calc(25% - 1rem);
+					flex: 1 1 calc(25% - 1rem);
 					clear: none;
 					float: none;
 				}

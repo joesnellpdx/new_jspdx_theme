@@ -246,9 +246,11 @@ function recent_works_function($atts, $content = null){
 
 			if(!empty($img_src)) {
 				$html .= '<a href="' . $post_link . '" class="block block--mini-post block--link gi' . $size_class . '"' . $target . '>';
-				$html .= '<span class="block__img-contain img-fit">';
-					$html .= '<img class="block__img" src="' . $img_src . '" ' . $srcset . ' sizes="(min-width: 768px) 500px, 100vw" alt="' . $alt . '" data-fallback-img="' . $img_fallback . '">';
-				$html .= '</span>';
+				$html .= '<div class="block__img-wrap">';
+					$html .= '<span class="block__img-contain img-fit">';
+						$html .= '<img class="block__img" src="' . $img_src . '" ' . $srcset . ' sizes="(min-width: 768px) 500px, 100vw" alt="' . $alt . '" data-fallback-img="' . $img_fallback . '">';
+					$html .= '</span>';
+				$html .= '</div>';
 				$html .= '<div class="block__logo-contain">';
 
 				if(!empty($icon)) {
@@ -384,9 +386,11 @@ function jspdx_work_view(){
 
 			if(!empty($img_src)) {
 				$html .= '<a href="' . $post_link . '" class="block block--mini-post block--link gi' . $size_class . '"' . $target . '>';
-				$html .= '<span class="block__img-contain img-fit">';
-				$html .= '<img class="block__img" src="' . $img_src . '" ' . $srcset . ' sizes="(min-width: 768px) 500px, 100vw" alt="' . $alt . '" data-fallback-img="' . $img_fallback . '">';
-				$html .= '</span>';
+				$html .= '<div class="block__img-wrap">';
+					$html .= '<span class="block__img-contain img-fit">';
+					$html .= '<img class="block__img" src="' . $img_src . '" ' . $srcset . ' sizes="(min-width: 768px) 500px, 100vw" alt="' . $alt . '" data-fallback-img="' . $img_fallback . '">';
+					$html .= '</span>';
+				$html .= '</div>';
 				$html .= '<div class="block__logo-contain">';
 
 				if (!empty($icon)) {

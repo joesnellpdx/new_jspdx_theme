@@ -447,9 +447,11 @@ function posts_view_function($num){
 	$alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
 //	if(!empty($img_src)) {
 		$html .= '<a href="' . get_permalink($post->ID) . '" class="block block--mini-post block--link gi' . $size_class . '">';
-		$html .= '<span class="block__img-contain img-fit">';
-		$html .= '<img class="block__img" src="' . $img_src . '" ' . $srcset . ' sizes="(min-width: 768px) 500px, 100vw" alt="' . $alt . '" data-fallback-img="' . $img_fallback . '">';
-		$html .= '</span>';
+		$html .= '<div class="block__img-wrap">';
+			$html .= '<span class="block__img-contain img-fit">';
+			$html .= '<img class="block__img" src="' . $img_src . '" ' . $srcset . ' sizes="(min-width: 768px) 500px, 100vw" alt="' . $alt . '" data-fallback-img="' . $img_fallback . '">';
+			$html .= '</span>';
+		$html .= '</div>';
 		$html .= '<div class="block__logo-contain">';
 
 
@@ -557,12 +559,13 @@ function recent_posts_function($atts, $content = null){
 			$alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
 
 			$html .= '<article class="block block--mini-post block--link gi' . $size_class . '">';
-
-			$html .= '<span class="block__img-contain img-fit" href="' . get_permalink($post->ID) . '">';
-			if(!empty($img_src)) {
-				$html .= '<img class="block__img" src="' . $img_src . '" ' . $srcset . ' sizes="(min-width: 768px) 500px, 100vw" alt="' . $alt . '" data-fallback-img="' . $img_fallback . '">';
-			}
-			$html .= '</span>';
+			$html .= '<div class="block__img-wrap">';
+				$html .= '<span class="block__img-contain img-fit" href="' . get_permalink($post->ID) . '">';
+				if(!empty($img_src)) {
+					$html .= '<img class="block__img" src="' . $img_src . '" ' . $srcset . ' sizes="(min-width: 768px) 500px, 100vw" alt="' . $alt . '" data-fallback-img="' . $img_fallback . '">';
+				}
+				$html .= '</span>';
+			$html .= '</div>';
 			$html .= '<div class="block__content--abs">';
 
 			$html .= '<a class="block__link" href="' . get_permalink($post->ID) . '"><h1 class="title__block zeta">' .   $post->post_title.'</h1></a>';
