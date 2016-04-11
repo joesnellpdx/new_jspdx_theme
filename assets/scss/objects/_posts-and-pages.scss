@@ -1,3 +1,7 @@
+/*------------------------------------*\
+    $Posts and Pages
+\*------------------------------------*/
+
 .sticky {
 	display: block;
 }
@@ -7,7 +11,7 @@
 }
 
 .byline,
-.updated:not(.published){
+.updated:not(.published) {
 	display: none;
 }
 

@@ -1,9 +1,14 @@
+/*------------------------------------*\
+    $Sections
+\*------------------------------------*/
+
 .section {
 	@extend .cf;
+
 	margin: 0px;
 	&__title {
-		max-width: 26em;
 		position: relative;
+		max-width: 26em;
 	}
 	&__content {
 		//max-width: 35em;

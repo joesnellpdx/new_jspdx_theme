@@ -1,15 +1,16 @@
 /*------------------------------------*\
     $FORMS
 \*------------------------------------*/
-form ol, form ul {
-	list-style: none;
+form ol,
+form ul {
 	margin-left: 0;
+	list-style: none;
 }
 
 fieldset {
-	border: 0;
-	padding: 0;
 	margin: 0;
+	padding: 0;
+	border: 0;
 }
 
 label {
@@ -17,23 +18,32 @@ label {
 	padding-bottom: $space-half;
 }
 
-button, input, select, textarea {
-    font-family: inherit;
-    font-size: 100%;
-    margin: 0px;
+button,
+input,
+select,
+textarea {
+	font-family: inherit;
+	font-size: 100%;
+	margin: 0px;
 }
 
-input, textarea {
+input,
+textarea {
 	width: 100%;
-	border: $border__thin solid $gray;
 	padding: $pad-half 0.65rem;
+	border: $border__thin solid $gray;
 }
 
-input[type=text], input[type=search], input[type=url], input[type=number], textarea {
+input[type=text],
+input[type=search],
+input[type=url],
+input[type=number],
+textarea {
 	-webkit-appearance: none;
 }
 
-button, input[type="submit"] {
+button,
+input[type="submit"] {
 	@extend .btn--primary;
 	&.tcon {
 		padding: 0px;
@@ -46,43 +56,48 @@ button, input[type="submit"] {
 
 input[type="checkbox"],
 input[type="radio"] {
-    width: auto;
-    margin-right: 0.3em;
+	width: auto;
+	margin-right: 0.3em;
 }
 
 input[type="search"] {
-    -webkit-appearance: none;
-    border-radius: 0;
+	border-radius: 0;
+
+	-webkit-appearance: none;
 }
 
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
+	-webkit-appearance: none;
 }
 
-//Form Field Container
+/* Form Field Container */
 .field-container {
 	margin-bottom: $space;
 }
 
 .inline-form {
-	fieldset, .inline-container {
+	fieldset,
+	.inline-container {
 		position: relative;
 	}
-	
-	input[type=submit], button, .btn {
+
+	input[type=submit],
+	button,
+	.btn {
 		font-size: $font-size__small-2;
-		padding: 0.65rem 1.3rem;
-		background: $link__color;
 		position: absolute;
+		z-index: 1;
 		top: 0;
 		right: 0;
-		z-index: 1;
 		width: auto;
+		padding: 0.65rem 1.3rem;
+		background: $link__color;
 
-		&:hover, &:focus {
-			background: $link__hover;
+		&:hover,
+		&:focus {
 			color: $white;
+			background: $link__hover;
 		}
 	}
 }
@@ -107,27 +122,27 @@ input[type="search"]::-webkit-search-decoration {
 	padding-right: 3em;
 }
 .inline-form .search-submit {
-	background: none;
 	padding: 0.78em 1em;
+	color: $gray;
 	border: 0;
 	border-left: 1px solid $gray;
-	color: $gray;
+	background: none;
 }
 
 .searchform {
 	position: relative;
-	margin: $space auto;
 	max-width: 24em;
+	margin: $space auto;
 }
 
 .searchsubmit {
 	position: absolute;
 	top: 0;
 	right: 0;
-	height: 36px;
 	width: 36px;
-	background: $brand__one;
+	height: 36px;
 	padding: 6px;
+	background: $brand__one;
 	&:before,
 	&:after {
 		display: none;
@@ -135,20 +150,22 @@ input[type="search"]::-webkit-search-decoration {
 	> svg,
 	> img {
 		position: absolute;
-		//width: 100%;
-		//height: 100%;
-		width: 24px;
-		height: 24px;
 		top: 4px;
 		left: 4px;
+		/* width: 100%; */
+		/* height: 100%; */
+		width: 24px;
+		height: 24px;
 	}
 	> svg {
 		path.primary {
 			fill: $white;
 		}
 	}
-	&:hover, &:active, &:focus {
-		background: $link__hover;
+	&:hover,
+	&:active,
+	&:focus {
 		border-color: $link__hover;
+		background: $link__hover;
 	}
 }

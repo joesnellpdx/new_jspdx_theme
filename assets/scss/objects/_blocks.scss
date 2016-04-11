@@ -1,70 +1,74 @@
+/*------------------------------------*\
+    $Blocks
+\*------------------------------------*/
 .block {
 	position: relative;
 	&__img-contain {
 		padding-top: 60%;
+
 		filter: grayscale(100%);
 		&:after {
-			content: '';
 			position: absolute;
 			top: 0;
-			left: 0;
 			right: 0;
 			bottom: 0;
+			left: 0;
+			content: "";
 			background: transparent;
-			background: rgba($black, .6);
+			background: rgba($black, 0.6);
 		}
 	}
 	&__content {
 		&--abs {
 			position: absolute;
-			left: 0;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			padding: $pad;
-			text-align: center;
-			background: transparent;
 			z-index: 500;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
 			visibility: hidden;
-			opacity: 0;
-			transition: all .3s ease-out;
+			padding: $pad;
+			transition: all 0.3s ease-out;
 			transition-delay: 0s;
+			text-align: center;
+			opacity: 0;
+			background: transparent;
 			.flexbox & {
 				display: flex;
 				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-			}
 
+				align-items: center;
+				justify-content: center;
+			}
 		}
 	}
 	&__title {
 		&--abs {
+			font-size: $font-size__med;
+			margin: 0rem 0rem $pad;
 			//font-weight: normal;
 			text-transform: uppercase;
-			margin: 0rem 0rem $pad;
-			font-size: $font-size__med;
 		}
 	}
 	&__description {
-		margin: 0rem 0rem $pad;
-		display: block;
-		font-weight: normal;
 		font-size: $font-size__small-2;
-
+		font-weight: normal;
+		display: block;
+		margin: 0rem 0rem $pad;
 	}
 	&__logo-contain {
 		position: absolute;
-		//width: 100%;
-		left: 0;
 		top: 0;
 		//right: 0;
 		bottom: 0;
-		padding: $space;
+		//width: 100%;
+		left: 0;
 		//max-width: 200px;
 		width: 100%;
+		padding: $space;
 		.flexbox & {
 			display: flex;
+
 			align-items: center;
 			justify-content: center;
 		}
@@ -100,31 +104,35 @@
 		color: white;
 		.csstransforms3d & {
 			overflow: hidden;
+
 			backface-visibility: hidden;
 			&:before,
 			&:after {
-				content: '';
 				//transform: rotate(7deg);
 				position: absolute;
+				z-index: 100;
+				top: 0;
+				left: 0;
 				width: 200%;
 				height: 400%;
-				z-index: 100;
-				left: 0;
-				top: 0;
-				transition: all .4s ease-out;
-				backface-visibility: hidden;
+				content: "";
+				transition: all 0.4s ease-out;
 				transform: translate3d(25%, -100%, 0) rotate(45deg);
+
+				backface-visibility: hidden;
 			}
 			&:before {
+				transition-delay: 0.3s;
 				background: $white;
-				transition-delay: .3s;
 			}
 			&:after {
-				background: $brand__one;
 				z-index: 200;
 				transition-delay: 0s;
+				background: $brand__one;
 			}
-			&:hover, &:active, &:focus {
+			&:hover,
+			&:active,
+			&:focus {
 				&:before,
 				&:after {
 					transform: translate3d(-25%, -25%, 0) rotate(45deg);
@@ -133,27 +141,30 @@
 					transition-delay: 0s;
 				}
 				&:after {
-					transition-delay: .3s;
+					transition-delay: 0.3s;
 				}
 			}
 		}
-		&:hover, &:active, &:focus {
+		&:hover,
+		&:active,
+		&:focus {
 			color: $white;
 			.block__content--abs {
 				visibility: visible;
+				transition-delay: 0.4s;
 				opacity: 1;
-				transition-delay: .4s;
 			}
 		}
-		&:hover, &:active, &:focus, &:visited {
+		&:hover,
+		&:active,
+		&:focus,
+		&:visited {
 			color: $white;
 		}
-
 	}
 	&--hl {
-		background: #f7f7f7;
+		background: #F7F7F7;
 		&__content {
-
 			padding: $pad;
 		}
 	}
@@ -169,15 +180,16 @@
 
 .meta-block {
 	@extend .cf;
+
 	display: block;
 	margin: -$space 0rem $space;
 	p {
-		margin: 0rem;
 		display: inline-block;
-		&:not(:first-child){
+		margin: 0rem;
+		&:not(:first-child) {
 			&:before {
-				content: '|';
 				margin-right: 0.25em;
+				content: "|";
 			}
 		}
 	}

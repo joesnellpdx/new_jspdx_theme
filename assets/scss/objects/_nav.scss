@@ -5,21 +5,22 @@
 /* LARGE SCREEN - DEFAULT for lte ie8 */
 
 .site-branding {
-	width: 30%;
 	float: left;
+	width: 30%;
 }
 .main-navigation {
-	max-width: 70%;
 	float: right;
+	max-width: 70%;
 }
 .main-nav-trigger {
 	display: none;
 }
 .primary-menu {
+	display: flex;
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	display: flex;
+
 	flex-wrap: wrap;
 	justify-content: flex-end;
 	.noflexbox & {
@@ -32,10 +33,12 @@
 		float: left;
 	}
 	a {
+		line-height: 1.2;
 		padding: 0rem $space-half;
 		color: $font--color;
-		line-height: 1.2;
-		&:hover, &:active, &:focus {
+		&:hover,
+		&:active,
+		&:focus {
 			color: $brand__one;
 		}
 	}
@@ -44,16 +47,16 @@
 /* SMALL(ER) SCREEN */
 @media screen and (max-width: $nav-break) {
 	.site-branding {
-		width: 100%;
 		float: none;
+		width: 100%;
 	}
 	body:not(:target) {
 		.main-navigation {
-			width: 0px;
-			height: 0px;
 			position: absolute;
 			top: 0;
 			right: 0;
+			width: 0px;
+			height: 0px;
 			&:target {
 				.menu-primary-navigation-container {
 					left: 0%;
@@ -62,17 +65,18 @@
 		}
 	}
 	.menu-primary-navigation-container {
-		max-width: none;
-		width: 100vw;
-		height: 100vh;
 		position: fixed;
 		top: 0;
 		left: -100%;
-		background: $brand__one;
 		overflow-x: hidden;
 		overflow-y: scroll; /* has to be scroll, not auto */
+		width: 100vw;
+		max-width: none;
+		height: 100vh;
+		transition: left 0.3s ease-out;
+		background: $brand__one;
+
 		-webkit-overflow-scrolling: touch;
-		transition: left .3s ease-out;
 		.nav-open & {
 			left: 0;
 			.csstransforms3d & {
@@ -81,49 +85,53 @@
 		}
 		.csstransforms3d & {
 			left: 0;
-			backface-visibility: hidden;
+			transition: transform 0.3s ease-out;
 			transform: translate3d(-100%, 0, 0);
-			transition: transform .3s ease-out;
+
+			backface-visibility: hidden;
 		}
 	}
 	.main-nav-trigger {
-		display: block;
-		float: none;
 		position: absolute;
+		z-index: 1000;
 		top: $space-double;
 		right: $space-double;
-		z-index: 1000;
+		display: block;
+		float: none;
 		.tcon {
-			&:hover, &:focus &:active {
+			&:hover,
+			&:focus &:active {
 				background: transparent;
 			}
 		}
-
 	}
 	.primary-menu {
-		padding: $space-double 0rem;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
 		min-height: 100%;
 		min-height: 100vh;
+		padding: $space-double 0rem;
+
+		align-items: center;
+		justify-content: center;
 		.noflexbox & {
 			display: block;
 			text-align: center;
 		}
 	}
 	.menu-item {
-		float: none;
 		display: block;
+		float: none;
 		width: 100%;
 		text-align: center;
 		a {
-			padding: $space $space;
-			width: 100%;
-			color: $white;
-			display: block;
 			font-size: $font-size__large;
-			&:hover, &:active, &:focus {
+			display: block;
+			width: 100%;
+			padding: $space $space;
+			color: $white;
+			&:hover,
+			&:active,
+			&:focus {
 				color: $brand__one;
 				background: $white;
 			}

@@ -4,12 +4,13 @@
 
 .site-header {
 	@extend .cf;
+
 	padding: $space-double;
 }
 .site-branding {
+	line-height: 1.2;
 	position: relative;
 	display: block;
-	line-height: 1.2;
 	&__logo {
 		//display: block;
 		position: absolute;
@@ -21,7 +22,8 @@
 	}
 	a {
 		color: $font__color;
-		&:hover, &:focus {
+		&:hover,
+		&:focus {
 			color: $font__color;
 		}
 	}
@@ -36,20 +38,20 @@
 	font-weight: bold;
 }
 .site-description {
-	display: block;
-	clear: both;
 	font-size: $font-size__small-2;
 	line-height: 1;
+	display: block;
+	clear: both;
 }
 .logo {
-	max-width: $logo-width;
 	width: 100%;
+	max-width: $logo-width;
 	//@include pix-rem(max-width, 80);
 }
 .page-hero {
-	border-top: $border__thick solid $brand__one;
 	position: relative;
 	z-index: -1;
+	border-top: $border__thick solid $brand__one;
 	background: $gray-dark;
 	&__img-contain {
 		&.img-fit {
@@ -57,17 +59,15 @@
 		}
 	}
 	@media screen and (min-width: $nav-break) {
-
-
 		.hero-top & {
 			padding-top: 50%;
 			&__img-contain {
-					position: fixed;
-					border-top: $border__thick solid $brand__one;
-					top: 0;
-					left: 0;
-					width: 100%;
-					z-index: -10;
+				position: fixed;
+				z-index: -10;
+				top: 0;
+				left: 0;
+				width: 100%;
+				border-top: $border__thick solid $brand__one;
 			}
 		}
 	}

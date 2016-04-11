@@ -3,7 +3,10 @@
 \*------------------------------------*/
 
 /* Flexible Media */
-img, video, object, .wp-caption {
+img,
+video,
+object,
+.wp-caption {
 	max-width: 100%;
 	height: auto;
 }
@@ -57,10 +60,11 @@ figcaption {
 }
 
 .jspdx-video {
+	@include box-shadow(sm-med);
+
+	margin: $space 0rem;
 	border: $border__med solid $white;
 	border-radius: ($border__med * 0.5);
-	margin: $space 0rem;
-	@include box-shadow(sm-med);
 	.jspdx-modal & {
 		margin: 0rem;
 	}

@@ -1,3 +1,7 @@
+/*------------------------------------*\
+    $Text
+\*------------------------------------*/
+
 //Intro text
 .intro {
 	font-size: $font-size__med-2;
@@ -22,8 +26,8 @@
 	}
 
 	ul {
-		list-style: disc;
 		margin: 0 0 $space 1.2em;
+		list-style: disc;
 
 		ul {
 			margin-bottom: 0;
@@ -31,8 +35,8 @@
 	}
 
 	ol {
-		list-style: decimal;
 		margin: 0 0 $space 1.5em;
+		list-style: decimal;
 
 		ol {
 			margin-bottom: 0;

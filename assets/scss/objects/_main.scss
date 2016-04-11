@@ -3,6 +3,7 @@
 \*------------------------------------*/
 [role=main] {
 	@extend .cf;
+
 	overflow: hidden;
 }
 .content-wrapper {
@@ -10,13 +11,15 @@
 }
 .site-content {
 	@extend .cf;
+
 	clear: both;
 }
 .page-extras {
 	@extend .cf;
+
 	clear: both;
 	background: $white;
 }
-.posts-navigation{
+.posts-navigation {
 	margin-bottom: $space;
 }

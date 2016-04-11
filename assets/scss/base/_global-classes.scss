@@ -5,8 +5,8 @@
 /* Clearfix */
 .cf:before,
 .cf:after {
-	content: "";
 	display: table;
+	content: "";
 	.flexbox & {
 		flex-basis: 0;
 		order: 1;
@@ -27,11 +27,11 @@
 .is-vishidden {
 	position: absolute !important;
 	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
 	width: 1px;
 	height: 1px;
 	padding: 0;
 	border: 0;
-	clip: rect(1px, 1px, 1px, 1px);
 }
 
 /* Floats */
@@ -114,12 +114,11 @@
 
 .background {
 	&--one {
-		background-color: $background__one;
 		color: $white;
+		background-color: $background__one;
 	}
 	&--two {
-		background-color: $background__two;
 		color: $white;
+		background-color: $background__two;
 	}
 }
-

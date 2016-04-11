@@ -1,45 +1,49 @@
-/* Text-Related Elements */ 
+/*------------------------------------*\
+    $Text
+\*------------------------------------*/
 p {
 	margin: 0rem 0rem $space;
 }
 
 /* Blockquote */
-blockquote, q {
+blockquote,
+q {
 	@extend .cf;
-	padding-left: $pad;
+
 	margin: 0rem 0rem $space;
+	padding-left: $pad;
 	> p {
-		position: relative;
 		font-size: 1.4em;
+		position: relative;
 		&:first-of-type {
 			margin-top: 0px;
 			&:before {
-				content: '\201C';
 				font-size: 1.6em;
-				color: $gray;
 				position: absolute;
-				left: -.5em;
-				top: -.15em;
+				top: -0.15em;
+				left: -0.5em;
+				content: "\201C";
+				color: $gray;
 			}
 		}
 		&:last-of-type {
 			&:after {
-				content: '\201D';
 				font-size: 40px;
-				color: $gray;
 				line-height: 0;
-				margin-bottom: -.5em;
-				margin-left: .25em;
 				position: relative;
-				bottom: -.2em;
+				bottom: -0.2em;
+				margin-bottom: -0.5em;
+				margin-left: 0.25em;
+				content: "\201D";
+				color: $gray;
 			}
 		}
 	}
 	cite {
-		display: block;
-		clear: both;
-		float: right;
 		font-style: normal;
+		display: block;
+		float: right;
+		clear: both;
 		> span {
 			display: block;
 		}
@@ -51,15 +55,15 @@ blockquote, q {
 	}
 }
 
-/* Horizontal Rule */ 
+/* Horizontal Rule */
 hr {
+	height: 2px;
+	margin: $space-double 0;
 	border: 0;
-    height: 2px;
-    background: $gray-light-2;
-    margin: $space-double 0;
+	background: $gray-light-2;
 }
 
 abbr {
-    border-bottom: 1px dotted $gray;
-    cursor: help;
+	cursor: help;
+	border-bottom: 1px dotted $gray;
 }
