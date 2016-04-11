@@ -13,6 +13,7 @@ Tags: wordpress
 
 Hey! Checking out my css? That is actually pretty cool... Let me know what you think:
 http://www.joesnellpdx.com
+
  */
 
 /*------------------------------------*\
@@ -22,26 +23,67 @@ http://www.joesnellpdx.com
 
 
 /**
- * VARIABLES..............................Declarations of Sass variables 
+ **** GENERIC ****
+ * VARIABLES..............................Declarations of Sass variables
  * .....Colors
  * .....Typography
  * .....Layoutnp
  * .....Defaults
+ * .....Borders
  * .....Breakpoints
- * MIXINS.................................Sass mixins 
+ * MIXINS.................................Sass mixins
+ * EXTENDS................................Sass extends
+ * NORMALIZE..............................Normalize
  * RESET..................................Set reset defaults
- * GLOBAL CLASSES.........................Set reset defaults
- * GLOBAL ELEMENTS........................Establish global styles
- * .....Main
- * .....Headings
- * .....Text-related elements (p, blockquote, lists)
- * .....Defaults
- * .....Breakpoints
- * TYPOGRAPHY------------------------------
- * MEDIA------------------------------
- * LAYOUT------------------------------
- * NAVIGATION------------------------------
- * TOC To Be Continued
+ *
+ **** GLOBAL ELEMENTS ****
+ * GLOBAL CLASSES.........................Establish global styles
+ * MAIN...................................Main styles
+ * LINK...................................Link styles
+ * HEADINGS...............................Heading styles
+ * TEXT...................................Text-related elements (p, blockquote, lists)
+ * LISTS..................................List styles
+ * MEDIA..................................Media elements (img, video, iframe)
+ * FORMS..................................Primary form styles
+ * TABLES.................................Table styles
+ * ANIMATION..............................Primary snimation styles
+ * WP-CORE................................Wordpess core styles
+ *
+ **** LAYOUT ****
+ * LAYOUT.................................Layout styles
+ *
+ **** PAGE STRUCTURE ****
+ * HEADER.................................Header styles
+ * NAV....................................Navigation styles
+ * MAIN...................................Main styles
+ * FOOTER.................................Footer styles
+ * POSTS AND PAGES........................Posts and pages styles
+ * LISTS..................................List styles
+ * MEDIA..................................Media elements (img, video, iframe)
+ * FORMS..................................Primary form styles
+ * TABLES.................................Table styles
+ * ANIMATION..............................Primary animation styles
+ * WP-CORE................................Wordpess core styles
+ *
+ **** TEXT STYLES ****
+ * TEXT...................................Text styles
+ *
+ **** COMPONENTS ****
+ * ICONS..................................Icon styles
+ * BUTTONS................................Button styles
+ * FORMS..................................Secondary (specific) form styles
+ * BLOCKS.................................Block styles
+ * LISTS..................................Secondary (specific) list styles
+ * TOOLTIP................................Tooltip styles
+ * ACCORDION..............................Accordion styles
+ * TABS...................................Tabs styles
+ * SECTIONS...............................Section styles
+ * ARTICLE................................Article styles
+ * COMMENTS...............................Comment styles
+ * MESSAGING..............................Messaging styles
+ * MEDIA..................................Secondary (specific) media styles
+ * MODAL LOADERS..........................Modal and loader styles
+ *
  */
 
 @import "generic/variables";
