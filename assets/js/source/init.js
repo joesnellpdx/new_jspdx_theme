@@ -45,7 +45,7 @@
 
     var pageHeroTop = function() {
         var target = $('#page-hero');
-        
+
         if (target.length) {
 
             var distance = target.offset().top,
@@ -246,6 +246,28 @@
         });
     };
 
+    var consoleMessage = function(){
+        var styles = {
+            "primary": "font-weight: bold; color: #FFF888000;"
+        }
+
+        if( typeof console === 'object' ) {
+            console.log(
+                '%c%s',
+                'color: #ff8800; font-weight: bold;',
+                '\n' +
+                'Hey! Checking my site out?\n' +
+                'That is actually pretty cool...\n' +
+                'Looking for a new dev team to join.\n' +
+                'Any ideas, tips, suggestions, or comments?\n' +
+                'I\'d love to hear from you.\n' +
+                'Link: http://www.joesnellpdx.com\n' +
+                '\n' +
+                '— @joesnellpdx\n\n'
+            );
+        }
+    };
+
     function isScrolledIntoView(elem)
     {
         var docViewTop = $(window).scrollTop();
@@ -260,6 +282,7 @@
         scrollToAnchor();
         jspdxBlogSearch();
         infiniteBlogScroll();
+        consoleMessage();
     });
 
     $(window).load(function( $ ) {
