@@ -66,7 +66,7 @@
 
         var header_height = $('#nav').outerHeight();
 
-        $('a[href*=#]:not([href=#])').click(function() {
+        $('a[href*="#"]:not([href="#"])').click(function() {
             if($(this).is('.home-modal-btns__trigger')){
                 // do nothing
             } else {
@@ -82,7 +82,6 @@
                 }
             }
         });
-        
 
         if (window.location.hash.length){
 
