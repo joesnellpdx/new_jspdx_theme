@@ -82,6 +82,7 @@
                 }
             }
         });
+        
 
         if (window.location.hash.length){
 
