@@ -52,7 +52,8 @@
 	position: relative;
 	z-index: -1;
 	border-top: $border__thick solid $brand__one;
-	background: $brand__one;
+	//background: $brand__one;
+	background: $gray-dark;
 	&__img-contain {
 		&.img-fit {
 			padding-top: 50%;
