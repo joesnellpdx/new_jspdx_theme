@@ -15,6 +15,9 @@ body {
 	background: $white;
 
 	-webkit-text-size-adjust: 100%;
+	.wf-loading & {
+		visibility: hidden;
+	}
 }
 html,
 body {
