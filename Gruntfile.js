@@ -293,5 +293,7 @@ module.exports = function(grunt) {
         'grunticon:myIcons',
         'copy',
         'postcss:dist',
+        'qunit',
     ]);
+
 };
