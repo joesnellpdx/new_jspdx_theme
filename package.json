@@ -27,6 +27,7 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-criticalcss": "^1.0.2",
     "grunt-curl": "^2.2.0",
     "grunt-grunticon": "^2.2.2",
     "grunt-postcss": "^0.8.0",

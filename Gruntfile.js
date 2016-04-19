@@ -231,12 +231,25 @@ module.exports = function(grunt) {
         clean: {
             prod: ['assets/grunticon/source/**/*', '!assets/grunticon/source/*.svn', '!assets/grunticon/source/*.git', '!assets/grunticon/source/**/*.svn', '!assets/grunticon/source/**/*.git', 'assets/grunticon/output/*', '!assets/grunticon/output/*.svn', '!assets/grunticon/output/**/*.svn', '!assets/grunticon/output/*.git', '!assets/grunticon/output/**/*.git', 'assets/grunticon/output/png/*.png', '!assets/grunticon/output/png', '!assets/grunticon/output/png/*.svn', '!assets/grunticon/output/png/*.git']
         },
+        criticalcss: {
+            custom: {
+                options: {
+                    url: "http://joesnellpdx.com",
+                    width: 1200,
+                    height: 900,
+                    outputfile: "inc/critical.css.php",
+                    filename: "style.css", // Using path.resolve( path.join( ... ) ) is a good idea here
+                    buffer: 800*1024,
+                    ignoreConsole: false
+                }
+            }
+        },
 
         // watch for changes and trigger sass, jshint, uglify and livereload
         watch: {
             sass: {
                 files: ['assets/scss/**/*.{scss,sass}'],
-                tasks: ['sass', 'postcss']
+                tasks: ['sass', 'postcss', 'criticalcss']
             },
             js: {
                 files: '<%= jshint.all %>',
@@ -265,6 +278,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-svgmin');
     grunt.loadNpmTasks('grunt-grunticon');
+    grunt.loadNpmTasks('grunt-criticalcss');
 
 
     // register task
