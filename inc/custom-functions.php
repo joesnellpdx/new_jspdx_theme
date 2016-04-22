@@ -585,10 +585,10 @@ add_filter( 'wpseo_metabox_prio', function() { return 'low';});
 /**
  * Image compression to fo with the RICG plugin
  */
-function custom_theme_setup() {
-	add_theme_support( 'advanced-image-compression' );
-}
-add_action( 'after_setup_theme', 'custom_theme_setup' );
+//function custom_theme_setup() {
+//	add_theme_support( 'advanced-image-compression' );
+//}
+//add_action( 'after_setup_theme', 'custom_theme_setup' );
 
 add_filter("gform_submit_button", "form_submit_button", 10, 2);
 function form_submit_button($button, $form){
