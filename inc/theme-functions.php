@@ -108,17 +108,17 @@ if ( ! function_exists( 'jspdx_theme_setup' ) ) :
 		 * Add custom fonts
 		 */
 		function add_custom_fonts(){
-		echo "<script>
-  (function(d) {
-    var config = {
-      kitId: 'xfz2xyu',
-      scriptTimeout: 3000,
-      async: true
-    },
-    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,\"\")+\" wf-inactive\";},config.scriptTimeout),tk=d.createElement(\"script\"),f=false,s=d.getElementsByTagName(\"script\")[0],a;h.className+=\" wf-loading\";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!=\"complete\"&&a!=\"loaded\")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-  })(document);
-</script>";
-//	echo '<link rel="stylesheet" href="">';
+			echo "<script>
+					  (function(d) {
+					    var config = {
+					      kitId: 'xfz2xyu',
+					      scriptTimeout: 3000,
+					      async: true
+					    },
+					    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,\"\")+\" wf-inactive\";},config.scriptTimeout),tk=d.createElement(\"script\"),f=false,s=d.getElementsByTagName(\"script\")[0],a;h.className+=\" wf-loading\";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!=\"complete\"&&a!=\"loaded\")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+					  })(document);
+					</script>";
+	//	echo '<link rel="stylesheet" href="">';
 		}
 		add_action('wp_head', 'add_custom_fonts');
 	}
@@ -168,10 +168,13 @@ add_action( 'widgets_init', 'jspdx_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function criticalCSS_wp_head() {
-	echo '<link rel="preload"  href="' . get_stylesheet_uri() .'" as="style" onload="this.rel=\'stylesheet\'">';
+
 	echo '<style>';
 	include get_stylesheet_directory() . '/inc/critical.css.php';
 	echo '</style>';
+	echo '<link rel="preload"  href="' . get_stylesheet_uri() .'" as="style" onload="this.rel=\'stylesheet\'">';
+	echo loadCSS_function();
+//	echo '<link rel="stylesheet" href="' . get_stylesheet_uri() .'">';
 }
 add_action( 'wp_head', 'criticalCSS_wp_head' );
 
