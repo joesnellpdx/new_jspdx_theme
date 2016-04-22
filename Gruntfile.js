@@ -234,13 +234,16 @@ module.exports = function(grunt) {
         criticalcss: {
             custom: {
                 options: {
-                    url: "http://joesnellpdx.com",
+                    url: "http://mystartersite/",
                     width: 1200,
                     height: 900,
                     outputfile: "inc/critical.css.php",
                     filename: "style.css", // Using path.resolve( path.join( ... ) ) is a good idea here
                     buffer: 800*1024,
-                    ignoreConsole: false
+                    ignoreConsole: false,
+                    forceInclude: [
+                        '.g-3up'
+                    ],
                 }
             }
         },
@@ -293,7 +296,6 @@ module.exports = function(grunt) {
         'grunticon:myIcons',
         'copy',
         'postcss:dist',
-        'qunit',
     ]);
 
 };

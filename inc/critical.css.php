@@ -1,4 +1,4 @@
-Console output: JQMIGRATE: Migrate is installed, version 1.4.0Console output: %c%s color: #ff8800; font-weight: bold; 
+Console output: %c%s color: #ff8800; font-weight: bold; 
 Hey! Checking my site out?
 That is actually pretty cool...
 Looking for a new dev team to join.
@@ -29,7 +29,7 @@ header, nav, section, article, figure{ display: block; }
  .lc::after, .site-header::after, [role="main"]::after, .site-content::after, .section::after{ clear: both; }
  .entry-header{ color: rgb(255, 255, 255); background-color: rgb(255, 136, 0); }
 html{ font-size: 62.5%; }
-body{ font-family: proxima-nova, Helvetica, Arial, sans-serif; font-size: 1.6rem; font-weight: 400; line-height: 1.5; min-height: 100vh; padding-bottom: 5.4rem; color: rgb(52, 52, 52); background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial; }
+body{ font-family: proxima-nova, Helvetica, Arial, sans-serif; font-size: 1.6rem; font-weight: 400; line-height: 1.5; visibility: hidden; min-height: 100vh; padding-bottom: 5.4rem; transition: opacity 0.3s ease-out; -webkit-transition: opacity 0.3s ease-out; opacity: 0; color: rgb(52, 52, 52); background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial; }
 a{ transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; text-decoration: none; color: rgb(255, 136, 0); outline: rgb(0, 0, 0); -webkit-tap-highlight-color: transparent; }
 h1{ font-family: proxima-nova, Helvetica, Arial, sans-serif; font-size: 1.4375em; font-weight: normal; line-height: 1.2; margin: 0rem 0rem 1.6rem; }
 h1 > span{ display: inline-block; }
