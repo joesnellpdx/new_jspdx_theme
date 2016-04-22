@@ -101,7 +101,7 @@ body:not(:target) .main-navigation{ position: absolute; top: 0px; right: 0px; wi
 [role="main"]{ overflow: hidden; }
 .content-wrapper{ display: block; overflow: hidden; background-color: rgb(255, 255, 255); background-position: initial initial; background-repeat: initial initial; }
 .site-content{ clear: both; }
-.site-footer{ font-size: 0.875em; position: fixed; z-index: -100; bottom: 0px; left: 0px; width: 100%; color: rgb(255, 255, 255); background-color: rgb(52, 52, 52); background-position: initial initial; background-repeat: initial initial; }
+.site-footer{ font-size: 0.875em; position: fixed; z-index: -1; bottom: 0px; left: 0px; width: 100%; color: rgb(255, 255, 255); background-color: rgb(52, 52, 52); background-position: initial initial; background-repeat: initial initial; }
 .hentry{ margin: 0px; }
  .entry-content{ margin: 1.5em 0px 0px; }
 .btn, .btn--primary, button{ transition: all 0.3s ease-out; -webkit-transition: all 0.3s ease-out; font-size: 0.875em; font-weight: normal; line-height: 1; position: relative; display: inline-block; overflow: hidden; margin: 0px; padding: 1rem 2rem; text-align: center; text-transform: uppercase; }

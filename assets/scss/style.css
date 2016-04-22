@@ -1387,8 +1387,7 @@ a img.aligncenter {
 .page-hero {
   position: relative;
   z-index: -1;
-  border-top: 7px solid #ff8800;
-  background: #343434; }
+  border-top: 7px solid #ff8800; }
   .page-hero__img-contain.img-fit {
     padding-top: 50%; }
   .home .page-hero {
@@ -1398,7 +1397,7 @@ a img.aligncenter {
       padding-top: 50%; }
       .hero-top .page-hero__img-contain {
         position: fixed;
-        z-index: -200;
+        z-index: -10;
         top: 0;
         left: 0;
         width: 100%;
@@ -1540,12 +1539,16 @@ a img.aligncenter {
 .site-footer {
   font-size: 0.875em;
   position: fixed;
-  z-index: -100;
+  z-index: -1;
   bottom: 0;
   left: 0;
   width: 100%;
   color: #fff;
   background: #343434; }
+  .single .site-footer {
+    visibility: hidden; }
+  .single.content-inview .site-footer {
+    visibility: visible; }
 
 /*------------------------------------*\
     $Posts and Pages

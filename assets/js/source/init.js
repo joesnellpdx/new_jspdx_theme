@@ -276,6 +276,35 @@
         return ((elemTop <= docViewBottom) && (elemTop >= docViewTop));
     }
 
+    function isScrolledUp(elem)
+    {
+        var docViewTop = $(window).scrollTop();
+        var docViewBottom = docViewTop + $(window).height();
+        var elemTop = $(elem).offset().top + 100;
+
+        console.log('a ' + docViewTop);
+        console.log('b ' + docViewBottom);
+        console.log('c ' + elemTop);
+        return ((elemTop <= docViewBottom) && (elemTop >= docViewTop));
+    }
+
+    var contentInView = function(){
+        console.log('working');
+        console.log(isScrolledUp('.content-wrapper'));
+
+        if (isScrolledUp('.content-wrapper')) {
+            if($('body').is('.content-inview')){
+                // do nothing
+            } else if($('body').is('.single')) {
+                $('body').addClass('content-inview');
+            }
+        } else {
+            if($('body').is('.content-inview')){
+                $('body').removeClass('content-inview');
+            }
+        }
+    };
+
     $(document).ready(function( $ ) {
         primaryNavOpen();
         pageHeroTop();
@@ -296,6 +325,7 @@
 
     $(window).scroll(function() {
         infiniteBlogScroll();
+        contentInView();
     });
 
 })(jQuery);
