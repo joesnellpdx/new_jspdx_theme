@@ -29,7 +29,7 @@ function page_hero() {
 		
 		$html .= '<div id="page-hero" class="page-hero page-hero--img">';
 		$html .= '<div class="page-hero__img-contain img-fit">';
-		$html .= '<img class="page-hero__img" src="' . $img_src . '" ' . $srcset . ' sizes="(min-width: 768px) 500px, 100vw" alt="' . $alt . '" data-fallback-img="' . $img_fallback . '">';
+		$html .= '<img class="page-hero__img" src="' . $img_src . '" ' . $srcset . ' sizes="100vw" alt="' . $alt . '" data-fallback-img="' . $img_fallback . '">';
 		$html .= '</div>';
 
 		$html .= '</div>';
