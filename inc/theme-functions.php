@@ -168,6 +168,7 @@ add_action( 'widgets_init', 'jspdx_theme_widgets_init' );
  * Enqueue scripts and styles.
  */
 function criticalCSS_wp_head() {
+	echo '<link rel="preload"  href="' . get_stylesheet_uri() .'" as="style" onload="this.rel=\'stylesheet\'">';
 	echo '<style>';
 	include get_stylesheet_directory() . '/inc/critical.css.php';
 	echo '</style>';
@@ -175,8 +176,7 @@ function criticalCSS_wp_head() {
 add_action( 'wp_head', 'criticalCSS_wp_head' );
 
 function styles_in_wp_foot() {
-//	echo '<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic|Bitter" type="text/css" media="all" />';
-	echo '<link rel="stylesheet" href="' . get_stylesheet_uri() .'" type="text/css" media="all" />';
+	echo '<noscript><link rel="stylesheet" href="' . get_stylesheet_uri() .'"></noscript>';
 }
 
 add_action( 'wp_footer', 'styles_in_wp_foot' );
