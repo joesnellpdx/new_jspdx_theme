@@ -19,6 +19,7 @@
             console[method] = noop;
         }
     }
+    
 }());
 
 (function($) {
