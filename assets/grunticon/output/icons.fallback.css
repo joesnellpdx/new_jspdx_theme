@@ -70,6 +70,14 @@
 
 .jspdx-icon-logo { background-image: url('png/logo.png'); background-repeat: no-repeat; }
 
+.jspdx-icon-logo_large-font { background-image: url('png/logo_large-font.png'); background-repeat: no-repeat; }
+
+.jspdx-icon-logo_large-primary { background-image: url('png/logo_large-primary.png'); background-repeat: no-repeat; }
+
+.jspdx-icon-logo_large-white { background-image: url('png/logo_large-white.png'); background-repeat: no-repeat; }
+
+.jspdx-icon-logo_large { background-image: url('png/logo_large.png'); background-repeat: no-repeat; }
+
 .jspdx-icon-premier-font { background-image: url('png/premier-font.png'); background-repeat: no-repeat; }
 
 .jspdx-icon-premier-primary { background-image: url('png/premier-primary.png'); background-repeat: no-repeat; }

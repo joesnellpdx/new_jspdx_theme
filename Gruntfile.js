@@ -241,9 +241,6 @@ module.exports = function(grunt) {
                     filename: "style.css", // Using path.resolve( path.join( ... ) ) is a good idea here
                     buffer: 800*1024,
                     ignoreConsole: false,
-                    forceInclude: [
-                        '.g-3up'
-                    ],
                 }
             }
         },
