@@ -1,4 +1,4 @@
-Console output: %c%s color: #ff8800; font-weight: bold; 
+Console output: JQMIGRATE: Migrate is installed, version 1.4.0Console output: %c%s color: #ff8800; font-weight: bold; 
 Hey! Checking my site out?
 That is actually pretty cool...
 Looking for a new dev team to join.
@@ -22,7 +22,7 @@ button{ text-transform: none; }
 button, [type="button"]{ cursor: pointer; }
 button, html [type="button"]{ -webkit-appearance: button; }
 *{ box-sizing: border-box; }
-html, body, div, h1, h3, p, ul, li, header, nav, section, figure{ margin: 0px; padding: 0px; }
+html, body, div, iframe, h1, h3, p, ul, li, header, nav, section, figure{ margin: 0px; padding: 0px; }
 header, nav, section, article, figure{ display: block; }
  .lc::before, .site-header::before, [role="main"]::before, .site-content::before, .section::before, .lc::after, .site-header::after, [role="main"]::after, .site-content::after, .section::after{ display: table; content: ''; }
  .flexbox .lc::before, .flexbox .site-header::before, .flexbox [role="main"]::before, .flexbox .site-content::before, .flexbox .section::before, .flexbox .lc::after, .flexbox .site-header::after, .flexbox [role="main"]::after, .flexbox .site-content::after, .flexbox .section::after{ -webkit-flex-basis: 0px; -webkit-order: 1; }
@@ -38,6 +38,7 @@ h3{ font-family: proxima-nova, Helvetica, Arial, sans-serif; font-size: 1.0625em
 p{ margin: 0rem 0rem 1.6rem; }
  ul{ margin: 0rem 0rem 1.6rem 3rem; }
 ul{ list-style: disc; }
+ iframe{ max-width: 100%; margin-bottom: 1.6rem; }
 figure{ margin-bottom: 1.6rem; }
 figure.fixedratio{ margin: 0px; padding-top: 100%; background-size: cover; background-position: 50% 50%; }
 button{ font-family: inherit; font-size: 100%; margin: 0px; }

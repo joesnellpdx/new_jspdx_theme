@@ -38,11 +38,12 @@
 
 				</div>
 			</div>
+			<footer class="entry-footer">
+				<div class="entry-footer__inner lc">
+					<?php jspdx_theme_entry_footer(); ?>
+				</div>
+			</footer><!-- .entry-footer -->
 		</section>
-		<footer class="entry-footer">
-			<div class="entry-footer__inner lc">
-				<?php jspdx_theme_entry_footer(); ?>
-			</div>
-		</footer><!-- .entry-footer -->
+
 	</div>
 </article><!-- #post-## -->
