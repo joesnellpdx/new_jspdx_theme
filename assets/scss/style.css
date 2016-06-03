@@ -1480,7 +1480,7 @@ a img.aligncenter {
 
   .main-nav-trigger {
     position: absolute;
-    z-index: 1000;
+    z-index: 1200;
     top: 3.2rem;
     right: 3.2rem;
     display: block;
