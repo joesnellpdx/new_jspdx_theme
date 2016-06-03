@@ -64,6 +64,7 @@
 			}
 		}
 	}
+	//test
 	.menu-primary-navigation-container {
 		position: fixed;
 		top: 0;
@@ -75,6 +76,7 @@
 		height: 100vh;
 		transition: left 0.3s ease-out;
 		background: $brand__one;
+		z-index: 1000;
 
 		-webkit-overflow-scrolling: touch;
 		.nav-open & {
