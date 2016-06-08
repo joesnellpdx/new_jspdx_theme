@@ -37,8 +37,8 @@
 /* Clearfix */
 .cf:before,
 .cf:after {
-  content: "";
-  display: table; }
+  display: table;
+  content: ""; }
   .flexbox .cf:before, .flexbox
   .cf:after {
     flex-basis: 0;
@@ -56,11 +56,11 @@
 .is-vishidden {
   position: absolute !important;
   overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
   width: 1px;
   height: 1px;
   padding: 0;
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px); }
+  border: 0; }
 
 /* Floats */
 .right {
@@ -119,11 +119,11 @@
   color: #f9f9f9; }
 
 .background--one {
-  background-color: #ff8800;
-  color: #fff; }
+  color: #fff;
+  background-color: #ff8800; }
 .background--two {
-  background-color: #E65100;
-  color: #fff; }
+  color: #fff;
+  background-color: #E65100; }
 
 /*------------------------------------*\
           STYLE IT UP, YO
