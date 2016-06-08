@@ -1760,6 +1760,7 @@ input[type="submit"], .btn--primary-white {
     display: inline-block;
     margin: 0rem; }
     .meta-block p:not(:first-child):before {
+      margin-left: 0.25em;
       margin-right: 0.25em;
       content: "|"; }
 
